@@ -22,10 +22,9 @@ namespace BiblioFlash_UI
         }
         private void registro_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //var form2 = new Form2();
-           // Form2.Show();
-           //Crear la pantalla de registro
+            this.Hide();
+            var registro = new Form2();
+            registro.Show();
         }
         private void iniciar_Click(object sender, EventArgs e)
         {
@@ -35,7 +34,7 @@ namespace BiblioFlash_UI
             this.Close();
                 //var form2 = new Form2();
                 // Form2.Show();
-                //Crear la pantalla de registro
+                //Crear la pantalla inicio
             }
         }
 

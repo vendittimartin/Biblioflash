@@ -8,14 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="Registro.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Registro.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Registro.cs">
       <SubType>Form</SubType>
     </Compile>
