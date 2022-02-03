@@ -8,18 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="InicioUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <EmbeddedResource Remove="Registro.resx" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="InicioSesion - Copia - Copia.resx">
-      <DependentUpon>InicioSesion - Copia.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="InicioSesion - Copia.resx">
-      <DependentUpon>InicioSesion.resx</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Registro.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Registro.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

@@ -33,92 +33,122 @@ namespace BiblioFlash_UI
             this.usuario = new System.Windows.Forms.Label();
             this.contraseña = new System.Windows.Forms.Label();
             this.Iniciar = new System.Windows.Forms.Button();
-            this.Cancelar = new System.Windows.Forms.Button();
             this.registro = new System.Windows.Forms.LinkLabel();
             this.textUsuario = new System.Windows.Forms.TextBox();
             this.textContraseña = new System.Windows.Forms.TextBox();
+            this.cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(348, 79);
+            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Brown;
+            this.label1.Location = new System.Drawing.Point(283, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 20);
+            this.label1.Size = new System.Drawing.Size(254, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Iniciar Sesión";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // usuario
             // 
             this.usuario.AutoSize = true;
-            this.usuario.Location = new System.Drawing.Point(199, 168);
+            this.usuario.BackColor = System.Drawing.SystemColors.Window;
+            this.usuario.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.usuario.ForeColor = System.Drawing.Color.Brown;
+            this.usuario.Location = new System.Drawing.Point(199, 174);
             this.usuario.Name = "usuario";
-            this.usuario.Size = new System.Drawing.Size(59, 20);
+            this.usuario.Size = new System.Drawing.Size(74, 21);
             this.usuario.TabIndex = 1;
             this.usuario.Text = "Usuario";
             // 
             // contraseña
             // 
             this.contraseña.AutoSize = true;
-            this.contraseña.Location = new System.Drawing.Point(175, 235);
+            this.contraseña.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.contraseña.ForeColor = System.Drawing.Color.Brown;
+            this.contraseña.Location = new System.Drawing.Point(172, 234);
             this.contraseña.Name = "contraseña";
-            this.contraseña.Size = new System.Drawing.Size(83, 20);
+            this.contraseña.Size = new System.Drawing.Size(101, 21);
             this.contraseña.TabIndex = 2;
             this.contraseña.Text = "Contraseña";
-            this.contraseña.Click += new System.EventHandler(this.contraseña_Click);
             // 
             // Iniciar
             // 
-            this.Iniciar.Location = new System.Drawing.Point(272, 292);
+            this.Iniciar.BackColor = System.Drawing.Color.White;
+            this.Iniciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Iniciar.FlatAppearance.BorderColor = System.Drawing.Color.Brown;
+            this.Iniciar.FlatAppearance.BorderSize = 2;
+            this.Iniciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.Iniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.Iniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Iniciar.Font = new System.Drawing.Font("Mongolian Baiti", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Iniciar.ForeColor = System.Drawing.Color.Brown;
+            this.Iniciar.Location = new System.Drawing.Point(272, 296);
             this.Iniciar.Name = "Iniciar";
             this.Iniciar.Size = new System.Drawing.Size(94, 29);
             this.Iniciar.TabIndex = 3;
             this.Iniciar.Text = "Iniciar";
-            this.Iniciar.UseVisualStyleBackColor = true;
-            // 
-            // Cancelar
-            // 
-            this.Cancelar.Location = new System.Drawing.Point(423, 292);
-            this.Cancelar.Name = "Cancelar";
-            this.Cancelar.Size = new System.Drawing.Size(94, 29);
-            this.Cancelar.TabIndex = 4;
-            this.Cancelar.Text = "Cancelar";
-            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Iniciar.UseVisualStyleBackColor = false;
+            this.Iniciar.Click += new System.EventHandler(this.iniciar_Click);
             // 
             // registro
             // 
             this.registro.AutoSize = true;
-            this.registro.Location = new System.Drawing.Point(294, 356);
+            this.registro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.registro.Location = new System.Drawing.Point(294, 360);
             this.registro.Name = "registro";
             this.registro.Size = new System.Drawing.Size(207, 20);
             this.registro.TabIndex = 6;
             this.registro.TabStop = true;
             this.registro.Text = "¿No posee cuenta? Regístrese";
+            this.registro.Click += new System.EventHandler(this.registro_Click);
             // 
             // textUsuario
             // 
-            this.textUsuario.Location = new System.Drawing.Point(294, 168);
+            this.textUsuario.Location = new System.Drawing.Point(294, 172);
             this.textUsuario.Name = "textUsuario";
-            this.textUsuario.Size = new System.Drawing.Size(223, 27);
+            this.textUsuario.Size = new System.Drawing.Size(232, 27);
             this.textUsuario.TabIndex = 7;
             // 
             // textContraseña
             // 
-            this.textContraseña.Location = new System.Drawing.Point(294, 228);
+            this.textContraseña.Location = new System.Drawing.Point(294, 232);
             this.textContraseña.Name = "textContraseña";
-            this.textContraseña.Size = new System.Drawing.Size(223, 27);
+            this.textContraseña.PasswordChar = '*';
+            this.textContraseña.Size = new System.Drawing.Size(232, 27);
             this.textContraseña.TabIndex = 8;
+
+            // 
+            // cancelar
+            // 
+            this.cancelar.BackColor = System.Drawing.Color.White;
+            this.cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Brown;
+            this.cancelar.FlatAppearance.BorderSize = 2;
+            this.cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelar.Font = new System.Drawing.Font("Mongolian Baiti", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cancelar.ForeColor = System.Drawing.Color.Brown;
+            this.cancelar.Location = new System.Drawing.Point(432, 296);
+            this.cancelar.Name = "cancelar";
+            this.cancelar.Size = new System.Drawing.Size(94, 29);
+            this.cancelar.TabIndex = 9;
+            this.cancelar.Text = "Cancelar";
+            this.cancelar.UseVisualStyleBackColor = false;
+            this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cancelar);
             this.Controls.Add(this.textContraseña);
             this.Controls.Add(this.textUsuario);
             this.Controls.Add(this.registro);
-            this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Iniciar);
             this.Controls.Add(this.contraseña);
             this.Controls.Add(this.usuario);
@@ -136,10 +166,10 @@ namespace BiblioFlash_UI
         private System.Windows.Forms.Label usuario;
         private System.Windows.Forms.Label contraseña;
         private System.Windows.Forms.Button Iniciar;
-        private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.LinkLabel registro;
         private System.Windows.Forms.TextBox textUsuario;
         private System.Windows.Forms.TextBox textContraseña;
+        private System.Windows.Forms.Button cancelar;
     }
 }
 

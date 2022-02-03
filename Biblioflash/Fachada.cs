@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Biblioflash.Manager.API;
+using Biblioflash.Manager.DTO;
 
 namespace Biblioflash
 {
@@ -12,13 +13,10 @@ namespace Biblioflash
         public void pruebaConsulta()
         {
             consultaAPI consulta = new consultaAPI();
-            dynamic m = consulta.Consulta("the lord of the ring");
-            foreach (var i in m)
-            {
-                string titulo = i.Title;
-                string autor = i.author_name;
-                Console.WriteLine(titulo, autor); 
-            }
+            List<LibroDTO> m = consulta.Consulta("the lord of the ring");
+            LibroDTO last = m.Last();
+            Console.WriteLine("titulo: {0} autor: {1} algo mas: {2}", last.Titulo, last.Autor,last.ISBN);
+            Console.ReadKey();
         }
     }
 }

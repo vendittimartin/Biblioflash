@@ -10,6 +10,8 @@ namespace Biblioflash.Manager.DTO
     {
         public Int64 ISBN { get; set; }
 
+        public Int64 ID { get; set; }
+
         public bool Disponible { get; set; }
     }
 }

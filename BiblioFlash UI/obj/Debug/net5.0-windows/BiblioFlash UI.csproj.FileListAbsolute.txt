@@ -1,0 +1,18 @@
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.exe
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.deps.json
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.runtimeconfig.json
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.runtimeconfig.dev.json
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\ref\BiblioFlash UI.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.pdb
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.AssemblyReference.cache
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Form1.resources
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.GenerateResource.cache
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.AssemblyInfoInputs.cache
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.AssemblyInfo.cs
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.CoreCompileInputs.cache
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\ref\BiblioFlash UI.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.pdb
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.genruntimeconfig.cache

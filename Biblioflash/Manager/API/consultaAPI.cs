@@ -29,13 +29,8 @@ namespace Biblioflash.Manager.API
                     int cantidad = mResponseJSON.docs.Count;
                     while ((i <= cantidad - 1) && (i < 10))
                     {
-                        //Creamos el DTO
                         LibroDTO LibroDTO = new LibroDTO();
-
-                        // De esta manera se accede a los componentes de cada item
                         var bResponseItem = mResponseJSON.docs[i];
-
-                        // Se decodifican algunos elementos HTML
                         LibroDTO.Titulo = HttpUtility.HtmlDecode(bResponseItem.title.ToString());
                         if (bResponseItem.author_name != null)
                         {
@@ -61,17 +56,23 @@ namespace Biblioflash.Manager.API
                     return librosDTO;
                 }
             }
-
-            foreach (var i in m)
+            catch (WebException ex)
             {
-                string titulo = i.tittle;
-                string autor = i.author_name;
-                Console.WriteLine(titulo, autor);
+                WebResponse mErrorResponse = ex.Response;
+                using (Stream mResponseStream = mErrorResponse.GetResponseStream())
+                {
+                    StreamReader mReader = new StreamReader(mResponseStream, Encoding.GetEncoding("utf-8"));
+                    String mErrorText = mReader.ReadToEnd();
+
+                    System.Console.WriteLine("Error: {0}", mErrorText);
+                }
+                return new List<LibroDTO>();
             }
-            LibroDTO libroDTO = new LibroDTO();
-            List<LibroDTO> libroDTOs = new List<LibroDTO>();
-            return libroDTOs;
-             
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("Error: {0}", ex.Message);
+                return new List<LibroDTO>();
+            }
         }
     }
 }

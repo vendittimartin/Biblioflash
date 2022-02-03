@@ -16,14 +16,48 @@ namespace BiblioFlash_UI
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void cancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+        }
+        private void registro_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //var form2 = new Form2();
+           // Form2.Show();
+           //Crear la pantalla de registro
+        }
+        private void iniciar_Click(object sender, EventArgs e)
+        {
+            bool valor = verficarUsuario();
+            if (valor == true)
+            { 
+            this.Close();
+                //var form2 = new Form2();
+                // Form2.Show();
+                //Crear la pantalla de registro
+            }
         }
 
-        private void contraseña_Click(object sender, EventArgs e)
+        private bool verficarUsuario()
         {
+            string user = textUsuario.Text;
+            string password = textContraseña.Text;
+            if ("admin" == user)
+            {
+                if ("admin" == password)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
 
         }
     }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Biblioflash
 {
-    static class Program
+    class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             Fachada fachada = new Fachada();
             fachada.pruebaConsulta();
