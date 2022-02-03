@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>BiblioFlash_UI</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="InicioUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="InicioSesion - Copia - Copia.resx">
+      <DependentUpon>InicioSesion - Copia.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="InicioSesion - Copia.resx">
+      <DependentUpon>InicioSesion.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
