@@ -16,5 +16,6 @@ namespace Biblioflash.Manager.DTO
         public Rango RangoUsuario { get; set; }
 
         public string Mail { get; set; }
+        public string Contraseña { get; set; }
     }
 }

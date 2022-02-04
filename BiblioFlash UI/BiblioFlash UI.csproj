@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Biblioflash\Biblioflash.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Registro.cs">
       <SubType>Form</SubType>
     </Compile>

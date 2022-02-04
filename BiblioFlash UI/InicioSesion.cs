@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Biblioflash;
 
 namespace BiblioFlash_UI
 {
     public partial class Form1 : Form
     {
+        Fachada fachada = new Fachada();
         public Form1()
         {
             InitializeComponent();
@@ -28,36 +30,16 @@ namespace BiblioFlash_UI
         }
         private void iniciar_Click(object sender, EventArgs e)
         {
-            bool valor = verficarUsuario();
-            if (valor == true)
-            { 
-            this.Close();
-                //var form2 = new Form2();
-                // Form2.Show();
-                //Crear la pantalla inicio
-            }
-        }
-
-        private bool verficarUsuario()
-        {
             string user = textUsuario.Text;
             string password = textContraseña.Text;
-            if ("admin" == user)
+            if (fachada.iniciarSesion(user,password))
             {
-                if ("admin" == password)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                MessageBox.Show("Ta to gucci");
             }
-            else
+            else 
             {
-                return false;
+                MessageBox.Show("guccin't");
             }
-
         }
     }
 }

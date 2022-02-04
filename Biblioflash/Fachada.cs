@@ -39,21 +39,55 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                Usuario usertoDTO = unitOfWork.UsuarioRepository.buscarUsuario(pNombreUsuario);
+                Usuario userToDTO = unitOfWork.UsuarioRepository.buscarUsuario(pNombreUsuario);
                 UsuarioDTO usuarioDTO = new UsuarioDTO
                 {
-                    NombreUsuario = usertoDTO.NombreUsuario,
-                    Score = usertoDTO.Score,
-                    Mail = usertoDTO.Mail,
-                    RangoUsuario = usertoDTO.RangoUsuario
+                    NombreUsuario = userToDTO.NombreUsuario,
+                    Score = userToDTO.Score,
+                    Mail = userToDTO.Mail,
+                    RangoUsuario = userToDTO.RangoUsuario,
+                    Contraseña = userToDTO.Contraseña
                 };
                 return usuarioDTO;
             }
         }
 
         public bool iniciarSesion(string pNombreUsuario, string pContraseña)
-        { 
+        {
+            UsuarioDTO user = buscarUsuario(pNombreUsuario);
+            if (user.NombreUsuario == null)
+            {
+                return false;
+            }
+            else 
+            {
+                if (user.Contraseña == pContraseña)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
+        public void registrarUsuario(string pNombreUsuario, string pContraseña, string pMail)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Usuario user= new Usuario
+                {
+                    NombreUsuario = pNombreUsuario,
+                    Score = 0,
+                    Mail = pMail,
+                    RangoUsuario = Rango.Cliente,
+                    Contraseña = pContraseña
+                };
+
+                unitOfWork.UsuarioRepository.Add(user);
+                unitOfWork.Complete();
+            }  
         }
     }
 }

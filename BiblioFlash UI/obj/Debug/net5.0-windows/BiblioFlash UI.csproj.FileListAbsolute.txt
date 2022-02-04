@@ -17,3 +17,30 @@ C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.pdb
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.genruntimeconfig.cache
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Form2.resources
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.deps.json
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.runtimeconfig.json
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.runtimeconfig.dev.json
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.exe
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\AutoMapper.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Castle.Core.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\log4net.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Npgsql.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Quartz.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.pdb

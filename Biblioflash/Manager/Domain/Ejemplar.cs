@@ -9,8 +9,8 @@ namespace Biblioflash.Manager.Domain
     public class Ejemplar
     {
         public Int64 ID { get; set; }
-        public Libro Libro { get; set; }
-        public List<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
+        public virtual Libro Libro { get; set; }
+        public virtual List<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
 
         public bool estaDisponible()
         {

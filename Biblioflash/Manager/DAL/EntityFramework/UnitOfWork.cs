@@ -38,15 +38,15 @@ namespace Biblioflash.Manager.DAL.EntityFramework
 
         public void Complete()
         {
-            try
+           /* try
             {
                 iDbContext.SaveChanges();
             }
-            //catch (DbUpdateException exc)
+            catch (DbUpdateException exc)
             {
-              //  throw new EFDatabaseUpdateException(exc.InnerException.Message);
+                throw new EFDatabaseUpdateException(exc.InnerException.Message);
             }
-
+            */
         }
 
         protected virtual void Dispose(bool pDisposing)

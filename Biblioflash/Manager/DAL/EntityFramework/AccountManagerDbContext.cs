@@ -12,7 +12,7 @@ namespace Biblioflash.Manager.DAL.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Server=batyr.db.elephantsql.com;Port=5432;User Id=qjunmrli;Password=T9bxHew6sJcGYBLoXaUkmRXLFN4DlPbR;Database=qjunmrli");
+            optionsBuilder.UseNpgsql("Server=localhost;Port=5432;User Id=postgres;Password=123;Database=postgres");
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseLazyLoadingProxies();
         }

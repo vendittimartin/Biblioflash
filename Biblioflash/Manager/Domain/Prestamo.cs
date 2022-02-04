@@ -8,12 +8,12 @@ namespace Biblioflash.Manager.Domain
 {
     public class Prestamo
     {
+        public Int64 ID { get; set; }
         public DateTime? FechaRealDevolucion { get; set; }
         public DateTime FechaDevolucion { get; set; }
         public DateTime FechaPrestamo { get; set; }
-        public Usuario Usuario { get; set; }
-        public Ejemplar Ejemplar { get; set; }
-        public Int64 ID { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual Ejemplar Ejemplar { get; set; }
 
         public void registrarDevolucion()
         {

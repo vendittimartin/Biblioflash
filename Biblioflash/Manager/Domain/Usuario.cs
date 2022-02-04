@@ -8,6 +8,7 @@ namespace Biblioflash.Manager.Domain
 {
     public class Usuario
     {
+        public Int64 ID { get; set; }
         public int Score { get; set; }
         public string NombreUsuario { get; set; }
         public string Contraseña { get; set; }
