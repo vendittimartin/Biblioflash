@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Biblioflash.Manager.Domain;
 
-namespace TP_Final.Manager.DTO
+namespace Biblioflash.Manager.DTO
 {
     public class UsuarioDTO
     {
-        public string Nombre { get; set; }
+        public string NombreUsuario { get; set; }
 
-        public int Puntos { get; set; }
+        public int Score { get; set; }
 
         public Rango RangoUsuario { get; set; }
 

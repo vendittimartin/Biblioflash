@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Biblioflash.Manager.DAL.EntityFramework
 {
-    class AccountManagerDbContext : DbContext
+    public class AccountManagerDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -16,7 +16,14 @@ namespace Biblioflash.Manager.DAL.EntityFramework
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseLazyLoadingProxies();
         }
-
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+            modelBuilder.ApplyConfiguration(new EjemplarConfiguration());
+            modelBuilder.ApplyConfiguration(new LibroConfiguration());
+            modelBuilder.ApplyConfiguration(new NotificacionConfiguration());
+            modelBuilder.ApplyConfiguration(new PrestamoConfiguration());
+        }*/
         public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<Libro> Libros { get; set; }

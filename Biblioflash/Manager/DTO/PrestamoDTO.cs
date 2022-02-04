@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP_Final.Manager.DTO
+namespace Biblioflash.Manager.DTO
 {
     public class PrestamoDTO
     {

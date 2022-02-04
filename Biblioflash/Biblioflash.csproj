@@ -2,8 +2,13 @@
 		<PropertyGroup>
 			<OutputType>Exe</OutputType>
 			<TargetFramework>net5.0</TargetFramework>
-			<RootNamespace>TP_Final</RootNamespace>
+			<RootNamespace>Biblioflash</RootNamespace>
 		</PropertyGroup>
+		<ItemGroup>
+		  <Compile Remove="Manager\Excepciones\**" />
+		  <EmbeddedResource Remove="Manager\Excepciones\**" />
+		  <None Remove="Manager\Excepciones\**" />
+		</ItemGroup>
 
 		<ItemGroup>
 			<PackageReference Include="AutoMapper" Version="10.1.1" />
@@ -20,10 +25,6 @@
 			<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 			<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
 			<PackageReference Include="Quartz" Version="3.3.3" />
-		</ItemGroup>
-
-		<ItemGroup>
-		  <Folder Include="Manager\Excepciones\" />
 		</ItemGroup>
 
 	</Project>

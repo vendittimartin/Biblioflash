@@ -7,9 +7,9 @@ using Biblioflash.Manager.Domain;
 
 namespace Biblioflash.Manager.DAL.EntityFramework
 {
-    class EjemplarRepository : Repository<Ejemplar, AccountManagerDbContext>, IEjemplarRepository
+    public class NotificacionRepository : Repository<Notificacion, AccountManagerDbContext>, INotificacionRepository
     {
-        public EjemplarRepository(AccountManagerDbContext pContext) : base(pContext)
+        public NotificacionRepository(AccountManagerDbContext pContext) : base(pContext)
         {
 
         }
