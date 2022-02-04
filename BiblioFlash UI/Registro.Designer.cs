@@ -47,7 +47,7 @@ namespace BiblioFlash_UI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Brown;
-            this.label1.Location = new System.Drawing.Point(269, 33);
+            this.label1.Location = new System.Drawing.Point(316, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 43);
             this.label1.TabIndex = 0;
@@ -59,7 +59,7 @@ namespace BiblioFlash_UI
             this.usuario.BackColor = System.Drawing.SystemColors.Window;
             this.usuario.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.usuario.ForeColor = System.Drawing.Color.Brown;
-            this.usuario.Location = new System.Drawing.Point(145, 113);
+            this.usuario.Location = new System.Drawing.Point(192, 140);
             this.usuario.Name = "usuario";
             this.usuario.Size = new System.Drawing.Size(74, 21);
             this.usuario.TabIndex = 1;
@@ -70,7 +70,7 @@ namespace BiblioFlash_UI
             this.contraseña.AutoSize = true;
             this.contraseña.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.contraseña.ForeColor = System.Drawing.Color.Brown;
-            this.contraseña.Location = new System.Drawing.Point(118, 156);
+            this.contraseña.Location = new System.Drawing.Point(165, 183);
             this.contraseña.Name = "contraseña";
             this.contraseña.Size = new System.Drawing.Size(101, 21);
             this.contraseña.TabIndex = 2;
@@ -87,7 +87,7 @@ namespace BiblioFlash_UI
             this.Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Confirmar.Font = new System.Drawing.Font("Mongolian Baiti", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Confirmar.ForeColor = System.Drawing.Color.Brown;
-            this.Confirmar.Location = new System.Drawing.Point(230, 328);
+            this.Confirmar.Location = new System.Drawing.Point(277, 355);
             this.Confirmar.Name = "Confirmar";
             this.Confirmar.Size = new System.Drawing.Size(101, 29);
             this.Confirmar.TabIndex = 3;
@@ -97,14 +97,14 @@ namespace BiblioFlash_UI
             // 
             // textUsuario
             // 
-            this.textUsuario.Location = new System.Drawing.Point(269, 111);
+            this.textUsuario.Location = new System.Drawing.Point(316, 138);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(232, 27);
             this.textUsuario.TabIndex = 7;
             // 
             // textContraseña
             // 
-            this.textContraseña.Location = new System.Drawing.Point(269, 154);
+            this.textContraseña.Location = new System.Drawing.Point(316, 181);
             this.textContraseña.Name = "textContraseña";
             this.textContraseña.PasswordChar = '*';
             this.textContraseña.Size = new System.Drawing.Size(232, 27);
@@ -121,7 +121,7 @@ namespace BiblioFlash_UI
             this.Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Volver.Font = new System.Drawing.Font("Mongolian Baiti", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Volver.ForeColor = System.Drawing.Color.Brown;
-            this.Volver.Location = new System.Drawing.Point(407, 328);
+            this.Volver.Location = new System.Drawing.Point(454, 355);
             this.Volver.Name = "Volver";
             this.Volver.Size = new System.Drawing.Size(94, 29);
             this.Volver.TabIndex = 9;
@@ -134,7 +134,7 @@ namespace BiblioFlash_UI
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Brown;
-            this.label2.Location = new System.Drawing.Point(57, 201);
+            this.label2.Location = new System.Drawing.Point(104, 228);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 21);
             this.label2.TabIndex = 10;
@@ -145,7 +145,7 @@ namespace BiblioFlash_UI
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Brown;
-            this.label3.Location = new System.Drawing.Point(160, 253);
+            this.label3.Location = new System.Drawing.Point(207, 280);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 21);
             this.label3.TabIndex = 11;
@@ -153,7 +153,7 @@ namespace BiblioFlash_UI
             // 
             // textContraseña2
             // 
-            this.textContraseña2.Location = new System.Drawing.Point(269, 199);
+            this.textContraseña2.Location = new System.Drawing.Point(316, 226);
             this.textContraseña2.Name = "textContraseña2";
             this.textContraseña2.PasswordChar = '*';
             this.textContraseña2.Size = new System.Drawing.Size(232, 27);
@@ -161,7 +161,7 @@ namespace BiblioFlash_UI
             // 
             // textMail
             // 
-            this.textMail.Location = new System.Drawing.Point(269, 251);
+            this.textMail.Location = new System.Drawing.Point(316, 278);
             this.textMail.Name = "textMail";
             this.textMail.Size = new System.Drawing.Size(232, 27);
             this.textMail.TabIndex = 13;

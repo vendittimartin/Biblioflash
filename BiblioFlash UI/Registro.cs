@@ -33,22 +33,28 @@ namespace BiblioFlash_UI
             string password = textContraseña.Text;
             string password2 = textContraseña2.Text;
             string email = textMail.Text;
-            if (password == password2 && password != "" && user != "")
+            if (user == "" || password == "" || password2 == "" || email == "")
             {
-                if (new EmailAddressAttribute().IsValid(email))
-                {
-                    fachada.registrarUsuario(user, password, email);
-                    var inicio = new Form1();
-                    inicio.Show();
-                    this.Close();
-                }
-                else 
-                {
-                    MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente");
-                }
+                MessageBox.Show("Complete todos los campos por favor.");
             }
-            else {
-                MessageBox.Show("Las contraseñas no coinciden. Intentelo nuevamente");
+            else { 
+                if (password == password2)
+                {
+                    if (new EmailAddressAttribute().IsValid(email))
+                    {
+                        fachada.registrarUsuario(user, password, email);
+                        var inicio = new Form1();
+                        inicio.Show();
+                        this.Close();
+                    }
+                    else 
+                    {
+                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente");
+                    }
+                }
+                else {
+                    MessageBox.Show("Las contraseñas no coinciden. Intentelo nuevamente");
+                }
             }
         }
     }

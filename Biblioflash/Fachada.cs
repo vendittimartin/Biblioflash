@@ -89,5 +89,27 @@ namespace Biblioflash
                 unitOfWork.Complete();
             }  
         }
+
+        public void registrarAdmin()
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                UsuarioDTO userDTO = buscarUsuario("admin");
+                if (userDTO.NombreUsuario == null)
+                { 
+                    Usuario user = new Usuario
+                    {
+                        NombreUsuario = "admin",
+                        Score = 0,
+                        Mail = "admin",
+                        RangoUsuario = Rango.Admin,
+                        Contraseña = "admin"
+                    };
+
+                    unitOfWork.UsuarioRepository.Add(user);
+                    unitOfWork.Complete();
+                }
+            }
+        }
     }
 }

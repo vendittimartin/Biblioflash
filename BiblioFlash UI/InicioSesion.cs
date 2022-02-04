@@ -32,13 +32,20 @@ namespace BiblioFlash_UI
         {
             string user = textUsuario.Text;
             string password = textContraseña.Text;
-            if (fachada.iniciarSesion(user,password))
+            if (password != "" || user != "")
             {
-                MessageBox.Show("Ta to gucci");
+                if (fachada.iniciarSesion(user, password))
+                {
+                    MessageBox.Show("Ta to gucci");
+                }
+                else
+                {
+                    MessageBox.Show("guccin't");
+                }
             }
-            else 
+            else
             {
-                MessageBox.Show("guccin't");
+                MessageBox.Show("Campos vacíos. Intentelo nuevamente");
             }
         }
     }
