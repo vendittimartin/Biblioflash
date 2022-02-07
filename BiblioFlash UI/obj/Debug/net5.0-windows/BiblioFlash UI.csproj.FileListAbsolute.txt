@@ -50,4 +50,3 @@ C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Usuarios.resources
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Humanizer.dll
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.CopyComplete

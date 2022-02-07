@@ -78,15 +78,19 @@ namespace Biblioflash
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Usuario userToDTO = unitOfWork.UsuarioRepository.buscarUsuario(pNombreUsuario);
-                UsuarioDTO usuarioDTO = new UsuarioDTO
+                if (userToDTO != null)
                 {
-                    NombreUsuario = userToDTO.NombreUsuario,
-                    Score = userToDTO.Score,
-                    Mail = userToDTO.Mail,
-                    RangoUsuario = userToDTO.RangoUsuario,
-                    Contraseña = userToDTO.Contraseña
-                };
-                return usuarioDTO;
+                    UsuarioDTO usuarioDTO = new UsuarioDTO
+                    {
+                        NombreUsuario = userToDTO.NombreUsuario,
+                        Score = userToDTO.Score,
+                        Mail = userToDTO.Mail,
+                        RangoUsuario = userToDTO.RangoUsuario,
+                        Contraseña = userToDTO.Contraseña
+                    };
+                    return usuarioDTO;
+                }
+                else { return null; }
             }
         }
         public void modificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore)
@@ -139,28 +143,6 @@ namespace Biblioflash
                 unitOfWork.UsuarioRepository.Add(user);
                 unitOfWork.Complete();
             }  
-        }
-
-        public void registrarAdmin()
-        {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                UsuarioDTO userDTO = buscarUsuario("admin");
-                if (userDTO.NombreUsuario == null)
-                { 
-                    Usuario user = new Usuario
-                    {
-                        NombreUsuario = "admin",
-                        Score = 0,
-                        Mail = "admin",
-                        RangoUsuario = Rango.Admin,
-                        Contraseña = "admin"
-                    };
-
-                    unitOfWork.UsuarioRepository.Add(user);
-                    unitOfWork.Complete();
-                }
-            }
         }
         public void cambiarRango(string pNombreUsuario)
         {

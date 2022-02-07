@@ -28,6 +28,7 @@ namespace BiblioFlash_UI
             this.Hide();
             var users = new Usuarios();
             users.Show();
+
         }
     }
 }
