@@ -11,7 +11,7 @@ using Biblioflash.Manager.DTO;
 
 namespace Biblioflash.Manager.API
 {
-    public class consultaAPI
+    public class consultaAPI : IconsultaAPI
     {
         public List<LibroDTO> Consulta(string pTituloLibro) {
 

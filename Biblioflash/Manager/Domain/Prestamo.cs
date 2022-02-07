@@ -14,6 +14,7 @@ namespace Biblioflash.Manager.Domain
         public DateTime FechaPrestamo { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual Ejemplar Ejemplar { get; set; }
+        public string estadoPrestamo { get; set; }
 
         public void registrarDevolucion()
         {

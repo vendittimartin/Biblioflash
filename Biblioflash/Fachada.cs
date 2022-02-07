@@ -35,6 +35,44 @@ namespace Biblioflash
                 return listaUsuariosDTO;
             }
         }
+        public List<PrestamoDTO> listaPrestamos()
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                IEnumerable<Prestamo> listaPrestamo = unitOfWork.PrestamoRepository.GetAll();
+                List<PrestamoDTO> listaPrestamosDTO = new List<PrestamoDTO>();
+                foreach (var prestamo in listaPrestamo)
+                {
+                    PrestamoDTO prestamoDTO = new PrestamoDTO
+                    {
+                        IDEjemplar = prestamo.Ejemplar.ID,
+                        FechaDevolucion = prestamo.FechaDevolucion,
+                        FechaPrestamo = prestamo.FechaPrestamo,
+                        FechaRealDevolucion = prestamo.FechaRealDevolucion,
+                        Usuario = prestamo.Usuario
+                    };
+                    listaPrestamosDTO.Add(prestamoDTO);
+                }
+
+                return listaPrestamosDTO;
+            }
+        }
+        public List<PrestamoDTO> prestamosPorUsuario(string pNombreUsuario)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
+                List<PrestamoDTO> listaPrestamosPorUsuario = new List<PrestamoDTO>();
+                foreach (var prestamo in listaTodosLosPrestamos)
+                {
+                    if (prestamo.Usuario.NombreUsuario == pNombreUsuario)
+                    {
+                        listaTodosLosPrestamos.Add(prestamo);
+                    }
+                }
+                return listaTodosLosPrestamos;
+            }
+        }
         public UsuarioDTO buscarUsuario(string pNombreUsuario)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -49,6 +87,19 @@ namespace Biblioflash
                     Contraseña = userToDTO.Contraseña
                 };
                 return usuarioDTO;
+            }
+        }
+        public void modificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                //dejar en placeholder los datos originales del usuario, asi cuando ingresa al metodo tiene los parametros.
+                Usuario user = unitOfWork.UsuarioRepository.buscarUsuario(pNombreUsuario);
+                user.NombreUsuario = pNombreUsuario;
+                user.Contraseña = pContraseña;
+                user.Mail = pMail;
+                user.Score = pScore;
+                unitOfWork.Complete();
             }
         }
 
@@ -110,6 +161,36 @@ namespace Biblioflash
                     unitOfWork.Complete();
                 }
             }
+        }
+        public void cambiarRango(string pNombreUsuario)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                UsuarioDTO userDTO = buscarUsuario(pNombreUsuario);
+                if (userDTO.NombreUsuario == null)
+                {
+                   // throw new Exception
+                }
+                else 
+                {
+                    if (userDTO.RangoUsuario == Rango.Admin)
+                    {
+                        userDTO.RangoUsuario = Rango.Cliente;
+                        unitOfWork.Complete();
+                    }
+                    else
+                    {
+                        userDTO.RangoUsuario = Rango.Admin;
+                        unitOfWork.Complete();
+                    }
+                }
+            }
+        }
+
+        public List<LibroDTO> consultaLibro(string pTituloLibro)
+        {
+            IconsultaAPI apiConsultas = new consultaAPI();
+            return apiConsultas.Consulta(pTituloLibro);
         }
     }
 }
