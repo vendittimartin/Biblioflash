@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
+using Biblioflash.Manager.DTO;
+using Biblioflash.Manager.Domain;
 
 namespace BiblioFlash_UI
 {
@@ -36,7 +38,19 @@ namespace BiblioFlash_UI
             {
                 if (fachada.iniciarSesion(user, password))
                 {
-                    MessageBox.Show("Ta to gucci");
+                    UsuarioDTO usuario = fachada.buscarUsuario(user);
+                    if (usuario.RangoUsuario == Rango.Admin)
+                    {
+                        this.Hide();
+                        var admin = new PantallaAdmin();
+                        admin.Show();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        var cliente = new Form3();
+                        cliente.Show();
+                    }
                 }
                 else
                 {

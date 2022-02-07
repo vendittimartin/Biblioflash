@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Biblioflash.Manager.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Biblioflash.Manager.DAL.EntityFramework
 {
@@ -38,15 +40,14 @@ namespace Biblioflash.Manager.DAL.EntityFramework
 
         public void Complete()
         {
-           /* try
+           try
             {
                 iDbContext.SaveChanges();
             }
             catch (DbUpdateException exc)
             {
-                throw new EFDatabaseUpdateException(exc.InnerException.Message);
+                throw new UpdateFailException(exc.InnerException.Message);
             }
-            */
         }
 
         protected virtual void Dispose(bool pDisposing)

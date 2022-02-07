@@ -43,6 +43,7 @@ namespace BiblioFlash_UI
             this.button1.TabIndex = 0;
             this.button1.Text = "Prestamos";
             this.button1.UseVisualStyleBackColor = true;
+            //this.button1.Click += new System.EventHandler(this.prestamos);
             // 
             // button2
             // 
@@ -52,6 +53,7 @@ namespace BiblioFlash_UI
             this.button2.TabIndex = 1;
             this.button2.Text = "Usuarios";
             this.button2.UseVisualStyleBackColor = true;
+            //this.button2.Click += new System.EventHandler(this.usuarios);
             // 
             // button3
             // 
@@ -61,6 +63,8 @@ namespace BiblioFlash_UI
             this.button3.TabIndex = 2;
             this.button3.Text = "Libros";
             this.button3.UseVisualStyleBackColor = true;
+            //this.button3.Click += new System.EventHandler(this.libros);
+
             // 
             // button5
             // 
@@ -70,6 +74,7 @@ namespace BiblioFlash_UI
             this.button5.TabIndex = 4;
             this.button5.Text = "Cerrar Sesión";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.cerrarSesion);
             // 
             // PantallaAdmin
             // 

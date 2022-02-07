@@ -16,5 +16,18 @@ namespace BiblioFlash_UI
         {
             InitializeComponent();
         }
+
+        public void cerrarSesion(object sender, EventArgs e)
+        {
+            this.Hide();
+            var inicio = new Form1();
+            inicio.Show();
+        }
+        public void usuarios(object sender, EventArgs e)
+        {
+            this.Hide();
+            var users = new Usuarios();
+            users.Show();
+        }
     }
 }
