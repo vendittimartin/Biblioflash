@@ -16,7 +16,7 @@ namespace Biblioflash.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Isbn = table.Column<long>(type: "bigint", nullable: false),
                     Titulo = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
-                    Autor = table.Column<int>(type: "integer", maxLength: 500, nullable: false)
+                    Autor = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false)
                 },
                 constraints: table =>
                 {

@@ -144,6 +144,21 @@ namespace Biblioflash
                 unitOfWork.Complete();
             }  
         }
+        public void agregarLibro(LibroDTO pLibroDTO)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Libro libroCargar = new Libro
+                {
+                    Isbn = pLibroDTO.ISBN,
+                    Titulo = pLibroDTO.Titulo,
+                    Autor = pLibroDTO.Autor
+                };
+
+                unitOfWork.LibroRepository.Add(libroCargar);
+                unitOfWork.Complete();
+            }
+        }
         public void cambiarRango(string pNombreUsuario)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))

@@ -22,6 +22,9 @@
     <Compile Update="InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PantallaLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Prestamos.cs">
       <SubType>Form</SubType>
     </Compile>

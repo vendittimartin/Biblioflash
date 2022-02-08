@@ -112,6 +112,7 @@ namespace BiblioFlash_UI
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(232, 27);
             this.textUsuario.TabIndex = 7;
+            this.textUsuario.ReadOnly = true;
             this.textUsuario.Text = user.NombreUsuario;
             // 
             // textContraseña
