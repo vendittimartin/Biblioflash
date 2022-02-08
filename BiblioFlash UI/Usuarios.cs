@@ -16,5 +16,12 @@ namespace BiblioFlash_UI
         {
             InitializeComponent();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var admin = new PantallaAdmin();
+            admin.Show();
+        }
     }
 }

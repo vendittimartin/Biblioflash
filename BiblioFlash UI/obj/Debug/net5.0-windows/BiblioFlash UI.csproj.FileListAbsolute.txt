@@ -50,3 +50,57 @@ C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Usuarios.resources
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Humanizer.dll
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.deps.json
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.runtimeconfig.json
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.runtimeconfig.dev.json
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.exe
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.exe
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.deps.json
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.runtimeconfig.json
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.runtimeconfig.dev.json
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\ref\BiblioFlash UI.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\BiblioFlash UI.pdb
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\AutoMapper.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Castle.Core.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Humanizer.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\log4net.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Npgsql.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Quartz.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.pdb
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.AssemblyReference.cache
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Form1.resources
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Libros.resources
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.PantallaAdmin.resources
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Form3.resources
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Prestamos.resources
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Form2.resources
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Usuarios.resources
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.GenerateResource.cache
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.AssemblyInfoInputs.cache
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.AssemblyInfo.cs
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.CoreCompileInputs.cache
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.CopyComplete
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\ref\BiblioFlash UI.dll
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.pdb
+C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.genruntimeconfig.cache
