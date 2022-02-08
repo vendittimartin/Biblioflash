@@ -104,3 +104,7 @@ C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Bibli
 C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\ref\BiblioFlash UI.dll
 C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.pdb
 C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.genruntimeconfig.cache
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Libros.resources
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.altaUsuarios.resources
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.modificarUsuario.resources
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.buscarUsuario.resources

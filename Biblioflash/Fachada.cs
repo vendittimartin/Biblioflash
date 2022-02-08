@@ -93,16 +93,16 @@ namespace Biblioflash
                 else { return null; }
             }
         }
-        public void modificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore)
+        public void modificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Manager.Domain.Rango pRango)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                //dejar en placeholder los datos originales del usuario, asi cuando ingresa al metodo tiene los parametros.
                 Usuario user = unitOfWork.UsuarioRepository.buscarUsuario(pNombreUsuario);
                 user.NombreUsuario = pNombreUsuario;
                 user.Contraseña = pContraseña;
                 user.Mail = pMail;
                 user.Score = pScore;
+                user.RangoUsuario = pRango;
                 unitOfWork.Complete();
             }
         }
