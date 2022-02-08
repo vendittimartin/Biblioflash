@@ -30,19 +30,5 @@ namespace BiblioFlash_UI
             users.Show();
 
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var libros = new Libros();
-            libros.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var prestamos = new Prestamos();
-            prestamos.Show();
-        }
     }
 }

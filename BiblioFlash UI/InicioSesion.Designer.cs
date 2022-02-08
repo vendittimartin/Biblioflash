@@ -44,9 +44,9 @@ namespace BiblioFlash_UI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Brown;
-            this.label1.Location = new System.Drawing.Point(248, 52);
+            this.label1.Location = new System.Drawing.Point(283, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 34);
+            this.label1.Size = new System.Drawing.Size(254, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Iniciar Sesión";
             // 
@@ -56,9 +56,9 @@ namespace BiblioFlash_UI
             this.usuario.BackColor = System.Drawing.SystemColors.Window;
             this.usuario.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.usuario.ForeColor = System.Drawing.Color.Brown;
-            this.usuario.Location = new System.Drawing.Point(174, 130);
+            this.usuario.Location = new System.Drawing.Point(199, 174);
             this.usuario.Name = "usuario";
-            this.usuario.Size = new System.Drawing.Size(57, 16);
+            this.usuario.Size = new System.Drawing.Size(74, 21);
             this.usuario.TabIndex = 1;
             this.usuario.Text = "Usuario";
             // 
@@ -67,9 +67,9 @@ namespace BiblioFlash_UI
             this.contraseña.AutoSize = true;
             this.contraseña.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.contraseña.ForeColor = System.Drawing.Color.Brown;
-            this.contraseña.Location = new System.Drawing.Point(150, 176);
+            this.contraseña.Location = new System.Drawing.Point(172, 234);
             this.contraseña.Name = "contraseña";
-            this.contraseña.Size = new System.Drawing.Size(78, 16);
+            this.contraseña.Size = new System.Drawing.Size(101, 21);
             this.contraseña.TabIndex = 2;
             this.contraseña.Text = "Contraseña";
             // 
@@ -84,10 +84,9 @@ namespace BiblioFlash_UI
             this.Iniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Iniciar.Font = new System.Drawing.Font("Mongolian Baiti", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Iniciar.ForeColor = System.Drawing.Color.Brown;
-            this.Iniciar.Location = new System.Drawing.Point(238, 222);
-            this.Iniciar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Iniciar.Location = new System.Drawing.Point(272, 296);
             this.Iniciar.Name = "Iniciar";
-            this.Iniciar.Size = new System.Drawing.Size(82, 22);
+            this.Iniciar.Size = new System.Drawing.Size(94, 29);
             this.Iniciar.TabIndex = 3;
             this.Iniciar.Text = "Iniciar";
             this.Iniciar.UseVisualStyleBackColor = false;
@@ -97,31 +96,29 @@ namespace BiblioFlash_UI
             // 
             this.registro.AutoSize = true;
             this.registro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.registro.Location = new System.Drawing.Point(257, 270);
+            this.registro.Location = new System.Drawing.Point(294, 360);
             this.registro.Name = "registro";
-            this.registro.Size = new System.Drawing.Size(162, 15);
+            this.registro.Size = new System.Drawing.Size(207, 20);
             this.registro.TabIndex = 6;
             this.registro.TabStop = true;
             this.registro.Text = "¿No posee cuenta? Regístrese";
-            this.registro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.registro_LinkClicked);
             this.registro.Click += new System.EventHandler(this.registro_Click);
             // 
             // textUsuario
             // 
-            this.textUsuario.Location = new System.Drawing.Point(257, 129);
-            this.textUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textUsuario.Location = new System.Drawing.Point(294, 172);
             this.textUsuario.Name = "textUsuario";
-            this.textUsuario.Size = new System.Drawing.Size(204, 23);
+            this.textUsuario.Size = new System.Drawing.Size(232, 27);
             this.textUsuario.TabIndex = 7;
             // 
             // textContraseña
             // 
-            this.textContraseña.Location = new System.Drawing.Point(257, 174);
-            this.textContraseña.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textContraseña.Location = new System.Drawing.Point(294, 232);
             this.textContraseña.Name = "textContraseña";
             this.textContraseña.PasswordChar = '*';
-            this.textContraseña.Size = new System.Drawing.Size(204, 23);
+            this.textContraseña.Size = new System.Drawing.Size(232, 27);
             this.textContraseña.TabIndex = 8;
+
             // 
             // cancelar
             // 
@@ -134,10 +131,9 @@ namespace BiblioFlash_UI
             this.cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelar.Font = new System.Drawing.Font("Mongolian Baiti", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cancelar.ForeColor = System.Drawing.Color.Brown;
-            this.cancelar.Location = new System.Drawing.Point(378, 222);
-            this.cancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cancelar.Location = new System.Drawing.Point(432, 296);
             this.cancelar.Name = "cancelar";
-            this.cancelar.Size = new System.Drawing.Size(82, 22);
+            this.cancelar.Size = new System.Drawing.Size(94, 29);
             this.cancelar.TabIndex = 9;
             this.cancelar.Text = "Cancelar";
             this.cancelar.UseVisualStyleBackColor = false;
@@ -145,10 +141,10 @@ namespace BiblioFlash_UI
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.textContraseña);
             this.Controls.Add(this.textUsuario);
@@ -157,7 +153,6 @@ namespace BiblioFlash_UI
             this.Controls.Add(this.contraseña);
             this.Controls.Add(this.usuario);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Iniciar Sesion";
             this.ResumeLayout(false);

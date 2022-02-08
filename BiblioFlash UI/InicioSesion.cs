@@ -62,10 +62,5 @@ namespace BiblioFlash_UI
                 MessageBox.Show("Campos vacíos. Intentelo nuevamente");
             }
         }
-
-        private void registro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
     }
 }
