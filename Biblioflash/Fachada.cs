@@ -31,8 +31,31 @@ namespace Biblioflash
                     };
                     listaUsuariosDTO.Add(usuarioDTO);
                 }
-
                 return listaUsuariosDTO;
+            }
+        }
+        public int cantEjemplaresDisponibles(string pTitulo)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                int cantEjemplaresDisponibles = 0;
+                LibroDTO libroDTO = buscarLibro(pTitulo);
+                List<Ejemplar> listaEjemplares = libroDTO.Ejemplares;
+                if (listaEjemplares == null)
+                {
+                    cantEjemplaresDisponibles = 0;
+                }
+                else
+                { 
+                    foreach (var ejemplar in listaEjemplares)
+                    {
+                        if (ejemplar.estaDisponible())
+                        {
+                            cantEjemplaresDisponibles += 1; 
+                        }
+                    }
+                }
+                return cantEjemplaresDisponibles;
             }
         }
         public List<PrestamoDTO> listaPrestamos()
@@ -53,7 +76,6 @@ namespace Biblioflash
                     };
                     listaPrestamosDTO.Add(prestamoDTO);
                 }
-
                 return listaPrestamosDTO;
             }
         }
@@ -111,7 +133,8 @@ namespace Biblioflash
                     {
                         ISBN = LibroToDTO.Isbn,
                         Titulo = LibroToDTO.Titulo,
-                        Autor = LibroToDTO.Autor
+                        Autor = LibroToDTO.Autor,
+                        Ejemplares = LibroToDTO.Ejemplares
                     };
                     return libroDTO;
                 }

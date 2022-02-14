@@ -13,17 +13,17 @@ using Biblioflash.Manager.Domain;
 
 namespace BiblioFlash_UI
 {
-    public partial class librosDisponibles : Form
+    public partial class listUsuarios : Form
     {
         Fachada fachada = new Fachada();
-        public librosDisponibles()
+        public listUsuarios()
         {
-            InitializeComponent(); listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
-            foreach (var obj in listLibros)
+            InitializeComponent();
+            listaLibros.Rows.Clear();
+            List<UsuarioDTO> listLUsuarios = fachada.listaUsuarios();
+            foreach (var obj in listLUsuarios)
             {
-                int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                listaLibros.Rows.Add(obj.NombreUsuario, obj.Mail, obj.Score, obj.RangoUsuario);
             }
         }
         private void botonBuscar_Click(object sender, EventArgs e)
@@ -32,15 +32,14 @@ namespace BiblioFlash_UI
             if (titulo != "")
             {
                 listaLibros.Rows.Clear();
-                LibroDTO libro = fachada.buscarLibro(titulo);
-                if (libro != null)
+                UsuarioDTO obj = fachada.buscarUsuario(titulo);
+                if (obj != null)
                 {
-                    int cant = fachada.cantEjemplaresDisponibles(titulo);
-                    listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
+                    listaLibros.Rows.Add(obj.NombreUsuario, obj.Mail, obj.Score, obj.RangoUsuario);
                 }
                 else
                 {
-                    MessageBox.Show("Libro no encontrado.");
+                    MessageBox.Show("Usuario no encontrado.");
                 }
             }
         }

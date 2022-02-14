@@ -32,6 +32,12 @@ namespace BiblioFlash_UI
             var altausers = new altaUsuarios();
             altausers.Show();
         }
+        private void listaUsuarios(object sender, EventArgs e)
+        {
+            this.Hide();
+            var listUsuarios = new listUsuarios();
+            listUsuarios.Show();
+        }
         private void modificarUsuarios(object sender, EventArgs e)
         {
             string pUsuario = textUsuario.Text;

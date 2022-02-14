@@ -16,6 +16,9 @@
     <Compile Update="librosDisponibles.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="listUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="modificarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>

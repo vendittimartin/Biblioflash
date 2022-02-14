@@ -1,7 +1,7 @@
 ﻿
 namespace BiblioFlash_UI
 {
-    partial class librosDisponibles
+    partial class listUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,6 @@ namespace BiblioFlash_UI
             this.ColumnaAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.components = new System.ComponentModel.Container();
             this.button3 = new System.Windows.Forms.Button();
             this.textBoxTituloLibro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).BeginInit();
@@ -67,7 +66,7 @@ namespace BiblioFlash_UI
             // 
             // ColumnaTitulo
             // 
-            this.ColumnaTitulo.HeaderText = "Titulo";
+            this.ColumnaTitulo.HeaderText = "Usuario";
             this.ColumnaTitulo.MinimumWidth = 6;
             this.ColumnaTitulo.Name = "ColumnaTitulo";
             this.ColumnaTitulo.ReadOnly = true;
@@ -75,7 +74,7 @@ namespace BiblioFlash_UI
             // 
             // ColumnaAutor
             // 
-            this.ColumnaAutor.HeaderText = "Autor";
+            this.ColumnaAutor.HeaderText = "Mail";
             this.ColumnaAutor.MinimumWidth = 6;
             this.ColumnaAutor.Name = "ColumnaAutor";
             this.ColumnaAutor.ReadOnly = true;
@@ -83,7 +82,7 @@ namespace BiblioFlash_UI
             // 
             // ColumnaISBN
             // 
-            this.ColumnaISBN.HeaderText = "ISBN";
+            this.ColumnaISBN.HeaderText = "Score";
             this.ColumnaISBN.MinimumWidth = 6;
             this.ColumnaISBN.Name = "ColumnaISBN";
             this.ColumnaISBN.ReadOnly = true;
@@ -91,19 +90,12 @@ namespace BiblioFlash_UI
             // 
             // ColumnaCantidad
             // 
-            this.ColumnaCantidad.HeaderText = "Disponibles";
+            this.ColumnaCantidad.HeaderText = "Rango";
             this.ColumnaCantidad.MinimumWidth = 6;
             this.ColumnaCantidad.Name = "ColumnaCantidad";
             this.ColumnaCantidad.ReadOnly = true;
             this.ColumnaCantidad.Width = 150;
             // 
-            // textBoxTituloLibro
-            // 
-            this.textBoxTituloLibro.Location = new System.Drawing.Point(208, 39);
-            this.textBoxTituloLibro.Name = "textBoxTituloLibro";
-            this.textBoxTituloLibro.PlaceholderText = "Título del libro";
-            this.textBoxTituloLibro.Size = new System.Drawing.Size(223, 27);
-            this.textBoxTituloLibro.TabIndex = 5;            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(470, 39);
@@ -113,13 +105,25 @@ namespace BiblioFlash_UI
             this.button3.Text = "buscar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.botonBuscar_Click);
-
+            // 
+            // textBoxTituloLibro
+            // 
+            this.textBoxTituloLibro.Location = new System.Drawing.Point(208, 39);
+            this.textBoxTituloLibro.Name = "textBoxTituloLibro";
+            this.textBoxTituloLibro.PlaceholderText = "Nombre de usuario";
+            this.textBoxTituloLibro.Size = new System.Drawing.Size(223, 27);
+            this.textBoxTituloLibro.TabIndex = 5;
+            // 
+            // listUsuarios
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBoxTituloLibro);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listaLibros);
-            this.Text = "librosDisponibles"; 
+            this.Name = "listUsuarios";
+            this.Text = "librosDisponibles";
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

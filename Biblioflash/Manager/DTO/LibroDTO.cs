@@ -14,6 +14,6 @@ namespace Biblioflash.Manager.DTO
         public string Titulo { get; set; }
 
         public string Autor { get; set; }
-        public List<EjemplarDTO> Ejemplares { get; set; }
+        public List<Ejemplar> Ejemplares { get; set; }
     }
 }
