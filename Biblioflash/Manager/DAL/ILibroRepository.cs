@@ -10,5 +10,7 @@ namespace Biblioflash.Manager.DAL
     public interface ILibroRepository : IRepository<Libro>
     {
         public Libro buscarISBN(Int64 pLibroISBN);
+        public Libro buscarTitulo(string pLibroTitulo);
+        public List<Libro> listaLibros();
     }
 }

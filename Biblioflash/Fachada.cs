@@ -93,6 +93,33 @@ namespace Biblioflash
                 else { return null; }
             }
         }
+        public List<Libro> consultaLibrosDisponibles()
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                return unitOfWork.LibroRepository.listaLibros();
+            }
+        }
+        public LibroDTO buscarLibro(string pTitulo)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Libro LibroToDTO = unitOfWork.LibroRepository.buscarTitulo(pTitulo);
+                if (LibroToDTO != null)
+                {
+                    LibroDTO libroDTO = new LibroDTO
+                    {
+                        ISBN = LibroToDTO.Isbn,
+                        Titulo = LibroToDTO.Titulo,
+                        Autor = LibroToDTO.Autor
+                    };
+                    return libroDTO;
+                }
+                else { return null; }
+            }
+        }
+
+
         public void modificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Manager.Domain.Rango pRango)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -156,6 +183,20 @@ namespace Biblioflash
                 };
 
                 unitOfWork.LibroRepository.Add(libroCargar);
+                unitOfWork.Complete();
+            }
+        }
+        public void agregarEjemplar(EjemplarDTO pEjemplarDTO)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Libro libro = unitOfWork.LibroRepository.buscarISBN(pEjemplarDTO.Libro.ISBN);
+                Ejemplar ejemplar = new Ejemplar
+                {
+                    Libro = libro,
+                    Prestamos = pEjemplarDTO.Prestamos
+                };
+                unitOfWork.EjemplarRepository.Add(ejemplar);
                 unitOfWork.Complete();
             }
         }
