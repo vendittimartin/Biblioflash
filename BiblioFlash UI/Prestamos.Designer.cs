@@ -59,6 +59,8 @@ namespace BiblioFlash_UI
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(133, 23);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.Items.Add("Usuario");
+            this.comboBox1.Items.Add("ID Ejemplar");
             // 
             // button1
             // 
@@ -69,6 +71,7 @@ namespace BiblioFlash_UI
             this.button1.TabIndex = 2;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.botonBuscar_Click);
             // 
             // dataGridView1
             // 
@@ -94,7 +97,6 @@ namespace BiblioFlash_UI
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(684, 228);
             this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ColumnaID
             // 

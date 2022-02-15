@@ -95,6 +95,74 @@ namespace Biblioflash
                 return listaTodosLosPrestamos;
             }
         }
+        public List<PrestamoDTO> prestamosPorEjemplar(int pIdEjemplar)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
+                List<PrestamoDTO> listaPrestamosPorUsuario = new List<PrestamoDTO>();
+                foreach (var prestamo in listaTodosLosPrestamos)
+                {
+                    if (prestamo.IDEjemplar == pIdEjemplar)
+                    {
+                        listaTodosLosPrestamos.Add(prestamo);
+                    }
+                }
+                return listaTodosLosPrestamos;
+            }
+        }
+        public void registrarPrestamo(string pUsuario, Int64 pEjemplarID)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Usuario usuario = unitOfWork.UsuarioRepository.buscarUsuario(pUsuario);
+                Ejemplar ejemplar = unitOfWork.EjemplarRepository.Get(pEjemplarID);
+                if (ejemplar.estaDisponible())
+                {
+                    Prestamo prestamo = new Prestamo
+                    {
+                        FechaPrestamo = DateTime.Now,
+                        FechaDevolucion = DateTime.Now.AddDays(5)
+                    };
+
+                    prestamo.Ejemplar = ejemplar;
+                    prestamo.Usuario = usuario;
+                    ejemplar.Prestamos.Add(prestamo);
+                    usuario.Prestamos.Add(prestamo);
+
+                    unitOfWork.PrestamoRepository.Add(prestamo);
+                    unitOfWork.Complete();
+                }
+                else
+                {
+                    //throw new EjemplarNoDisponibleException("El ejemplar de id " + pEjemplarID + " ya se encuentra prestado");
+                }
+            }
+        }
+
+        public void registrarDevolucion(Int64 pPrestamoID, bool pEstado)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamoID);
+                int diasAtrasados = prestamo.diasAtrasados();
+                if (diasAtrasados != 0)
+                {
+                    prestamo.Usuario.Score -= (2 * diasAtrasados);
+                }
+
+                if (!pEstado)
+                {
+                    prestamo.Usuario.Score -= 10;
+                }
+                else
+                {
+                    prestamo.Usuario.Score += 5;
+                }
+                prestamo.registrarDevolucion();
+                unitOfWork.Complete();
+            }
+        }
         public UsuarioDTO buscarUsuario(string pNombreUsuario)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -141,8 +209,6 @@ namespace Biblioflash
                 else { return null; }
             }
         }
-
-
         public void modificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Manager.Domain.Rango pRango)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -247,7 +313,6 @@ namespace Biblioflash
                 }
             }
         }
-
         public List<LibroDTO> consultaLibro(string pTituloLibro)
         {
             IconsultaAPI apiConsultas = new consultaAPI();

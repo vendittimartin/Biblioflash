@@ -28,6 +28,17 @@ namespace BiblioFlash_UI
             }
             button1.Enabled = true;
         }
+
+        private void botonLimpiar_Click(object sender, EventArgs e)
+        {
+            listaLibros.Rows.Clear();
+            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
+            foreach (var obj in listLibros)
+            {
+                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn);
+            }
+            button1.Enabled = true;
+        }
         private void botonAgregar_Click(object sender, EventArgs e)
         {
             int cant = Convert.ToInt32(cantEjemplares.Value);

@@ -39,6 +39,7 @@ namespace BiblioFlash_UI
             this.button3 = new System.Windows.Forms.Button();
             this.textBoxTituloLibro = new System.Windows.Forms.TextBox();
             this.cantEjemplares = new System.Windows.Forms.NumericUpDown();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cantEjemplares)).BeginInit();
             this.SuspendLayout();
@@ -126,7 +127,7 @@ namespace BiblioFlash_UI
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
             this.button3.TabIndex = 4;
-            this.button3.Text = "buscar";
+            this.button3.Text = "Buscar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.botonBuscar_Click);
             // 
@@ -141,18 +142,31 @@ namespace BiblioFlash_UI
             // cantEjemplares
             // 
             this.cantEjemplares.Location = new System.Drawing.Point(299, 535);
+            this.cantEjemplares.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.cantEjemplares.Name = "cantEjemplares";
             this.cantEjemplares.Size = new System.Drawing.Size(150, 27);
             this.cantEjemplares.TabIndex = 7;
-            this.cantEjemplares.Value = 0;
-            this.cantEjemplares.Minimum = 0;
-            this.cantEjemplares.Maximum = 50;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(587, 39);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 29);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Limpiar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.botonLimpiar_Click);
             // 
             // altaEjemplares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 637);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.cantEjemplares);
             this.Controls.Add(this.textBoxTituloLibro);
             this.Controls.Add(this.button3);
@@ -181,5 +195,6 @@ namespace BiblioFlash_UI
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBoxTituloLibro;
         private System.Windows.Forms.NumericUpDown cantEjemplares;
+        private System.Windows.Forms.Button button4;
     }
 }

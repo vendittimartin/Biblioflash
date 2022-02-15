@@ -34,7 +34,6 @@ namespace BiblioFlash_UI
         }
         private void listaUsuarios(object sender, EventArgs e)
         {
-            this.Hide();
             var listUsuarios = new listUsuarios();
             listUsuarios.Show();
         }

@@ -34,6 +34,10 @@ namespace BiblioFlash_UI
                 botonAgregarSeleccion.Enabled = true;
             }
         }
+        private void botonLimpiar_Click(object sender, EventArgs e)
+        {
+            listaLibros.Rows.Clear();
+        }
         private void botonAgregarSeleccion_Click(object sender, EventArgs e)
         {
             //try

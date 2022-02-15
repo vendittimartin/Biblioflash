@@ -33,6 +33,18 @@ namespace Biblioflash.Manager.Domain
             }
         }
 
+        public int diasAtrasados()
+        {
+            if (DateTime.Today > FechaDevolucion)
+            {
+                return Convert.ToInt32((DateTime.Today - FechaDevolucion).TotalDays);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public bool prestamoAtrasado()
         {
             if (DateTime.Today > FechaDevolucion)

@@ -34,7 +34,13 @@
     <Compile Update="PantallaLibros.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PantallaPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Prestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="registrarPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Usuarios.cs">

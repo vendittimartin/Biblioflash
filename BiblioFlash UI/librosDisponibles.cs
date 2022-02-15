@@ -26,6 +26,16 @@ namespace BiblioFlash_UI
                 listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
             }
         }
+        private void botonLimpiar_Click(object sender, EventArgs e)
+        {
+            InitializeComponent(); listaLibros.Rows.Clear();
+            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
+            foreach (var obj in listLibros)
+            {
+                int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
+                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+            }
+        }
         private void botonBuscar_Click(object sender, EventArgs e)
         {
             string titulo = textBoxTituloLibro.Text;

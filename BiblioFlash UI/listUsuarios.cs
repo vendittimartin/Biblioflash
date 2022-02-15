@@ -26,6 +26,15 @@ namespace BiblioFlash_UI
                 listaLibros.Rows.Add(obj.NombreUsuario, obj.Mail, obj.Score, obj.RangoUsuario);
             }
         }
+        private void botonLimpiar_Click(object sender, EventArgs e)
+        {
+            listaLibros.Rows.Clear();
+            List<UsuarioDTO> listLUsuarios = fachada.listaUsuarios();
+            foreach (var obj in listLUsuarios)
+            {
+                listaLibros.Rows.Add(obj.NombreUsuario, obj.Mail, obj.Score, obj.RangoUsuario);
+            }
+        }
         private void botonBuscar_Click(object sender, EventArgs e)
         {
             string titulo = textBoxTituloLibro.Text;

@@ -37,6 +37,12 @@ namespace BiblioFlash_UI
             var libros = new PantallaLibros();
             libros.Show();
         }
+        private void prestamos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var prestamos = new PantallaPrestamos();
+            prestamos.Show();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

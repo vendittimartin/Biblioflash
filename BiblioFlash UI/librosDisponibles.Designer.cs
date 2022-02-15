@@ -34,9 +34,9 @@ namespace BiblioFlash_UI
             this.ColumnaAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.components = new System.ComponentModel.Container();
             this.button3 = new System.Windows.Forms.Button();
             this.textBoxTituloLibro = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,29 +97,45 @@ namespace BiblioFlash_UI
             this.ColumnaCantidad.ReadOnly = true;
             this.ColumnaCantidad.Width = 150;
             // 
-            // textBoxTituloLibro
-            // 
-            this.textBoxTituloLibro.Location = new System.Drawing.Point(208, 39);
-            this.textBoxTituloLibro.Name = "textBoxTituloLibro";
-            this.textBoxTituloLibro.PlaceholderText = "Título del libro";
-            this.textBoxTituloLibro.Size = new System.Drawing.Size(223, 27);
-            this.textBoxTituloLibro.TabIndex = 5;            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(470, 39);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
             this.button3.TabIndex = 4;
-            this.button3.Text = "buscar";
+            this.button3.Text = "Buscar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.botonBuscar_Click);
-
+            // 
+            // textBoxTituloLibro
+            // 
+            this.textBoxTituloLibro.Location = new System.Drawing.Point(208, 39);
+            this.textBoxTituloLibro.Name = "textBoxTituloLibro";
+            this.textBoxTituloLibro.PlaceholderText = "Título del libro";
+            this.textBoxTituloLibro.Size = new System.Drawing.Size(223, 27);
+            this.textBoxTituloLibro.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(592, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.botonLimpiar_Click);
+            // 
+            // librosDisponibles
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxTituloLibro);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listaLibros);
-            this.Text = "librosDisponibles"; 
+            this.Name = "librosDisponibles";
+            this.Text = "librosDisponibles";
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,5 +150,6 @@ namespace BiblioFlash_UI
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaCantidad;
         private System.Windows.Forms.TextBox textBoxTituloLibro;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -47,7 +47,6 @@ namespace BiblioFlash_UI
             this.label1.Location = new System.Drawing.Point(248, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(206, 34);
-            this.label1.TabIndex = 0;
             this.label1.Text = "Iniciar Sesión";
             // 
             // usuario
@@ -59,7 +58,6 @@ namespace BiblioFlash_UI
             this.usuario.Location = new System.Drawing.Point(174, 130);
             this.usuario.Name = "usuario";
             this.usuario.Size = new System.Drawing.Size(57, 16);
-            this.usuario.TabIndex = 1;
             this.usuario.Text = "Usuario";
             // 
             // contraseña
@@ -70,7 +68,6 @@ namespace BiblioFlash_UI
             this.contraseña.Location = new System.Drawing.Point(150, 176);
             this.contraseña.Name = "contraseña";
             this.contraseña.Size = new System.Drawing.Size(78, 16);
-            this.contraseña.TabIndex = 2;
             this.contraseña.Text = "Contraseña";
             // 
             // Iniciar
@@ -88,7 +85,7 @@ namespace BiblioFlash_UI
             this.Iniciar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Iniciar.Name = "Iniciar";
             this.Iniciar.Size = new System.Drawing.Size(82, 22);
-            this.Iniciar.TabIndex = 3;
+            this.Iniciar.TabIndex = 2;
             this.Iniciar.Text = "Iniciar";
             this.Iniciar.UseVisualStyleBackColor = false;
             this.Iniciar.Click += new System.EventHandler(this.iniciar_Click);
@@ -100,7 +97,6 @@ namespace BiblioFlash_UI
             this.registro.Location = new System.Drawing.Point(257, 270);
             this.registro.Name = "registro";
             this.registro.Size = new System.Drawing.Size(162, 15);
-            this.registro.TabIndex = 6;
             this.registro.TabStop = true;
             this.registro.Text = "¿No posee cuenta? Regístrese";
             this.registro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.registro_LinkClicked);
@@ -112,7 +108,7 @@ namespace BiblioFlash_UI
             this.textUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(204, 23);
-            this.textUsuario.TabIndex = 7;
+            this.textUsuario.TabIndex = 0;
             // 
             // textContraseña
             // 
@@ -121,7 +117,7 @@ namespace BiblioFlash_UI
             this.textContraseña.Name = "textContraseña";
             this.textContraseña.PasswordChar = '*';
             this.textContraseña.Size = new System.Drawing.Size(204, 23);
-            this.textContraseña.TabIndex = 8;
+            this.textContraseña.TabIndex = 1;
             // 
             // cancelar
             // 
@@ -138,7 +134,7 @@ namespace BiblioFlash_UI
             this.cancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(82, 22);
-            this.cancelar.TabIndex = 9;
+            this.cancelar.TabIndex = 3;
             this.cancelar.Text = "Cancelar";
             this.cancelar.UseVisualStyleBackColor = false;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);

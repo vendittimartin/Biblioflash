@@ -112,3 +112,5 @@ C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.altaEjemplares.resources
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.librosDisponibles.resources
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.listUsuarios.resources
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.PantallaPrestamos.resources
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.registrarPrestamo.resources
