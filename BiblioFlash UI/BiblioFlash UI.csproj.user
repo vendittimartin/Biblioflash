@@ -10,6 +10,9 @@
     <Compile Update="buscarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="extenderPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Libros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -41,6 +44,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Prestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="registrarDevolucion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="registrarPrestamo.cs">

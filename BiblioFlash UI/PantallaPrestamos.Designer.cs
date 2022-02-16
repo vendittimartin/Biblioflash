@@ -64,6 +64,7 @@ namespace BiblioFlash_UI
             this.button3.TabIndex = 2;
             this.button3.Text = "Registrar devolución";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.registrarDevolucion_Click);
             // 
             // button4
             // 
@@ -73,6 +74,7 @@ namespace BiblioFlash_UI
             this.button4.TabIndex = 3;
             this.button4.Text = "Extender prestamo";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.extenderPrestamo_Click);
             // 
             // button5
             // 

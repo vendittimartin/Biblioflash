@@ -12,10 +12,10 @@ using Biblioflash.Manager.DTO;
 
 namespace BiblioFlash_UI
 {
-    public partial class Prestamos : Form
+    public partial class extenderPrestamo : Form
     {
         Fachada fachada = new Fachada();
-        public Prestamos()
+        public extenderPrestamo()
         {
             InitializeComponent();
             List<PrestamoDTO> listaPrestamos = new List<PrestamoDTO>();
@@ -23,7 +23,7 @@ namespace BiblioFlash_UI
             listaPrestamos = fachada.listaPrestamos();
             foreach (var obj in listaPrestamos)
             {
-                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion,obj.FechaRealDevolucion);
+                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
             }
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
@@ -32,56 +32,56 @@ namespace BiblioFlash_UI
             List<PrestamoDTO> listaPrestamos = fachada.listaPrestamos();
             foreach (var obj in listaPrestamos)
             {
-                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion,obj.FechaRealDevolucion);
+                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
             }
         }
         private void botonBuscar_Click(object sender, EventArgs e)
         {
             string busqueda = textBox1.Text;
-            if (busqueda != "" && comboBox1.SelectedItem != null)
+            if (busqueda != "")
             {
-                if (Convert.ToString(comboBox1.SelectedItem) == "Usuario")
-                {
                     dataGridView1.Rows.Clear();
                     List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuario(busqueda);
                     if (listaPrestamos != null)
                     {
                         foreach (var obj in listaPrestamos)
                         {
-                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
+                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
                         }
                     }
                     else
                     {
                         MessageBox.Show("El usuario no posee prestamos.");
                     }
-                }
-                else
-                {
-                    int busq = Convert.ToInt32(busqueda);
-                    dataGridView1.Rows.Clear();
-                    List<PrestamoDTO> listaPrestamos = fachada.prestamosPorEjemplar(busq);
-                    if (listaPrestamos != null)
-                    {
-                        foreach (var obj in listaPrestamos)
-                        {
-                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("El ejemplar no posee prestamos.");
-                    }
-                }
             }
             else
             {
                 MessageBox.Show("Complete todos los campos.");
             }
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void extender_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            int cant = Convert.ToInt32(numericUpDown1.Value);
+            if (cant > 0 && cant < 16)
+            {
+                DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
+                DataGridViewCellCollection columnas = fila[0].Cells;
+                PrestamoDTO prestamo = fachada.prestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
+                bool extendio = fachada.extenderPrestamo(prestamo,cant);
+                if (extendio)
+                {
+                    MessageBox.Show("La fecha de devolución se extendió correctamente");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no posee el score suficiente.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se puede extender dicha cantidad de días (1-15).");
+            }
         }
     }
 }

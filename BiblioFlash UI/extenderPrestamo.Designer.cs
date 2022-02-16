@@ -1,7 +1,7 @@
 ﻿
 namespace BiblioFlash_UI
 {
-    partial class Prestamos
+    partial class extenderPrestamo
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@ namespace BiblioFlash_UI
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColumnaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,33 +38,25 @@ namespace BiblioFlash_UI
             this.ColumnaNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaFechaPrestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaFechaDevolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaFechaRealDevolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 60);
+            this.textBox1.Location = new System.Drawing.Point(205, 60);
             this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "Nombre de usuario";
             this.textBox1.Size = new System.Drawing.Size(246, 27);
             this.textBox1.TabIndex = 0;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Usuario",
-            "ID Ejemplar"});
-            this.comboBox1.Location = new System.Drawing.Point(375, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 1;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(589, 60);
+            this.button1.Location = new System.Drawing.Point(545, 60);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 2;
@@ -86,8 +77,7 @@ namespace BiblioFlash_UI
             this.ColumnaNombreLibro,
             this.ColumnaNombreUsuario,
             this.ColumnaFechaPrestamo,
-            this.ColumnaFechaDevolucion,
-            this.ColumnaFechaRealDevolucion});
+            this.ColumnaFechaDevolucion});
             this.dataGridView1.Location = new System.Drawing.Point(41, 117);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -95,7 +85,7 @@ namespace BiblioFlash_UI
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(883, 304);
+            this.dataGridView1.Size = new System.Drawing.Size(782, 304);
             this.dataGridView1.TabIndex = 7;
             // 
             // ColumnaID
@@ -146,23 +136,15 @@ namespace BiblioFlash_UI
             this.ColumnaFechaDevolucion.ReadOnly = true;
             this.ColumnaFechaDevolucion.Width = 125;
             // 
-            // ColumnaFechaRealDevolucion
-            // 
-            this.ColumnaFechaRealDevolucion.HeaderText = "Fecha real de devolución";
-            this.ColumnaFechaRealDevolucion.MinimumWidth = 6;
-            this.ColumnaFechaRealDevolucion.Name = "ColumnaFechaRealDevolucion";
-            this.ColumnaFechaRealDevolucion.ReadOnly = true;
-            this.ColumnaFechaRealDevolucion.Width = 125;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(357, 483);
+            this.button2.Location = new System.Drawing.Point(357, 516);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Volver";
+            this.button2.Text = "Extender";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.extender_Click);
             // 
             // button3
             // 
@@ -174,20 +156,43 @@ namespace BiblioFlash_UI
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.botonLimpiar_Click);
             // 
-            // Prestamos
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(332, 474);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(150, 27);
+            this.numericUpDown1.TabIndex = 9;
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(175, 476);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Cantidad de días";
+            // 
+            // extenderPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 571);
+            this.ClientSize = new System.Drawing.Size(864, 571);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
-            this.Name = "Prestamos";
+            this.Name = "extenderPrestamo";
             this.Text = "Prestamos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +201,6 @@ namespace BiblioFlash_UI
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
@@ -206,7 +210,8 @@ namespace BiblioFlash_UI
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaNombreUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaFechaPrestamo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaFechaDevolucion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaFechaRealDevolucion;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label1;
     }
 }

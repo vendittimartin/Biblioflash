@@ -11,6 +11,7 @@ namespace Biblioflash.Manager.DAL
     {
 
         public List<Prestamo> prestamosADevolverEn(int pDias);
+        public Prestamo buscarPrestamo(Int64 pID);
 
     }
 }

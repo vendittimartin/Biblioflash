@@ -121,20 +121,54 @@ namespace Biblioflash
                 return prestamo.Ejemplar;
             }
         }
+        public PrestamoDTO prestamosPorID(Int64 pID)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
+                PrestamoDTO prestamoADevolver = new PrestamoDTO();
+                foreach (var prestamo in listaTodosLosPrestamos.ToList())
+                {
+                    if (prestamo.ID == pID)
+                    {
+                        prestamoADevolver = prestamo;
+                    }
+                }
+                return prestamoADevolver;
+            }
+        }
+        public bool extenderPrestamo(PrestamoDTO pPrestamo, int cantDias)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                if (pPrestamo.Usuario.Score >= 5 * cantDias)
+                {
+                    Prestamo prestamo = unitOfWork.PrestamoRepository.buscarPrestamo(pPrestamo.ID);
+                    prestamo.FechaDevolucion = prestamo.FechaDevolucion.AddDays(cantDias);
+                    unitOfWork.Complete();
+                    return true;
+                }
+                else
+                {
+                    unitOfWork.Complete();
+                    return false;
+                }
+            }
+        }
         public List<PrestamoDTO> prestamosPorUsuario(string pNombreUsuario)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
                 List<PrestamoDTO> listaPrestamosPorUsuario = new List<PrestamoDTO>();
-                foreach (var prestamo in listaTodosLosPrestamos)
+                foreach (var prestamo in listaTodosLosPrestamos.ToList())
                 {
                     if (prestamo.Usuario.NombreUsuario == pNombreUsuario)
                     {
-                        listaTodosLosPrestamos.Add(prestamo);
+                        listaPrestamosPorUsuario.Add(prestamo);
                     }
                 }
-                return listaTodosLosPrestamos;
+                return listaPrestamosPorUsuario;
             }
         }
         public List<PrestamoDTO> prestamosPorEjemplar(int pIdEjemplar)
@@ -143,14 +177,14 @@ namespace Biblioflash
             {
                 List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
                 List<PrestamoDTO> listaPrestamosPorUsuario = new List<PrestamoDTO>();
-                foreach (var prestamo in listaTodosLosPrestamos)
+                foreach (var prestamo in listaTodosLosPrestamos.ToList())
                 {
                     if (prestamo.IDEjemplar == pIdEjemplar)
                     {
-                        listaTodosLosPrestamos.Add(prestamo);
+                        listaPrestamosPorUsuario.Add(prestamo);
                     }
                 }
-                return listaTodosLosPrestamos;
+                return listaPrestamosPorUsuario;
             }
         }
         public void registrarPrestamo(string pUsuario, Int64 pEjemplarID, string pEstado)
@@ -167,14 +201,14 @@ namespace Biblioflash
                         Usuario = usuario,
                         estadoPrestamo = pEstado
                     };
-                    //ejemplar.Prestamos.Add(prestamo);
-                    //usuario.Prestamos.Add(prestamo);
+                    ejemplar.Prestamos.Add(prestamo);
+                    usuario.Prestamos.Add(prestamo);
                     unitOfWork.PrestamoRepository.Add(prestamo);
                     unitOfWork.Complete();
             }
         }
 
-        public void registrarDevolucion(Int64 pPrestamoID, bool pEstado)
+        public void registrarDevolucion(Int64 pPrestamoID, string pEstado)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -185,7 +219,7 @@ namespace Biblioflash
                     prestamo.Usuario.Score -= (2 * diasAtrasados);
                 }
 
-                if (!pEstado)
+                if (pEstado == "Malo")
                 {
                     prestamo.Usuario.Score -= 10;
                 }
