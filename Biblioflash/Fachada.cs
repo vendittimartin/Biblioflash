@@ -87,13 +87,38 @@ namespace Biblioflash
                         FechaDevolucion = usuario.FechaDevolucion,
                         FechaPrestamo = usuario.FechaPrestamo,
                         FechaRealDevolucion = usuario.FechaRealDevolucion,
-                        //Usuario = usuario.Usuario,
-                        //Libro = usuario.Ejemplar.Libro
-                        //IDEjemplar = usuario.Ejemplar.ID
                     };
+                    usuarioDTO.Usuario = recuperarUsuario(usuarioDTO);
+                    Ejemplar ej = recuperarID(usuarioDTO);
+                    usuarioDTO.IDEjemplar = ej.ID;
+                    usuarioDTO.Libro = recuperarLibro(usuarioDTO);
                     listaUsuariosDTO.Add(usuarioDTO);
                 }
                 return listaUsuariosDTO;
+            }
+        }
+        public Usuario recuperarUsuario(PrestamoDTO pPrestamo)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
+                return prestamo.Usuario;
+            }
+        }
+        public Libro recuperarLibro(PrestamoDTO pPrestamo)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
+                return prestamo.Ejemplar.Libro;
+            }
+        }
+        public Ejemplar recuperarID(PrestamoDTO pPrestamo)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
+                return prestamo.Ejemplar;
             }
         }
         public List<PrestamoDTO> prestamosPorUsuario(string pNombreUsuario)
