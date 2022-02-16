@@ -18,6 +18,12 @@ namespace BiblioFlash_UI
         public Prestamos()
         {
             InitializeComponent();
+            List<PrestamoDTO> listaPrestamos = new List<PrestamoDTO>();
+            listaPrestamos = fachada.listaPrestamos();
+            foreach (var obj in listaPrestamos)
+            {
+                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
+            }
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
@@ -25,7 +31,7 @@ namespace BiblioFlash_UI
             List<PrestamoDTO> listaPrestamos = fachada.listaPrestamos();
             foreach (var obj in listaPrestamos)
             {
-                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro, obj.Usuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
             }
         }
         private void botonBuscar_Click(object sender, EventArgs e)
@@ -41,7 +47,7 @@ namespace BiblioFlash_UI
                     {
                         foreach (var obj in listaPrestamos)
                         {
-                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro, obj.Usuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
                         }
                     }
                     else
@@ -58,7 +64,7 @@ namespace BiblioFlash_UI
                     {
                         foreach (var obj in listaPrestamos)
                         {
-                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro, obj.Usuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
                         }
                     }
                     else

@@ -58,25 +58,42 @@ namespace Biblioflash
                 return cantEjemplaresDisponibles;
             }
         }
+        public List<Ejemplar> listaEjemplaresDisponibles(LibroDTO pLibro)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                List<Ejemplar> listaEjemplaresDisponibles = new List<Ejemplar>();
+                foreach (var ejemplar in pLibro.Ejemplares)
+                    {
+                        if (ejemplar.estaDisponible())
+                        {
+                            listaEjemplaresDisponibles.Add(ejemplar);
+                        }
+                    }
+                return listaEjemplaresDisponibles;
+            }
+        }
         public List<PrestamoDTO> listaPrestamos()
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                IEnumerable<Prestamo> listaPrestamo = unitOfWork.PrestamoRepository.GetAll();
-                List<PrestamoDTO> listaPrestamosDTO = new List<PrestamoDTO>();
-                foreach (var prestamo in listaPrestamo)
+                IEnumerable<Prestamo> listaUsuario = unitOfWork.PrestamoRepository.GetAll();
+                List<PrestamoDTO> listaUsuariosDTO = new List<PrestamoDTO>();
+                foreach (var usuario in listaUsuario)
                 {
-                    PrestamoDTO prestamoDTO = new PrestamoDTO
+                    PrestamoDTO usuarioDTO = new PrestamoDTO
                     {
-                        IDEjemplar = prestamo.Ejemplar.ID,
-                        FechaDevolucion = prestamo.FechaDevolucion,
-                        FechaPrestamo = prestamo.FechaPrestamo,
-                        FechaRealDevolucion = prestamo.FechaRealDevolucion,
-                        Usuario = prestamo.Usuario
+                        ID = usuario.ID,
+                        FechaDevolucion = usuario.FechaDevolucion,
+                        FechaPrestamo = usuario.FechaPrestamo,
+                        FechaRealDevolucion = usuario.FechaRealDevolucion,
+                        //Usuario = usuario.Usuario,
+                        //Libro = usuario.Ejemplar.Libro
+                        //IDEjemplar = usuario.Ejemplar.ID
                     };
-                    listaPrestamosDTO.Add(prestamoDTO);
+                    listaUsuariosDTO.Add(usuarioDTO);
                 }
-                return listaPrestamosDTO;
+                return listaUsuariosDTO;
             }
         }
         public List<PrestamoDTO> prestamosPorUsuario(string pNombreUsuario)
@@ -111,32 +128,24 @@ namespace Biblioflash
                 return listaTodosLosPrestamos;
             }
         }
-        public void registrarPrestamo(string pUsuario, Int64 pEjemplarID)
+        public void registrarPrestamo(string pUsuario, Int64 pEjemplarID, string pEstado)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Usuario usuario = unitOfWork.UsuarioRepository.buscarUsuario(pUsuario);
                 Ejemplar ejemplar = unitOfWork.EjemplarRepository.Get(pEjemplarID);
-                if (ejemplar.estaDisponible())
-                {
-                    Prestamo prestamo = new Prestamo
+                Prestamo prestamo = new Prestamo
                     {
                         FechaPrestamo = DateTime.Now,
-                        FechaDevolucion = DateTime.Now.AddDays(5)
+                        FechaDevolucion = DateTime.Now.AddDays(5),
+                        Ejemplar = ejemplar,
+                        Usuario = usuario,
+                        estadoPrestamo = pEstado
                     };
-
-                    prestamo.Ejemplar = ejemplar;
-                    prestamo.Usuario = usuario;
-                    ejemplar.Prestamos.Add(prestamo);
-                    usuario.Prestamos.Add(prestamo);
-
+                    //ejemplar.Prestamos.Add(prestamo);
+                    //usuario.Prestamos.Add(prestamo);
                     unitOfWork.PrestamoRepository.Add(prestamo);
                     unitOfWork.Complete();
-                }
-                else
-                {
-                    //throw new EjemplarNoDisponibleException("El ejemplar de id " + pEjemplarID + " ya se encuentra prestado");
-                }
             }
         }
 
@@ -282,8 +291,7 @@ namespace Biblioflash
                 Libro libro = unitOfWork.LibroRepository.buscarISBN(pEjemplarDTO.Libro.ISBN);
                 Ejemplar ejemplar = new Ejemplar
                 {
-                    Libro = libro,
-                    Prestamos = pEjemplarDTO.Prestamos
+                    Libro = libro
                 };
                 unitOfWork.EjemplarRepository.Add(ejemplar);
                 unitOfWork.Complete();

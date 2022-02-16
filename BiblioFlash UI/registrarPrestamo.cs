@@ -23,12 +23,17 @@ namespace BiblioFlash_UI
         {
             string usuario = Convert.ToString(textBox1.Text);
             int ejemplar = Convert.ToInt32(textBox2.Text);
+            string estado = Convert.ToString(comboBox1.Text);
             if (fachada.buscarUsuario(usuario) != null)
             {
                     if (usuario != "" && ejemplar >= 0)
                     {
-                        fachada.registrarPrestamo(usuario, ejemplar);
-                    }
+                        fachada.registrarPrestamo(usuario, ejemplar, estado);
+                        MessageBox.Show("Prestamo registrado exitosamente.");
+                        this.Hide();
+                        var prestamos = new PantallaPrestamos();
+                        prestamos.Show();
+                }
                     else
                     {
                         MessageBox.Show("Debe completar todos los campos.");
@@ -47,7 +52,7 @@ namespace BiblioFlash_UI
         }
         private void listaEjemplares_Click(object sender, EventArgs e)
         {
-            var listaEjemplares = new librosDisponibles();
+            var listaEjemplares = new seleccionarLibro();
             listaEjemplares.Show();
         }
         private void listaUsuarios_Click(object sender, EventArgs e)

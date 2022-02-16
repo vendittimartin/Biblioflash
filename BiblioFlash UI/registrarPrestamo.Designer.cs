@@ -37,6 +37,8 @@ namespace BiblioFlash_UI
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -55,7 +57,7 @@ namespace BiblioFlash_UI
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(217, 274);
+            this.button1.Location = new System.Drawing.Point(217, 306);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 3;
@@ -65,7 +67,7 @@ namespace BiblioFlash_UI
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(414, 274);
+            this.button2.Location = new System.Drawing.Point(414, 306);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 4;
@@ -111,11 +113,33 @@ namespace BiblioFlash_UI
             this.label2.TabIndex = 8;
             this.label2.Text = "ID del Ejemplar";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(287, 238);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(163, 28);
+            this.comboBox1.TabIndex = 9;
+            this.comboBox1.Items.Add("Bueno");
+            this.comboBox1.Items.Add("Malo");
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(82, 241);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Estado del ejemplar";
+
+            // 
             // registrarPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(753, 376);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
@@ -141,5 +165,7 @@ namespace BiblioFlash_UI
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
