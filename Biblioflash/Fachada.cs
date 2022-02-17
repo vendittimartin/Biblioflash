@@ -187,7 +187,7 @@ namespace Biblioflash
                 return listaPrestamosPorUsuario;
             }
         }
-        public void registrarPrestamo(string pUsuario, Int64 pEjemplarID, string pEstado)
+        public void registrarPrestamo(string pUsuario, Int64 pEjemplarID)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -198,8 +198,7 @@ namespace Biblioflash
                         FechaPrestamo = DateTime.Now,
                         FechaDevolucion = DateTime.Now.AddDays(5),
                         Ejemplar = ejemplar,
-                        Usuario = usuario,
-                        estadoPrestamo = pEstado
+                        Usuario = usuario
                     };
                     ejemplar.Prestamos.Add(prestamo);
                     usuario.Prestamos.Add(prestamo);

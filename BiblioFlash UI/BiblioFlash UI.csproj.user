@@ -25,16 +25,19 @@
     <Compile Update="listUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="modificarDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="modificarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PantallaAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PantallaCliente.cs">
+    <Compile Update="InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="InicioSesion.cs">
+    <Compile Update="PantallaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PantallaLibros.cs">
@@ -44,6 +47,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Prestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PrestamosCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="registrarDevolucion.cs">

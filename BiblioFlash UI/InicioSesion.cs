@@ -48,7 +48,7 @@ namespace BiblioFlash_UI
                     else
                     {
                         this.Hide();
-                        var cliente = new Form3();
+                        var cliente = new Form3(usuario);
                         cliente.Show();
                     }
                 }

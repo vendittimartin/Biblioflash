@@ -23,12 +23,11 @@ namespace BiblioFlash_UI
         {
             string usuario = Convert.ToString(textBox1.Text);
             int ejemplar = Convert.ToInt32(textBox2.Text);
-            string estado = Convert.ToString(comboBox1.Text);
             if (fachada.buscarUsuario(usuario) != null)
             {
                     if (usuario != "" && ejemplar >= 0)
                     {
-                        fachada.registrarPrestamo(usuario, ejemplar, estado);
+                        fachada.registrarPrestamo(usuario, ejemplar);
                         MessageBox.Show("Prestamo registrado exitosamente.");
                         this.Hide();
                         var prestamos = new PantallaPrestamos();
