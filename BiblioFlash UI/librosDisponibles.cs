@@ -24,7 +24,6 @@ namespace BiblioFlash_UI
             {
                 int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
                 listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
-                int v = obj.Ejemplares.Count();
             }
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
