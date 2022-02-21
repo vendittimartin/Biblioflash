@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Biblioflash;
 
 namespace BiblioFlash_UI
 {
     public partial class PantallaAdmin : Form
     {
+        Fachada fachada = new Fachada();
         public PantallaAdmin()
         {
             InitializeComponent();
@@ -19,9 +21,10 @@ namespace BiblioFlash_UI
 
         public void cerrarSesion(object sender, EventArgs e)
         {
-            this.Hide();
+            fachada.notificarUsuarios();
+            /*this.Hide();
             var inicio = new Form1();
-            inicio.Show();
+            inicio.Show();*/
         }
         public void usuarios(object sender, EventArgs e)
         {

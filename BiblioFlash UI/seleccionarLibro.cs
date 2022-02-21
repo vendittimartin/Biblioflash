@@ -23,7 +23,10 @@ namespace BiblioFlash_UI
             foreach (var obj in listLibros)
             {
                 int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                if (cant != 0)
+                { 
+                    listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                }
             }
         }
         private void seleccionar_Click(object sender, EventArgs e)
@@ -38,25 +41,21 @@ namespace BiblioFlash_UI
             };
             LibroDTO libro = fachada.buscarLibro(libroDTO.Titulo);
             List<Ejemplar> listaEjemplares = fachada.listaEjemplaresDisponibles(libro);
-            if (listaEjemplares != null)
-            {
-                var listEjemplares = new listaEjemplares(listaEjemplares);
-                listEjemplares.Show();
-                this.Close();
-            }
-            else 
-            {
-                MessageBox.Show("No se encontraron ejemplares disponibles.");
-            }
+            var listEjemplares = new listaEjemplares(listaEjemplares);
+            listEjemplares.Show();
+            this.Close();
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
-            InitializeComponent(); listaLibros.Rows.Clear();
+            listaLibros.Rows.Clear();
             List<Libro> listLibros = fachada.consultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
                 int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
+                if (cant != 0)
+                { 
                 listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                }
             }
         }
         private void botonBuscar_Click(object sender, EventArgs e)
@@ -69,7 +68,10 @@ namespace BiblioFlash_UI
                 if (libro != null)
                 {
                     int cant = fachada.cantEjemplaresDisponibles(titulo);
-                    listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
+                    if (cant != 0)
+                    { 
+                        listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
+                    }
                 }
                 else
                 {

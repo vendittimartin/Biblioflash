@@ -35,9 +35,6 @@ namespace Biblioflash.Manager.DAL.EntityFramework
             this.EjemplarRepository = new EjemplarRepository(pContext);
             this.NotificacionRepository = new NotificacionRepository(pContext);
         }
-
-
-
         public void Complete()
         {
            try

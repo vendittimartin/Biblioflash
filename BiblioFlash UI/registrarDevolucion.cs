@@ -23,7 +23,10 @@ namespace BiblioFlash_UI
             listaPrestamos = fachada.listaPrestamos();
             foreach (var obj in listaPrestamos)
             {
-                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                if (obj.FechaRealDevolucion == null)
+                { 
+                    dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                }
             }
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
@@ -32,7 +35,10 @@ namespace BiblioFlash_UI
             List<PrestamoDTO> listaPrestamos = fachada.listaPrestamos();
             foreach (var obj in listaPrestamos)
             {
-                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                if (obj.FechaRealDevolucion == null)
+                {
+                    dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                }
             }
         }
         private void devolver_Click(object sender, EventArgs e)
@@ -56,7 +62,10 @@ namespace BiblioFlash_UI
                 {
                     foreach (var obj in listaPrestamos)
                     {
-                        dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                        if (obj.FechaRealDevolucion == null)
+                        {
+                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
+                        }    
                     }
                 }
                 else

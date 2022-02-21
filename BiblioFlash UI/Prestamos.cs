@@ -25,6 +25,7 @@ namespace BiblioFlash_UI
             {
                 dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion,obj.FechaRealDevolucion);
             }
+            dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Descending);
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
@@ -34,6 +35,7 @@ namespace BiblioFlash_UI
             {
                 dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion,obj.FechaRealDevolucion);
             }
+            dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Descending);
         }
         private void botonBuscar_Click(object sender, EventArgs e)
         {
@@ -50,6 +52,7 @@ namespace BiblioFlash_UI
                         {
                             dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
                         }
+                        dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Descending);
                     }
                     else
                     {

@@ -8,6 +8,7 @@ using Biblioflash.Manager.DTO;
 using Biblioflash.Manager.Domain;
 using Biblioflash.Manager.DAL;
 using Biblioflash.Manager.DAL.EntityFramework;
+using Biblioflash.Manager.Exceptions;
 
 
 namespace Biblioflash
@@ -34,12 +35,38 @@ namespace Biblioflash
                 return listaUsuariosDTO;
             }
         }
+        public void notificarUsuarios()
+        {
+            EnvioMails em = new EnvioMails();
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                IEnumerable<Prestamo> listaPrestamos = unitOfWork.PrestamoRepository.GetAll();
+                foreach (var prestamo in listaPrestamos)
+                {
+                    if (!prestamo.estaDevuelto())
+                    {
+                        if (prestamo.FechaDevolucion < DateTime.Now.AddDays(2))
+                        {
+                            Notificacion notif = new Notificacion
+                            {
+                                Prestamo = prestamo,
+                                Mail = prestamo.Usuario.Mail,
+                                Fecha = DateTime.Now,
+                                Descripcion = "Su prestamo está proximo a vencerse.",
+                                Asunto = "Vencimiento de prestamo"
+                            };
+                            em.EnviarMail(notif);
+                        }
+                    }
+                }
+            }
+        }
         public int cantEjemplaresDisponibles(string pTitulo)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 int cantEjemplaresDisponibles = 0;
-                LibroDTO libroDTO = buscarLibro(pTitulo);
+                Libro libroDTO = unitOfWork.LibroRepository.buscarTitulo(pTitulo);
                 List<Ejemplar> listaEjemplares = libroDTO.Ejemplares;
                 if (listaEjemplares == null)
                 {
@@ -62,14 +89,23 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
+                Libro libroDTO = unitOfWork.LibroRepository.buscarTitulo(pLibro.Titulo);
+                List<Ejemplar> listaEjemplares = libroDTO.Ejemplares;
                 List<Ejemplar> listaEjemplaresDisponibles = new List<Ejemplar>();
-                foreach (var ejemplar in pLibro.Ejemplares)
+                if (listaEjemplares == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (var ejemplar in listaEjemplares)
                     {
                         if (ejemplar.estaDisponible())
                         {
                             listaEjemplaresDisponibles.Add(ejemplar);
                         }
                     }
+                }
                 return listaEjemplaresDisponibles;
             }
         }
@@ -359,13 +395,9 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                UsuarioDTO userDTO = buscarUsuario(pNombreUsuario);
-                if (userDTO.NombreUsuario == null)
+                if (pNombreUsuario != "")
                 {
-                   // throw new Exception
-                }
-                else 
-                {
+                    UsuarioDTO userDTO = buscarUsuario(pNombreUsuario);
                     if (userDTO.RangoUsuario == Rango.Admin)
                     {
                         userDTO.RangoUsuario = Rango.Cliente;
@@ -376,6 +408,10 @@ namespace Biblioflash
                         userDTO.RangoUsuario = Rango.Admin;
                         unitOfWork.Complete();
                     }
+                }
+                else
+                {
+                    throw new IllegalUsernameException();
                 }
             }
         }

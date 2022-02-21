@@ -11,6 +11,12 @@ namespace Biblioflash
         static void Main(string[] args)
         {
             Fachada fachada = new Fachada();
+            // This Scheduler will start at 00:00 and call after every 1 Days
+            // IntervalInDays(start_hour, start_minute, days)
+            MyScheduler.IntervalInDays(11, 34, 1,
+            () => {
+                fachada.notificarUsuarios();
+            });
         }
     }
 }

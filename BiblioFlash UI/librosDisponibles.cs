@@ -28,7 +28,7 @@ namespace BiblioFlash_UI
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
-            InitializeComponent(); listaLibros.Rows.Clear();
+            listaLibros.Rows.Clear();
             List<Libro> listLibros = fachada.consultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {

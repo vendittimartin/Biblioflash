@@ -14,16 +14,16 @@ namespace Biblioflash.Manager.Domain
 
         public bool estaDisponible()
         {
-            //PARCHEAR
-            if (true)
+            if (Prestamos.Count() != 0)
             {
-                //Prestamo lastPrestamo = Prestamos.Last();
-                return true; //lastPrestamo.estaDevuelto();
+                Prestamo lastPrestamo = Prestamos.Last();
+                return lastPrestamo.estaDevuelto();
             }
-            else 
+            else
             {
                 return true;
             }
+
         }
     }
 }

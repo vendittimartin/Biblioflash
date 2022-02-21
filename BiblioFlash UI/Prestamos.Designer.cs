@@ -88,14 +88,14 @@ namespace BiblioFlash_UI
             this.ColumnaFechaPrestamo,
             this.ColumnaFechaDevolucion,
             this.ColumnaFechaRealDevolucion});
-            this.dataGridView1.Location = new System.Drawing.Point(41, 117);
+            this.dataGridView1.Location = new System.Drawing.Point(40, 108);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(883, 304);
+            this.dataGridView1.Size = new System.Drawing.Size(920, 416);
             this.dataGridView1.TabIndex = 7;
             // 
             // ColumnaID
@@ -156,7 +156,7 @@ namespace BiblioFlash_UI
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(357, 483);
+            this.button2.Location = new System.Drawing.Point(432, 530);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 4;
