@@ -36,7 +36,7 @@ namespace Biblioflash.Manager.Domain
 
         public void EnviarMail(Notificacion pNotificacion)
         {
-            string to = pNotificacion.Mail;
+            string to = pNotificacion.Usuario.Mail;
             string asunto = pNotificacion.Asunto;
             string descripcion = pNotificacion.Descripcion;
             EnvioMail(to,asunto,descripcion);

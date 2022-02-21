@@ -15,6 +15,7 @@ namespace Biblioflash
 {
     public class Fachada
     {
+        EnvioMails em = new EnvioMails();
         public List<UsuarioDTO> listaUsuarios()
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -37,28 +38,35 @@ namespace Biblioflash
         }
         public void notificarUsuarios()
         {
-            EnvioMails em = new EnvioMails();
+            List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
+            foreach (var prestamo in listaTodosLosPrestamos)
+            {
+               if (prestamo.FechaRealDevolucion == null)
+               {
+                 if (prestamo.FechaDevolucion < DateTime.Now.AddDays(2))
+                 {
+                   Notificacion notif = registrarNotificacion(prestamo);
+                   em.EnviarMail(notif);
+                 }
+               }
+            }
+        }
+
+        public Notificacion registrarNotificacion(PrestamoDTO prestamo)
+        {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                IEnumerable<Prestamo> listaPrestamos = unitOfWork.PrestamoRepository.GetAll();
-                foreach (var prestamo in listaPrestamos)
+                Notificacion notif = new Notificacion
                 {
-                    if (!prestamo.estaDevuelto())
-                    {
-                        if (prestamo.FechaDevolucion < DateTime.Now.AddDays(2))
-                        {
-                            Notificacion notif = new Notificacion
-                            {
-                                Prestamo = prestamo,
-                                Mail = prestamo.Usuario.Mail,
-                                Fecha = DateTime.Now,
-                                Descripcion = "Su prestamo está proximo a vencerse.",
-                                Asunto = "Vencimiento de prestamo"
-                            };
-                            em.EnviarMail(notif);
-                        }
-                    }
-                }
+                    Fecha = DateTime.Now,
+                    Descripcion = "Su prestamo está proximo a vencerse.",
+                    Asunto = "Vencimiento de prestamo"
+                };
+                notif.Usuario = recuperarUsuario(prestamo);
+                notif.Prestamo = unitOfWork.PrestamoRepository.buscarPrestamo(prestamo.ID);
+                unitOfWork.NotificacionRepository.Add(notif);
+                unitOfWork.Complete();
+                return notif;
             }
         }
         public int cantEjemplaresDisponibles(string pTitulo)
@@ -147,6 +155,13 @@ namespace Biblioflash
             {
                 Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
                 return prestamo.Ejemplar.Libro;
+            }
+        }
+        public Prestamo recuperarPrestamo(PrestamoDTO pPrestamo)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                return unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
             }
         }
         public Ejemplar recuperarID(PrestamoDTO pPrestamo)

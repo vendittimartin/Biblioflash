@@ -21,8 +21,16 @@ namespace BiblioFlash_UI
 
         public void cerrarSesion(object sender, EventArgs e)
         {
+            //try
+            //{ 
             fachada.notificarUsuarios();
-            /*this.Hide();
+            MessageBox.Show("Ta");
+            //}
+            /*catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            this.Hide();
             var inicio = new Form1();
             inicio.Show();*/
         }
