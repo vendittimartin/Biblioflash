@@ -45,28 +45,10 @@ namespace Biblioflash
                {
                  if (prestamo.FechaDevolucion < DateTime.Now.AddDays(2))
                  {
-                   Notificacion notif = registrarNotificacion(prestamo);
-                   em.EnviarMail(notif);
+                   string pMail = prestamo.Usuario.Mail;
+                   em.EnviarMail(pMail);
                  }
                }
-            }
-        }
-
-        public Notificacion registrarNotificacion(PrestamoDTO prestamo)
-        {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                Notificacion notif = new Notificacion
-                {
-                    Fecha = DateTime.Now,
-                    Descripcion = "Su prestamo está proximo a vencerse.",
-                    Asunto = "Vencimiento de prestamo"
-                };
-                notif.Usuario = recuperarUsuario(prestamo);
-                notif.Prestamo = unitOfWork.PrestamoRepository.buscarPrestamo(prestamo.ID);
-                unitOfWork.NotificacionRepository.Add(notif);
-                unitOfWork.Complete();
-                return notif;
             }
         }
         public int cantEjemplaresDisponibles(string pTitulo)

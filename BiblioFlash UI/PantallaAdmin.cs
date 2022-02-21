@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
+using Biblioflash.Manager.DTO;
+using Biblioflash.Manager.Domain;
 
 namespace BiblioFlash_UI
 {
     public partial class PantallaAdmin : Form
     {
-        Fachada fachada = new Fachada();
         public PantallaAdmin()
         {
             InitializeComponent();
@@ -21,18 +22,9 @@ namespace BiblioFlash_UI
 
         public void cerrarSesion(object sender, EventArgs e)
         {
-            //try
-            //{ 
-            fachada.notificarUsuarios();
-            MessageBox.Show("Ta");
-            //}
-            /*catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
             this.Hide();
             var inicio = new Form1();
-            inicio.Show();*/
+            inicio.Show();
         }
         public void usuarios(object sender, EventArgs e)
         {
@@ -41,7 +33,6 @@ namespace BiblioFlash_UI
             users.Show();
 
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();

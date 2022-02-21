@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 using Biblioflash.Manager.Exceptions;
+using Biblioflash.Manager.DTO;
 
 namespace Biblioflash.Manager.Domain
 {
@@ -34,11 +35,11 @@ namespace Biblioflash.Manager.Domain
                 }
             }
 
-        public void EnviarMail(Notificacion pNotificacion)
+        public void EnviarMail(string pMail)
         {
-            string to = pNotificacion.Usuario.Mail;
-            string asunto = pNotificacion.Asunto;
-            string descripcion = pNotificacion.Descripcion;
+            string to = pMail;
+            string asunto = "Prestamo BIBLIOFLASH";
+            string descripcion = "Su prestamo está próximo a vencerse.";
             EnvioMail(to,asunto,descripcion);
         }
     }
