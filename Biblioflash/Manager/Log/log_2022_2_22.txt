@@ -1,0 +1,11 @@
+22/2/2022 15:23:38 - El usuario admin inició sesión.
+22/2/2022 15:23:56 - El usuario cliente inició sesión.
+22/2/2022 15:46:17 - El usuario admin inició sesión.
+22/2/2022 15:47:35 - El usuario admin inició sesión.
+22/2/2022 15:48:31 - El usuario admin inició sesión.
+22/2/2022 15:50:22 - prueba pa ver si anda el main
+22/2/2022 15:54:23 - El usuario admin inició sesión.
+22/2/2022 15:54:39 - Se modificó el usuario tomas
+22/2/2022 15:55:27 - El usuario admin inició sesión.
+22/2/2022 15:55:40 - Se modificó el usuario cono
+22/2/2022 15:56:41 - Se registró un prestamo

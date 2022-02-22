@@ -9,6 +9,7 @@ using Biblioflash.Manager.Domain;
 using Biblioflash.Manager.DAL;
 using Biblioflash.Manager.DAL.EntityFramework;
 using Biblioflash.Manager.Exceptions;
+using Biblioflash.Manager.Log;
 
 
 namespace Biblioflash
@@ -16,6 +17,7 @@ namespace Biblioflash
     public class Fachada
     {
         EnvioMails em = new EnvioMails();
+        Log oLog = new Log(@"C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Manager\Log");
         public List<UsuarioDTO> listaUsuarios()
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -179,6 +181,7 @@ namespace Biblioflash
                     Prestamo prestamo = unitOfWork.PrestamoRepository.buscarPrestamo(pPrestamo.ID);
                     prestamo.FechaDevolucion = prestamo.FechaDevolucion.AddDays(cantDias);
                     unitOfWork.Complete();
+                    oLog.Add($"Se extendió un prestamo");
                     return true;
                 }
                 else
@@ -233,10 +236,11 @@ namespace Biblioflash
                         Ejemplar = ejemplar,
                         Usuario = usuario
                     };
-                    ejemplar.Prestamos.Add(prestamo);
-                    usuario.Prestamos.Add(prestamo);
-                    unitOfWork.PrestamoRepository.Add(prestamo);
-                    unitOfWork.Complete();
+                ejemplar.Prestamos.Add(prestamo);
+                usuario.Prestamos.Add(prestamo);
+                unitOfWork.PrestamoRepository.Add(prestamo);
+                unitOfWork.Complete();
+                oLog.Add($"Se registró un prestamo");
             }
         }
 
@@ -261,6 +265,7 @@ namespace Biblioflash
                 }
                 prestamo.registrarDevolucion();
                 unitOfWork.Complete();
+                oLog.Add($"Se registró una nueva devolución");
             }
         }
         public UsuarioDTO buscarUsuario(string pNombreUsuario)
@@ -321,6 +326,7 @@ namespace Biblioflash
                 user.RangoUsuario = pRango;
                 unitOfWork.Complete();
             }
+            oLog.Add($"Se modificó el usuario {pNombreUsuario}");
         }
 
         public bool iniciarSesion(string pNombreUsuario, string pContraseña)
@@ -334,6 +340,7 @@ namespace Biblioflash
             {
                 if (user.Contraseña == pContraseña)
                 {
+                    oLog.Add($"El usuario {pNombreUsuario} inició sesión.");
                     return true;
                 }
                 else
@@ -358,6 +365,7 @@ namespace Biblioflash
 
                 unitOfWork.UsuarioRepository.Add(user);
                 unitOfWork.Complete();
+                oLog.Add($"Se registró un nuevo usuario : {pNombreUsuario}");
             }  
         }
         public void agregarLibro(LibroDTO pLibroDTO)
@@ -373,6 +381,7 @@ namespace Biblioflash
 
                 unitOfWork.LibroRepository.Add(libroCargar);
                 unitOfWork.Complete();
+                oLog.Add($"Se agregó un nuevo libro : {pLibroDTO.Titulo}");
             }
         }
         public void agregarEjemplar(EjemplarDTO pEjemplarDTO)
@@ -386,6 +395,7 @@ namespace Biblioflash
                 };
                 unitOfWork.EjemplarRepository.Add(ejemplar);
                 unitOfWork.Complete();
+                oLog.Add($"Se agregó un nuevo ejemplar ID: {pEjemplarDTO.ID} del libro : {libro.Titulo}");
             }
         }
         public void cambiarRango(string pNombreUsuario)
@@ -408,13 +418,16 @@ namespace Biblioflash
                 }
                 else
                 {
+                    oLog.Add($"Se modificó el rango de un usuario");
                     throw new IllegalUsernameException();
                 }
+            oLog.Add($"Se modificó el rango de un usuario");
             }
         }
         public List<LibroDTO> consultaLibro(string pTituloLibro)
         {
             IconsultaAPI apiConsultas = new consultaAPI();
+            oLog.Add($"Se generó una consulta a la API");
             return apiConsultas.Consulta(pTituloLibro);
         }
     }

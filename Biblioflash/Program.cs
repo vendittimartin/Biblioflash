@@ -6,15 +6,18 @@ using Biblioflash.Manager.DAL.EntityFramework;
 using Quartz;
 using Quartz.Impl;
 using Biblioflash.Manager.Services;
+using Biblioflash.Manager.Log;
 
 namespace Biblioflash
 {
-    class Program
+    public class Program
     {
 
         static void Main(string[] args)
         {
             MainAsync().GetAwaiter().GetResult();
+            Log oLog = new Log(@"C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Manager\Log");
+            oLog.Add($"prueba pa ver si anda el main");
         }
 
         static async Task MainAsync()
