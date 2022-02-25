@@ -9,3 +9,8 @@
 22/2/2022 15:55:27 - El usuario admin inició sesión.
 22/2/2022 15:55:40 - Se modificó el usuario cono
 22/2/2022 15:56:41 - Se registró un prestamo
+22/2/2022 16:15:13 - El usuario admin inició sesión.
+22/2/2022 16:15:43 - El usuario admin inició sesión.
+22/2/2022 16:22:31 - El usuario admin inició sesión.
+22/2/2022 16:35:22 - Se modificó el usuario cliente
+22/2/2022 16:36:59 - Se modificó el usuario cliente

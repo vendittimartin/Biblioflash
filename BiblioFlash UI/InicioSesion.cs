@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using Biblioflash.Manager.DTO;
@@ -36,9 +29,9 @@ namespace BiblioFlash_UI
             string password = textContraseña.Text;
             if (password != "" || user != "")
             {
-                if (fachada.iniciarSesion(user, password))
+                UsuarioDTO usuario = fachada.buscarUsuario(user);
+                if (usuario.Contraseña == password)
                 {
-                    UsuarioDTO usuario = fachada.buscarUsuario(user);
                     if (usuario.RangoUsuario == Rango.Admin)
                     {
                         this.Hide();
@@ -54,18 +47,13 @@ namespace BiblioFlash_UI
                 }
                 else
                 {
-                    MessageBox.Show("guccin't");
+                    MessageBox.Show("Usuario o contraseña incorrecta, intentelo nuevamente.");
                 }
             }
             else
             {
                 MessageBox.Show("Campos vacíos. Intentelo nuevamente");
             }
-        }
-
-        private void registro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
     }
 }

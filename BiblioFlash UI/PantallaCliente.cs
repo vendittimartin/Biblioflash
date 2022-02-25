@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash.Manager.DTO;
 
@@ -15,15 +8,13 @@ namespace BiblioFlash_UI
     {
         public Form3(UsuarioDTO pUsuario)
         {
-            UsuarioDTO user = pUsuario;
-            InitializeComponent(user.NombreUsuario);
+            InitializeComponent(pUsuario.NombreUsuario);
         }
         public void modificarUsuario(object sender, EventArgs e)
         {
             string pUsername = Convert.ToString(label1.Text);
-            this.Hide();
             var datosuser = new modificarDatos(pUsername);
-            datosuser.Show();
+            datosuser.ShowDialog();
         }
         public void cerrarSesion(object sender, EventArgs e)
         {
@@ -35,12 +26,12 @@ namespace BiblioFlash_UI
         {
             string pUsername = Convert.ToString(label1.Text);
             var libros = new PrestamosCliente(pUsername);
-            libros.Show();
+            libros.ShowDialog();
         }
         public void mostrarLibros(object sender, EventArgs e)
         {
             var libros = new librosDisponibles();
-            libros.Show();
+            libros.ShowDialog();
         }
     }
 }

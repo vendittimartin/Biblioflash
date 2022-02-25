@@ -45,7 +45,7 @@ namespace BiblioFlash_UI
                 if (Convert.ToString(comboBox1.SelectedItem) == "Usuario")
                 {
                     dataGridView1.Rows.Clear();
-                    List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuario(busqueda);
+                    List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuarioX(busqueda);
                     if (listaPrestamos != null)
                     {
                         foreach (var obj in listaPrestamos)

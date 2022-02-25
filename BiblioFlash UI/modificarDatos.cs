@@ -24,10 +24,6 @@ namespace BiblioFlash_UI
         }
         private void volver_Click(object sender, EventArgs e)
         {
-            string user = textUsuario.Text;
-            UsuarioDTO usuario = fachada.buscarUsuario(user);
-            var cliente = new Form3(usuario);
-            cliente.Show();
             this.Close();
         }
         private void confirmar_Click(object sender, EventArgs e)
@@ -36,15 +32,11 @@ namespace BiblioFlash_UI
             string password = textContraseña.Text;
             string email = textMail.Text;
             int score = int.Parse(textScore.Text);
-
             if (password != "" || email != "")
             {
                     if (new EmailAddressAttribute().IsValid(email))
                     {
                         fachada.modificarUsuario(user, password, email, score, Biblioflash.Manager.Domain.Rango.Cliente);
-                        UsuarioDTO usuario = fachada.buscarUsuario(user);
-                        var cliente = new Form3(usuario);
-                        cliente.Show();
                         this.Close();
                     }
                     else

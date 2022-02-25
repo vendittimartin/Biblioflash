@@ -1,14 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore.Design;
-using Biblioflash;
 using Quartz;
 using Quartz.Impl;
 using Biblioflash.Manager.Services;
-using Biblioflash.Manager.Log;
 
 namespace BiblioFlash_UI
 {
@@ -23,7 +18,7 @@ namespace BiblioFlash_UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainAsync().Wait();
+            //MainAsync().Wait();
             Application.Run(new Form1());
         }
         static async Task MainAsync()

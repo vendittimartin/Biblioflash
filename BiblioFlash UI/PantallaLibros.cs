@@ -19,12 +19,12 @@ namespace BiblioFlash_UI
         private void button3_Click(object sender, EventArgs e)
         {
             var libros = new Libros();
-            libros.Show();
+            libros.ShowDialog();
         }
         private void button4_Click(object sender, EventArgs e)
         {
             var ejemplares = new altaEjemplares();
-            ejemplares.Show();
+            ejemplares.ShowDialog();
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -35,7 +35,7 @@ namespace BiblioFlash_UI
         private void button1_Click(object sender, EventArgs e)
         {
             var volver = new librosDisponibles();
-            volver.Show();
+            volver.ShowDialog();
         }
     }
 }

@@ -47,7 +47,6 @@ namespace BiblioFlash_UI
         {
             this.Hide();
             var prestamos = new PantallaPrestamos();
-            prestamos.Show();
         }
         private void listaEjemplares_Click(object sender, EventArgs e)
         {

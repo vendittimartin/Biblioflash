@@ -41,14 +41,10 @@ namespace BiblioFlash_UI
             if (titulo != "")
             {
                 listaLibros.Rows.Clear();
-                UsuarioDTO obj = fachada.buscarUsuario(titulo);
-                if (obj != null)
+                List<UsuarioDTO> usuarios = fachada.buscarUsuarioSimilitud(titulo);
+                foreach (var obj in usuarios)
                 {
                     listaLibros.Rows.Add(obj.NombreUsuario, obj.Mail, obj.Score, obj.RangoUsuario);
-                }
-                else
-                {
-                    MessageBox.Show("Usuario no encontrado.");
                 }
             }
         }

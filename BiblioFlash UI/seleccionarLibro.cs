@@ -64,18 +64,14 @@ namespace BiblioFlash_UI
             if (titulo != "")
             {
                 listaLibros.Rows.Clear();
-                LibroDTO libro = fachada.buscarLibro(titulo);
-                if (libro != null)
-                {
-                    int cant = fachada.cantEjemplaresDisponibles(titulo);
+                List<LibroDTO> libros = fachada.buscarLibroSimilitud(titulo);
+                foreach (var libro in libros)
+                { 
+                    int cant = fachada.cantEjemplaresDisponibles(libro.Titulo);
                     if (cant != 0)
                     { 
-                        listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
+                       listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Libro no encontrado.");
                 }
             }
         }

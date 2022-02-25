@@ -30,27 +30,27 @@ namespace BiblioFlash_UI
         {
             this.Hide();
             var users = new Usuarios();
-            users.Show();
+            users.ShowDialog();
 
         }
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
             var libros = new PantallaLibros();
-            libros.Show();
+            libros.ShowDialog();
         }
         private void prestamos_Click(object sender, EventArgs e)
         {
             this.Hide();
             var prestamos = new PantallaPrestamos();
-            prestamos.Show();
+            prestamos.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
             var prestamos = new Prestamos();
-            prestamos.Show();
+            prestamos.ShowDialog();
         }
     }
 }

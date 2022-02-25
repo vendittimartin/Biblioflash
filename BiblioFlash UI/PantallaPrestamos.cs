@@ -25,22 +25,22 @@ namespace BiblioFlash_UI
         public void listaPrestamos_Click(object sender, EventArgs e)
         {
             var prestamos = new Prestamos();
-            prestamos.Show();
+            prestamos.ShowDialog();
         }
         public void registrarPrestamo_Click(object sender, EventArgs e)
         {
             var prestamos = new registrarPrestamo();
-            prestamos.Show();
+            prestamos.ShowDialog();
         }
         public void extenderPrestamo_Click(object sender, EventArgs e)
         {
             var prestamos = new extenderPrestamo();
-            prestamos.Show();
+            prestamos.ShowDialog();
         }
         public void registrarDevolucion_Click(object sender, EventArgs e)
         {
             var prestamos = new registrarDevolucion();
-            prestamos.Show();
+            prestamos.ShowDialog();
         }
     }
 }

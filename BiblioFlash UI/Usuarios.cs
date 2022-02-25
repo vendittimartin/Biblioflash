@@ -30,12 +30,12 @@ namespace BiblioFlash_UI
         {
             this.Hide();
             var altausers = new altaUsuarios();
-            altausers.Show();
+            altausers.ShowDialog();
         }
         private void listaUsuarios(object sender, EventArgs e)
         {
             var listUsuarios = new listUsuarios();
-            listUsuarios.Show();
+            listUsuarios.ShowDialog();
         }
         private void modificarUsuarios(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace BiblioFlash_UI
                 {
                     this.Hide();
                     var altausers = new modificarUsuario(pUsuario);
-                    altausers.Show();
+                    altausers.ShowDialog();
                 }
                 else
                 {
@@ -67,7 +67,7 @@ namespace BiblioFlash_UI
                 {
                     this.Hide();
                     var busquedausers = new buscarUsuario(pUsuario);
-                    busquedausers.Show();
+                    busquedausers.ShowDialog();
                 }
                 else
                 {

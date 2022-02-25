@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using Biblioflash.Manager.DTO;
@@ -22,8 +16,7 @@ namespace BiblioFlash_UI
             List<Libro> listLibros = fachada.consultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, fachada.cantEjemplaresDisponibles(obj.Titulo));
             }
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
@@ -32,27 +25,18 @@ namespace BiblioFlash_UI
             List<Libro> listLibros = fachada.consultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, fachada.cantEjemplaresDisponibles(obj.Titulo));
             }
         }
         private void botonBuscar_Click(object sender, EventArgs e)
         {
             string titulo = textBoxTituloLibro.Text;
-            if (titulo != "")
-            {
                 listaLibros.Rows.Clear();
-                LibroDTO libro = fachada.buscarLibro(titulo);
-                if (libro != null)
+                List<LibroDTO> libros = fachada.buscarLibroSimilitud(titulo);
+                foreach (var libro in libros)
                 {
-                    int cant = fachada.cantEjemplaresDisponibles(titulo);
-                    listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
+                    listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, fachada.cantEjemplaresDisponibles(libro.Titulo));
                 }
-                else
-                {
-                    MessageBox.Show("Libro no encontrado.");
-                }
-            }
         }
     }
 }

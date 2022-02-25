@@ -99,7 +99,6 @@ namespace BiblioFlash_UI
             this.registro.Size = new System.Drawing.Size(162, 15);
             this.registro.TabStop = true;
             this.registro.Text = "¿No posee cuenta? Regístrese";
-            this.registro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.registro_LinkClicked);
             this.registro.Click += new System.EventHandler(this.registro_Click);
             // 
             // textUsuario

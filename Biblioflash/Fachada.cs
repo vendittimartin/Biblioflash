@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Biblioflash.Manager.API;
 using Biblioflash.Manager.DTO;
 using Biblioflash.Manager.Domain;
@@ -25,7 +23,7 @@ namespace Biblioflash
                 IEnumerable<Usuario> listaUsuario = unitOfWork.UsuarioRepository.GetAll();
                 List<UsuarioDTO> listaUsuariosDTO = new List<UsuarioDTO>();
                 foreach (var usuario in listaUsuario)
-                {
+                { 
                     UsuarioDTO usuarioDTO = new UsuarioDTO
                     {
                         NombreUsuario = usuario.NombreUsuario,
@@ -59,14 +57,13 @@ namespace Biblioflash
             {
                 int cantEjemplaresDisponibles = 0;
                 Libro libroDTO = unitOfWork.LibroRepository.buscarTitulo(pTitulo);
-                List<Ejemplar> listaEjemplares = libroDTO.Ejemplares;
-                if (listaEjemplares == null)
+                if (libroDTO.Ejemplares.Count() == 0)
                 {
-                    cantEjemplaresDisponibles = 0;
+                    return 0;
                 }
                 else
                 { 
-                    foreach (var ejemplar in listaEjemplares)
+                    foreach (var ejemplar in libroDTO.Ejemplares)
                     {
                         if (ejemplar.estaDisponible())
                         {
@@ -74,7 +71,7 @@ namespace Biblioflash
                         }
                     }
                 }
-                return cantEjemplaresDisponibles;
+            return cantEjemplaresDisponibles;
             }
         }
         public List<Ejemplar> listaEjemplaresDisponibles(LibroDTO pLibro)
@@ -129,16 +126,14 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
-                return prestamo.Usuario;
+                return unitOfWork.PrestamoRepository.Get(pPrestamo.ID).Usuario;
             }
         }
         public Libro recuperarLibro(PrestamoDTO pPrestamo)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
-                return prestamo.Ejemplar.Libro;
+                return unitOfWork.PrestamoRepository.Get(pPrestamo.ID).Ejemplar.Libro;
             }
         }
         public Prestamo recuperarPrestamo(PrestamoDTO pPrestamo)
@@ -152,8 +147,7 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
-                return prestamo.Ejemplar;
+                return unitOfWork.PrestamoRepository.Get(pPrestamo.ID).Ejemplar;
             }
         }
         public PrestamoDTO prestamosPorID(Int64 pID)
@@ -186,31 +180,36 @@ namespace Biblioflash
                 }
                 else
                 {
-                    unitOfWork.Complete();
                     return false;
                 }
             }
         }
-        public List<PrestamoDTO> prestamosPorUsuario(string pNombreUsuario)
+        public List<PrestamoDTO> prestamosPorUsuarioX(string pNombreUsuario)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
+            { 
+                List<Prestamo> listaTodosLosPrestamos = unitOfWork.UsuarioRepository.buscarUsuario(pNombreUsuario).Prestamos;
                 List<PrestamoDTO> listaPrestamosPorUsuario = new List<PrestamoDTO>();
                 foreach (var prestamo in listaTodosLosPrestamos.ToList())
                 {
-                    if (prestamo.Usuario.NombreUsuario == pNombreUsuario)
+                    PrestamoDTO prestamo1 = new PrestamoDTO
                     {
-                        listaPrestamosPorUsuario.Add(prestamo);
-                    }
+                        Usuario = prestamo.Usuario,
+                        IDEjemplar = prestamo.Ejemplar.ID,
+                        FechaPrestamo = prestamo.FechaPrestamo,
+                        FechaDevolucion = prestamo.FechaDevolucion,
+                        FechaRealDevolucion = prestamo.FechaRealDevolucion,
+                        ID = prestamo.ID,
+                        estadoDevolucion = prestamo.estadoPrestamo
+                    };
+                    prestamo1.Libro = recuperarLibro(prestamo1);
+                    listaPrestamosPorUsuario.Add(prestamo1);
                 }
                 return listaPrestamosPorUsuario;
             }
         }
         public List<PrestamoDTO> prestamosPorEjemplar(int pIdEjemplar)
         {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
                 List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
                 List<PrestamoDTO> listaPrestamosPorUsuario = new List<PrestamoDTO>();
                 foreach (var prestamo in listaTodosLosPrestamos.ToList())
@@ -221,7 +220,6 @@ namespace Biblioflash
                     }
                 }
                 return listaPrestamosPorUsuario;
-            }
         }
         public void registrarPrestamo(string pUsuario, Int64 pEjemplarID)
         {
@@ -268,6 +266,30 @@ namespace Biblioflash
                 oLog.Add($"Se registró una nueva devolución");
             }
         }
+        public List<UsuarioDTO> buscarUsuarioSimilitud(string pNombreUsuario)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                IEnumerable<Usuario> listUsuarios = unitOfWork.UsuarioRepository.GetAll();
+                List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
+                foreach (var usuario in listUsuarios)
+                {
+                    if (usuario.NombreUsuario.ToUpper().Contains(pNombreUsuario.ToUpper()))
+                    {
+                            UsuarioDTO usuarioDTO = new UsuarioDTO
+                            {
+                                NombreUsuario = usuario.NombreUsuario,
+                                Score = usuario.Score,
+                                Mail = usuario.Mail,
+                                RangoUsuario = usuario.RangoUsuario,
+                                Contraseña = usuario.Contraseña
+                            };
+                    usuarios.Add(usuarioDTO);
+                    }
+                }
+                return usuarios;
+            }
+        }
         public UsuarioDTO buscarUsuario(string pNombreUsuario)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -295,6 +317,29 @@ namespace Biblioflash
                 return unitOfWork.LibroRepository.listaLibros();
             }
         }
+        public List<LibroDTO> buscarLibroSimilitud(string pTitulo)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                pTitulo = pTitulo.ToUpper();
+                IEnumerable<Libro> Libros = unitOfWork.LibroRepository.GetAll();
+                List<LibroDTO> LibrosToDTO = new List<LibroDTO>();
+                foreach(var libro in Libros)
+                {
+                    if (libro.Titulo.ToUpper().Contains(pTitulo))
+                    { 
+                        LibroDTO libroDTO = new LibroDTO
+                        {
+                            ISBN = libro.Isbn,
+                            Titulo = libro.Titulo,
+                            Autor = libro.Autor
+                        };
+                    LibrosToDTO.Add(libroDTO);
+                    }
+                }
+                return LibrosToDTO;
+            }
+        }
         public LibroDTO buscarLibro(string pTitulo)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -314,7 +359,7 @@ namespace Biblioflash
                 else { return null; }
             }
         }
-        public void modificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Manager.Domain.Rango pRango)
+        public void modificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Rango pRango)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -328,28 +373,6 @@ namespace Biblioflash
             }
             oLog.Add($"Se modificó el usuario {pNombreUsuario}");
         }
-
-        public bool iniciarSesion(string pNombreUsuario, string pContraseña)
-        {
-            UsuarioDTO user = buscarUsuario(pNombreUsuario);
-            if (user.NombreUsuario == null)
-            {
-                return false;
-            }
-            else 
-            {
-                if (user.Contraseña == pContraseña)
-                {
-                    oLog.Add($"El usuario {pNombreUsuario} inició sesión.");
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-
         public void registrarUsuario(string pNombreUsuario, string pContraseña, string pMail)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -378,7 +401,6 @@ namespace Biblioflash
                     Titulo = pLibroDTO.Titulo,
                     Autor = pLibroDTO.Autor
                 };
-
                 unitOfWork.LibroRepository.Add(libroCargar);
                 unitOfWork.Complete();
                 oLog.Add($"Se agregó un nuevo libro : {pLibroDTO.Titulo}");
@@ -408,18 +430,17 @@ namespace Biblioflash
                     if (userDTO.RangoUsuario == Rango.Admin)
                     {
                         userDTO.RangoUsuario = Rango.Cliente;
-                        unitOfWork.Complete();
                     }
                     else
                     {
                         userDTO.RangoUsuario = Rango.Admin;
-                        unitOfWork.Complete();
                     }
+                    unitOfWork.Complete();
                 }
                 else
                 {
                     oLog.Add($"Se modificó el rango de un usuario");
-                    throw new IllegalUsernameException();
+                    throw new IllegalUsernameException("El nombre del usuario no puede estar vacío.");
                 }
             oLog.Add($"Se modificó el rango de un usuario");
             }

@@ -57,9 +57,10 @@ namespace BiblioFlash_UI
             if (busqueda != "")
             {
                 dataGridView1.Rows.Clear();
-                List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuario(busqueda);
-                if (listaPrestamos != null)
-                {
+                List<UsuarioDTO> user = fachada.buscarUsuarioSimilitud(busqueda);
+                foreach (var usuario in user) 
+                { 
+                List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuarioX(usuario.NombreUsuario);
                     foreach (var obj in listaPrestamos)
                     {
                         if (obj.FechaRealDevolucion == null)
@@ -67,10 +68,6 @@ namespace BiblioFlash_UI
                             dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
                         }    
                     }
-                }
-                else
-                {
-                    MessageBox.Show("El usuario no posee prestamos.");
                 }
             }
             else

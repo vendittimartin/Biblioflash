@@ -18,19 +18,14 @@ namespace BiblioFlash_UI
         public PrestamosCliente(string pUsuario)
         {
             InitializeComponent();
-            List<PrestamoDTO> listaPrestamos = new List<PrestamoDTO>();
-            dataGridView1.Rows.Clear();
-            listaPrestamos = fachada.prestamosPorUsuario(pUsuario);
+            _ = new List<PrestamoDTO>();
+            List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuarioX(pUsuario);
             if (listaPrestamos != null)
             {
                 foreach (var obj in listaPrestamos)
                 {
                     dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
                 }
-            }
-            else
-            {
-                MessageBox.Show("El usuario no posee prestamos");
             }
         }
         private void button2_Click(object sender, EventArgs e)

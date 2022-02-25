@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using Biblioflash.Manager.DTO;
-using Microsoft.VisualBasic;
 using Biblioflash.Manager.Domain;
 
 namespace BiblioFlash_UI
@@ -74,9 +67,12 @@ namespace BiblioFlash_UI
             if (titulo != "")
             {
                 listaLibros.Rows.Clear();
-                LibroDTO libro = fachada.buscarLibro(titulo);
-                listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN);
-                button1.Enabled = true;
+                List<LibroDTO> libros = fachada.buscarLibroSimilitud(titulo);
+                foreach (var libro in libros)
+                { 
+                    listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN);
+                    button1.Enabled = true;
+                }
             }
         }
         private void button2_Click(object sender, EventArgs e)
