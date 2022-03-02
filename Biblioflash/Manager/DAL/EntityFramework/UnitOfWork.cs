@@ -18,6 +18,7 @@ namespace Biblioflash.Manager.DAL.EntityFramework
         public IPrestamoRepository PrestamoRepository { get; private set; }
         public ILibroRepository LibroRepository { get; private set; }
         public IEjemplarRepository EjemplarRepository { get; private set; }
+        public INotificacionRepository NotificacionRepository { get; private set; }
 
 
         public UnitOfWork(AccountManagerDbContext pContext)
@@ -32,6 +33,7 @@ namespace Biblioflash.Manager.DAL.EntityFramework
             this.PrestamoRepository = new PrestamoRepository(pContext);
             this.LibroRepository = new LibroRepository(pContext);
             this.EjemplarRepository = new EjemplarRepository(pContext);
+            this.NotificacionRepository = new NotificacionRepository(pContext);
         }
         public void Complete()
         {

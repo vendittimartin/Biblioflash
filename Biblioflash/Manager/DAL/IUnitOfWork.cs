@@ -14,5 +14,6 @@ namespace Biblioflash.Manager.DAL
         public IPrestamoRepository PrestamoRepository { get; }
         public ILibroRepository LibroRepository { get; }
         public IEjemplarRepository EjemplarRepository { get; }
+        public INotificacionRepository NotificacionRepository { get; }
     }
 }

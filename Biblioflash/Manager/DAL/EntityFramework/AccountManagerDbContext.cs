@@ -33,7 +33,7 @@ namespace Biblioflash.Manager.DAL.EntityFramework
 
         public DbSet<Prestamo> Prestamos { get; set; }
 
-        public DbSet<Notificacion> Notifiaciones { get; set; }
+        public DbSet<Notificacion> Notificaciones { get; set; }
 
     }
 }

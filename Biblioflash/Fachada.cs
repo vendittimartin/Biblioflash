@@ -23,7 +23,7 @@ namespace Biblioflash
                 IEnumerable<Usuario> listaUsuario = unitOfWork.UsuarioRepository.GetAll();
                 List<UsuarioDTO> listaUsuariosDTO = new List<UsuarioDTO>();
                 foreach (var usuario in listaUsuario)
-                { 
+                {
                     UsuarioDTO usuarioDTO = new UsuarioDTO
                     {
                         NombreUsuario = usuario.NombreUsuario,
@@ -41,14 +41,47 @@ namespace Biblioflash
             List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
             foreach (var prestamo in listaTodosLosPrestamos)
             {
-               if (prestamo.FechaRealDevolucion == null)
-               {
-                 if (prestamo.FechaDevolucion < DateTime.Now.AddDays(2))
-                 {
-                   string pMail = prestamo.Usuario.Mail;
-                   em.EnviarMail(pMail);
-                 }
-               }
+                if (prestamo.FechaRealDevolucion == null)
+                {
+                    if (prestamo.FechaDevolucion < DateTime.Now.AddDays(2))
+                    {
+                        if (!verificarNotificado(prestamo.ID))
+                            {
+                               using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+                               {
+                                        Prestamo prestamo1 = unitOfWork.PrestamoRepository.buscarPrestamo(prestamo.ID);
+                                        Notificacion notif = new Notificacion
+                                        {
+                                            Usuario = prestamo1.Usuario,
+                                            Prestamo = prestamo1,
+                                            Fecha = DateTime.Now,
+
+                                        };
+                                        unitOfWork.NotificacionRepository.Add(notif);
+                                        unitOfWork.Complete();
+                               }
+                               em.EnviarMail(prestamo.Usuario.Mail);
+                        }
+                    }
+                }
+            }
+        }
+        public bool verificarNotificado(long pPrestamo)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                IEnumerable<Notificacion> notificaciones = unitOfWork.NotificacionRepository.GetAll();
+                if (notificaciones.Count() != 0)
+                { 
+                    foreach (var notif in notificaciones)
+                    {
+                        if (pPrestamo == notif.Prestamo.ID)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
             }
         }
         public int cantEjemplaresDisponibles(string pTitulo)

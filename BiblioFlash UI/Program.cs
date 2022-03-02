@@ -18,7 +18,7 @@ namespace BiblioFlash_UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //MainAsync().Wait();
+            MainAsync().Wait();
             Application.Run(new Form1());
         }
         static async Task MainAsync()
