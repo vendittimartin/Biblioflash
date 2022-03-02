@@ -9,6 +9,6 @@ namespace Biblioflash.Manager.DAL
 {
     public interface INotificacionRepository : IRepository<Notificacion>
     {
-
+        public Notificacion buscarNotificacion(Int64 pID);
     }
 }

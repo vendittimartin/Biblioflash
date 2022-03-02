@@ -45,43 +45,26 @@ namespace Biblioflash
                 {
                     if (prestamo.FechaDevolucion < DateTime.Now.AddDays(2))
                     {
-                        if (!verificarNotificado(prestamo.ID))
-                            {
-                               using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-                               {
-                                        Prestamo prestamo1 = unitOfWork.PrestamoRepository.buscarPrestamo(prestamo.ID);
-                                        Notificacion notif = new Notificacion
-                                        {
-                                            Usuario = prestamo1.Usuario,
-                                            Prestamo = prestamo1,
-                                            Fecha = DateTime.Now,
-
-                                        };
-                                        unitOfWork.NotificacionRepository.Add(notif);
-                                        unitOfWork.Complete();
-                               }
-                               em.EnviarMail(prestamo.Usuario.Mail);
-                        }
-                    }
-                }
-            }
-        }
-        public bool verificarNotificado(long pPrestamo)
-        {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                IEnumerable<Notificacion> notificaciones = unitOfWork.NotificacionRepository.GetAll();
-                if (notificaciones.Count() != 0)
-                { 
-                    foreach (var notif in notificaciones)
-                    {
-                        if (pPrestamo == notif.Prestamo.ID)
+                        using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
                         {
-                            return true;
+                            Prestamo prestamo1 = unitOfWork.PrestamoRepository.buscarPrestamo(prestamo.ID);
+                            Notificacion notificacion = unitOfWork.NotificacionRepository.buscarNotificacion(prestamo.ID);
+                            if (notificacion == null)
+                            {
+                                Notificacion notif = new Notificacion
+                                {
+                                    Usuario = prestamo1.Usuario,
+                                    Prestamo = prestamo1,
+                                    Fecha = DateTime.Now,
+                                    Descripcion = "Su prestamo esta proximo a vencerse."
+                                };
+                                unitOfWork.NotificacionRepository.Add(notif);
+                                unitOfWork.Complete();
+                                em.EnviarMail(prestamo.Usuario.Mail);
+                            }
                         }
                     }
                 }
-                return false;
             }
         }
         public int cantEjemplaresDisponibles(string pTitulo)
