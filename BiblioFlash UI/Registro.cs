@@ -44,6 +44,7 @@ namespace BiblioFlash_UI
                     {
                         fachada.registrarUsuario(user, password, email);
                         var inicio = new Form1();
+                        MessageBox.Show("Se registró al usuario correctamente.");
                         inicio.Show();
                         this.Close();
                     }

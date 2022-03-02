@@ -14,7 +14,7 @@ namespace Biblioflash
     {
         static void Main(string[] args)
         {
-        
+            Fachada fachada = new Fachada();
         }
     }
 }
