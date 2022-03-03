@@ -29,7 +29,7 @@ namespace BiblioFlash_UI
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()//string pNombreusuario, int scoreUsuario)
+        private void InitializeComponent(string pNombreusuario, int scoreUsuario)
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -103,7 +103,7 @@ namespace BiblioFlash_UI
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
-            this.button5.Image = global::BiblioFlash_UI.Properties.Resources.catalogoLibros;
+            this.button5.Image = global::BiblioFlash_UI.Properties.Resources.Webp_net_resizeimage__1_;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button5.Location = new System.Drawing.Point(597, 231);
             this.button5.Name = "button5";
@@ -161,7 +161,7 @@ namespace BiblioFlash_UI
             // 
             // panel2
             // 
-            this.panel2.BackgroundImage = global::BiblioFlash_UI.Properties.Resources.score;
+            this.panel2.BackgroundImage = global::BiblioFlash_UI.Properties.Resources.Webp_net_resizeimage;
             this.panel2.Location = new System.Drawing.Point(792, 44);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(57, 51);
@@ -172,9 +172,9 @@ namespace BiblioFlash_UI
             this.scoreUsuario.AutoSize = true;
             this.scoreUsuario.Location = new System.Drawing.Point(747, 63);
             this.scoreUsuario.Name = "scoreUsuario";
-            this.scoreUsuario.Size = new System.Drawing.Size(48, 25);
+            this.scoreUsuario.Size = new System.Drawing.Size(506, 25);
             this.scoreUsuario.TabIndex = 2;
-            this.scoreUsuario.Text = "100";
+            this.scoreUsuario.Text = Convert.ToString(scoreUsuario);
             this.scoreUsuario.Click += new System.EventHandler(this.label4_Click);
             // 
             // nombreUsuario
@@ -183,9 +183,9 @@ namespace BiblioFlash_UI
             this.nombreUsuario.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nombreUsuario.Location = new System.Drawing.Point(41, 44);
             this.nombreUsuario.Name = "nombreUsuario";
-            this.nombreUsuario.Size = new System.Drawing.Size(157, 50);
+            this.nombreUsuario.Size = new System.Drawing.Size(0, 50);
             this.nombreUsuario.TabIndex = 1;
-            this.nombreUsuario.Text = "Cliente";
+            this.nombreUsuario.Text = pNombreusuario;
             // 
             // Form3
             // 

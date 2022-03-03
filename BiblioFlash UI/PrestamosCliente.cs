@@ -31,6 +31,10 @@ namespace BiblioFlash_UI
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+            string value = dataGridView1.Rows[0].Cells[3].Value.ToString();
+            UsuarioDTO user = fachada.buscarUsuario(value);
+            var cliente = new Form3(user);
+            cliente.Show();
         }
     }
 }

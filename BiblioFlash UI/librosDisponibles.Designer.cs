@@ -29,6 +29,8 @@ namespace BiblioFlash_UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.listaLibros = new System.Windows.Forms.DataGridView();
             this.ColumnaTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +46,7 @@ namespace BiblioFlash_UI
             // 
             this.listaLibros.AllowUserToAddRows = false;
             this.listaLibros.AllowUserToDeleteRows = false;
-            this.listaLibros.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.listaLibros.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.listaLibros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listaLibros.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.listaLibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -53,7 +55,8 @@ namespace BiblioFlash_UI
             this.ColumnaAutor,
             this.ColumnaISBN,
             this.ColumnaCantidad});
-            this.listaLibros.Location = new System.Drawing.Point(14, 105);
+            this.listaLibros.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.listaLibros.Location = new System.Drawing.Point(-4, 97);
             this.listaLibros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listaLibros.MultiSelect = false;
             this.listaLibros.Name = "listaLibros";
@@ -62,11 +65,13 @@ namespace BiblioFlash_UI
             this.listaLibros.RowHeadersWidth = 51;
             this.listaLibros.RowTemplate.Height = 25;
             this.listaLibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listaLibros.Size = new System.Drawing.Size(766, 412);
+            this.listaLibros.Size = new System.Drawing.Size(880, 443);
             this.listaLibros.TabIndex = 0;
             // 
             // ColumnaTitulo
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ColumnaTitulo.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnaTitulo.HeaderText = "Titulo";
             this.ColumnaTitulo.MinimumWidth = 6;
             this.ColumnaTitulo.Name = "ColumnaTitulo";
@@ -83,6 +88,8 @@ namespace BiblioFlash_UI
             // 
             // ColumnaISBN
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ColumnaISBN.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnaISBN.HeaderText = "ISBN";
             this.ColumnaISBN.MinimumWidth = 6;
             this.ColumnaISBN.Name = "ColumnaISBN";
@@ -99,43 +106,64 @@ namespace BiblioFlash_UI
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(470, 39);
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.button3.FlatAppearance.BorderSize = 2;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.button3.Location = new System.Drawing.Point(492, 37);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
             this.button3.TabIndex = 4;
             this.button3.Text = "Buscar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.botonBuscar_Click);
             // 
             // textBoxTituloLibro
             // 
-            this.textBoxTituloLibro.Location = new System.Drawing.Point(208, 39);
+            this.textBoxTituloLibro.BackColor = System.Drawing.Color.White;
+            this.textBoxTituloLibro.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxTituloLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.textBoxTituloLibro.Location = new System.Drawing.Point(136, 39);
             this.textBoxTituloLibro.Name = "textBoxTituloLibro";
             this.textBoxTituloLibro.PlaceholderText = "Título del libro";
-            this.textBoxTituloLibro.Size = new System.Drawing.Size(223, 27);
+            this.textBoxTituloLibro.Size = new System.Drawing.Size(300, 27);
             this.textBoxTituloLibro.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(592, 38);
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.button1.Location = new System.Drawing.Point(614, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 6;
             this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.botonLimpiar_Click);
             // 
             // librosDisponibles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(877, 544);
             this.Controls.Add(this.textBoxTituloLibro);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listaLibros);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "librosDisponibles";
-            this.Text = "librosDisponibles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Catálogo";
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

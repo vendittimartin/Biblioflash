@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using System.ComponentModel.DataAnnotations;
@@ -25,6 +18,9 @@ namespace BiblioFlash_UI
         private void volver_Click(object sender, EventArgs e)
         {
             this.Close();
+            UsuarioDTO user = fachada.buscarUsuario(textUsuario.Text);
+            var cliente = new Form3(user);
+            cliente.Show();
         }
         private void confirmar_Click(object sender, EventArgs e)
         {
@@ -38,6 +34,9 @@ namespace BiblioFlash_UI
                     {
                         fachada.modificarUsuario(user, password, email, score, Biblioflash.Manager.Domain.Rango.Cliente);
                         this.Close();
+                        UsuarioDTO usuario = fachada.buscarUsuario(user);
+                        var cliente = new Form3(usuario);
+                        cliente.Show();
                     }
                     else
                     {

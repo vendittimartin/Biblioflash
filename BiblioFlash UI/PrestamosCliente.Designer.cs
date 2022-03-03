@@ -29,6 +29,9 @@ namespace BiblioFlash_UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColumnaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaIDEjemplar = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,14 +59,14 @@ namespace BiblioFlash_UI
             this.ColumnaFechaPrestamo,
             this.ColumnaFechaDevolucion,
             this.ColumnaFechaRealDevolucion});
-            this.dataGridView1.Location = new System.Drawing.Point(41, 117);
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 0);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(883, 304);
+            this.dataGridView1.Size = new System.Drawing.Size(883, 322);
             this.dataGridView1.TabIndex = 7;
             // 
             // ColumnaID
@@ -76,6 +79,8 @@ namespace BiblioFlash_UI
             // 
             // ColumnaIDEjemplar
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ColumnaIDEjemplar.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnaIDEjemplar.HeaderText = "ID Ejemplar";
             this.ColumnaIDEjemplar.MinimumWidth = 6;
             this.ColumnaIDEjemplar.Name = "ColumnaIDEjemplar";
@@ -92,6 +97,8 @@ namespace BiblioFlash_UI
             // 
             // ColumnaNombreUsuario
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ColumnaNombreUsuario.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnaNombreUsuario.HeaderText = "Usuario";
             this.ColumnaNombreUsuario.MinimumWidth = 6;
             this.ColumnaNombreUsuario.Name = "ColumnaNombreUsuario";
@@ -108,6 +115,8 @@ namespace BiblioFlash_UI
             // 
             // ColumnaFechaDevolucion
             // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ColumnaFechaDevolucion.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnaFechaDevolucion.HeaderText = "Fecha Devolucion";
             this.ColumnaFechaDevolucion.MinimumWidth = 6;
             this.ColumnaFechaDevolucion.Name = "ColumnaFechaDevolucion";
@@ -124,7 +133,11 @@ namespace BiblioFlash_UI
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(357, 483);
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(46)))), ((int)(((byte)(66)))));
+            this.button2.Location = new System.Drawing.Point(395, 356);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 4;
@@ -132,18 +145,20 @@ namespace BiblioFlash_UI
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Prestamos
+            // PrestamosCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 571);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(46)))), ((int)(((byte)(66)))));
+            this.ClientSize = new System.Drawing.Size(883, 407);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Prestamos";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "PrestamosCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prestamos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

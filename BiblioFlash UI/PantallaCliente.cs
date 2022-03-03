@@ -8,14 +8,15 @@ namespace BiblioFlash_UI
     public partial class Form3 : Form
     {
         Fachada fachada = new Fachada();
-        public Form3()//UsuarioDTO pUsuario)
+        public Form3(UsuarioDTO pUsuario)
         {
-            InitializeComponent();// pUsuario.NombreUsuario, pUsuario.Score);    
+            InitializeComponent(pUsuario.NombreUsuario, pUsuario.Score);    
         }
      
         public void modificarUsuario(object sender, EventArgs e)
         {
-            string pUsername = Convert.ToString(label1.Text);
+            string pUsername = Convert.ToString(nombreUsuario.Text);
+            this.Hide();
             var datosuser = new modificarDatos(pUsername);
             datosuser.ShowDialog();
         }
@@ -27,7 +28,8 @@ namespace BiblioFlash_UI
         }
         public void PrestamosCliente(object sender, EventArgs e)
         {
-            string pUsername = Convert.ToString(label1.Text);
+            string pUsername = Convert.ToString(nombreUsuario.Text);
+            this.Hide();
             var libros = new PrestamosCliente(pUsername);
             libros.ShowDialog();
         }
