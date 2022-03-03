@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
 using Biblioflash.Manager.DTO;
+using Biblioflash;
 
 namespace BiblioFlash_UI
 {
     public partial class Form3 : Form
     {
-        public Form3(UsuarioDTO pUsuario)
+        Fachada fachada = new Fachada();
+        public Form3()//UsuarioDTO pUsuario)
         {
-            InitializeComponent(pUsuario.NombreUsuario);
+            InitializeComponent();// pUsuario.NombreUsuario, pUsuario.Score);    
         }
+     
         public void modificarUsuario(object sender, EventArgs e)
         {
             string pUsername = Convert.ToString(label1.Text);
@@ -32,6 +35,11 @@ namespace BiblioFlash_UI
         {
             var libros = new librosDisponibles();
             libros.ShowDialog();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
