@@ -94,12 +94,11 @@ namespace BiblioFlash_UI
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(881, 304);
+            this.dataGridView1.Size = new System.Drawing.Size(900, 304);
             this.dataGridView1.TabIndex = 7;
             // 
             // ColumnaID
             // 
-            this.dataGridView1.Columns[0].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191,192,192);
             this.ColumnaID.HeaderText = "ID";
             this.ColumnaID.MinimumWidth = 6;
             this.ColumnaID.Name = "ColumnaID";
@@ -116,7 +115,6 @@ namespace BiblioFlash_UI
             // 
             // ColumnaNombreLibro
             // 
-            this.dataGridView1.Columns[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
             this.ColumnaNombreLibro.HeaderText = "Libro";
             this.ColumnaNombreLibro.MinimumWidth = 6;
             this.ColumnaNombreLibro.Name = "ColumnaNombreLibro";
@@ -133,7 +131,6 @@ namespace BiblioFlash_UI
             // 
             // ColumnaFechaPrestamo
             // 
-            this.dataGridView1.Columns[4].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
             this.ColumnaFechaPrestamo.HeaderText = "Fecha Prestamo";
             this.ColumnaFechaPrestamo.MinimumWidth = 6;
             this.ColumnaFechaPrestamo.Name = "ColumnaFechaPrestamo";
@@ -206,7 +203,7 @@ namespace BiblioFlash_UI
             this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(-11, -5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(881, 116);
+            this.panel1.Size = new System.Drawing.Size(900, 116);
             this.panel1.TabIndex = 12;
             // 
             // panel2
@@ -217,14 +214,14 @@ namespace BiblioFlash_UI
             this.panel2.Controls.Add(this.button2);
             this.panel2.Location = new System.Drawing.Point(-11, 427);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(881, 151);
+            this.panel2.Size = new System.Drawing.Size(900, 172);
             this.panel2.TabIndex = 13;
             // 
             // extenderPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 571);
+            this.ClientSize = new System.Drawing.Size(884, 593);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);

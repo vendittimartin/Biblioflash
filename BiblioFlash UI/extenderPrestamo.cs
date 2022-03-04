@@ -62,7 +62,7 @@ namespace BiblioFlash_UI
             }
             else
             {
-                MessageBox.Show("Complete todos los campos.");
+                MessageBox.Show("Complete todos los campos por favor.","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
         private void extender_Click(object sender, EventArgs e)
@@ -70,23 +70,30 @@ namespace BiblioFlash_UI
             int cant = Convert.ToInt32(numericUpDown1.Value);
             if (cant > 0 && cant < 16)
             {
-                DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
-                DataGridViewCellCollection columnas = fila[0].Cells;
-                PrestamoDTO prestamo = fachada.prestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
-                bool extendio = fachada.extenderPrestamo(prestamo,cant);
-                if (extendio)
-                {
-                    MessageBox.Show("La fecha de devolución se extendió correctamente");
-                    this.Close();
+                try
+                { 
+                    DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
+                    DataGridViewCellCollection columnas = fila[0].Cells;
+                    PrestamoDTO prestamo = fachada.prestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
+                    bool extendio = fachada.extenderPrestamo(prestamo,cant);
+                    if (extendio)
+                    {
+                        MessageBox.Show("La fecha de devolución se extendió correctamente","Devolución",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El usuario no posee el score suficiente para extender el prestamo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("El usuario no posee el score suficiente.");
+                    MessageBox.Show("Debe seleccionar un prestamo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("No se puede extender dicha cantidad de días (1-15).");
+                MessageBox.Show("No se puede extender dicha cantidad de días (1-15).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

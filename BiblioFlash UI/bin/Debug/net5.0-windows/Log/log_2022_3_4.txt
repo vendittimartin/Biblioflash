@@ -1,0 +1,36 @@
+4/3/2022 16:57:49 - Se modificó el usuario Exequiel
+4/3/2022 17:04:14 - Se registró un prestamo
+4/3/2022 17:09:10 - Se notifico un usuario
+4/3/2022 17:37:02 - Se notifico un usuario
+4/3/2022 17:40:44 - Se registró un nuevo usuario : Jeremias
+4/3/2022 17:41:46 - Se registró un prestamo
+4/3/2022 17:43:43 - Se notifico un usuario
+4/3/2022 17:43:47 - Se notifico un usuario
+4/3/2022 17:43:50 - Se notifico un usuario
+4/3/2022 17:59:22 - Se registró un nuevo usuario : 
+4/3/2022 18:03:40 - Se modificó el usuario cliente
+4/3/2022 18:03:58 - Se modificó el usuario cliente
+4/3/2022 18:08:54 - Se modificó el usuario asd
+4/3/2022 18:08:59 - Se modificó el usuario asd
+4/3/2022 18:10:11 - Se registró un nuevo usuario : a
+4/3/2022 18:25:09 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:09 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:10 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:10 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:11 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:11 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:12 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:12 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:13 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:13 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:14 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:15 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:15 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:16 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:25:16 - Se agregó un nuevo ejemplar ID: 0 del libro : Harry Potter and the Philosopher's Stone
+4/3/2022 18:26:20 - Se generó una consulta a la API
+4/3/2022 18:26:37 - Se agregó un nuevo libro : Azul
+4/3/2022 18:28:42 - Se generó una consulta a la API
+4/3/2022 18:30:01 - Se generó una consulta a la API
+4/3/2022 18:57:53 - Se registró una nueva devolución
+4/3/2022 19:09:45 - Se registró una nueva devolución

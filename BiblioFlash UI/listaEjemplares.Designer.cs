@@ -46,7 +46,7 @@ namespace BiblioFlash_UI
             this.listaLibros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnaTitulo,
             this.ColumnaAutor});
-            this.listaLibros.Location = new System.Drawing.Point(14, 105);
+            this.listaLibros.Location = new System.Drawing.Point(-1, 0);
             this.listaLibros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listaLibros.MultiSelect = false;
             this.listaLibros.Name = "listaLibros";
@@ -55,16 +55,17 @@ namespace BiblioFlash_UI
             this.listaLibros.RowHeadersWidth = 51;
             this.listaLibros.RowTemplate.Height = 25;
             this.listaLibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listaLibros.Size = new System.Drawing.Size(766, 412);
+            this.listaLibros.Size = new System.Drawing.Size(452, 399);
             this.listaLibros.TabIndex = 0;
             // 
             // ColumnaTitulo
             // 
+            this.listaLibros.Columns[0].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
             this.ColumnaTitulo.HeaderText = "ID Libro";
             this.ColumnaTitulo.MinimumWidth = 6;
             this.ColumnaTitulo.Name = "ColumnaTitulo";
             this.ColumnaTitulo.ReadOnly = true;
-            this.ColumnaTitulo.Width = 250;
+            this.ColumnaTitulo.Width = 200;
             // 
             // ColumnaAutor
             // 
@@ -72,16 +73,17 @@ namespace BiblioFlash_UI
             this.ColumnaAutor.MinimumWidth = 6;
             this.ColumnaAutor.Name = "ColumnaAutor";
             this.ColumnaAutor.ReadOnly = true;
-            this.ColumnaAutor.Width = 230;
+            this.ColumnaAutor.Width = 200;
             // 
             // listaEjemplares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 480);
+            this.ClientSize = new System.Drawing.Size(449, 410);
             this.Controls.Add(this.listaLibros);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "listaEjemplares";
-            this.Text = "librosDisponibles";
+            this.Text = "Ejemplares disponibles";
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).EndInit();
             this.ResumeLayout(false);
 

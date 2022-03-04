@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
+using System.Text.RegularExpressions;
 using Biblioflash.Manager.Domain;
 
 namespace BiblioFlash_UI
@@ -21,32 +15,64 @@ namespace BiblioFlash_UI
         }
         private void aceptar_Click(object sender, EventArgs e)
         {
+            
             string usuario = Convert.ToString(textBox1.Text);
-            int ejemplar = Convert.ToInt32(textBox2.Text);
-            if (fachada.buscarUsuario(usuario) != null)
+            string ejemplar = Convert.ToString(textBox2.Text);
+            if (usuario == "" || ejemplar == "")
             {
-                    if (usuario != "" && ejemplar >= 0)
-                    {
-                        fachada.registrarPrestamo(usuario, ejemplar);
-                        MessageBox.Show("Prestamo registrado exitosamente.");
-                        this.Hide();
-                        var prestamos = new PantallaPrestamos();
-                        prestamos.Show();
-                }
-                    else
-                    {
-                        MessageBox.Show("Debe completar todos los campos.");
-                    }
+                MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Usuario no encontrado.");
+                if (!Regex.IsMatch(ejemplar, @"^[0-9]+$"))
+                {
+                    MessageBox.Show("El ID ejemplar debe ser un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                { 
+                    if (fachada.buscarUsuario(usuario) != null)
+                    {
+                        int ejemplar2 = Convert.ToInt32(textBox2.Text);
+                        if (ejemplar2 >= 0)
+                        {
+                            Ejemplar ejem = fachada.buscarEjemplarDisponible(ejemplar2);
+                            if (ejem != null)
+                            {
+                                if (fachada.EjDevuelto(ejem))
+                                {
+                                    fachada.registrarPrestamo(usuario, ejemplar2);
+                                    MessageBox.Show("Prestamo registrado exitosamente.");
+                                    this.Hide();
+                                    var prestamos = new PantallaPrestamos();
+                                    prestamos.Show();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("El ejemplar no se encuentra disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("El ejemplar no se encuentra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El ID debe ser mayor o igual a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no encontrado.","Error",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
             }
         }
         private void volver_Click(object sender, EventArgs e)
         {
             this.Hide();
             var prestamos = new PantallaPrestamos();
+            prestamos.Show();
         }
         private void listaEjemplares_Click(object sender, EventArgs e)
         {
@@ -57,6 +83,11 @@ namespace BiblioFlash_UI
         {
             var listaUsuarios = new listUsuarios();
             listaUsuarios.Show();
+        }
+
+        private void registrarPrestamo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

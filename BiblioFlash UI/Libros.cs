@@ -40,8 +40,8 @@ namespace BiblioFlash_UI
         }
         private void botonAgregarSeleccion_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 DataGridViewSelectedRowCollection fila = listaLibros.SelectedRows;
                 DataGridViewCellCollection columnas = fila[0].Cells;
                 LibroDTO libroDTO = new LibroDTO
@@ -53,11 +53,11 @@ namespace BiblioFlash_UI
                 fachada.agregarLibro(libroDTO);
                 MessageBox.Show("Su libro se agrego con exito");
 
-            //}
-            /*catch (EFDatabaseUpdateException exc)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Libro existente");
-            }*/
+                MessageBox.Show("Debe seleccionar un libro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
         private void button2_Click(object sender, EventArgs e)

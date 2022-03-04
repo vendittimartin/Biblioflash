@@ -30,29 +30,36 @@ namespace BiblioFlash_UI
             if (password != "" || user != "")
             {
                 UsuarioDTO usuario = fachada.buscarUsuario(user);
-                if (usuario.Contraseña == password)
+                if (usuario != null)
                 {
-                    if (usuario.RangoUsuario == Rango.Admin)
+                    if (usuario.Contraseña == password)
                     {
-                        this.Hide();
-                        var admin = new PantallaAdmin();
-                        admin.Show();
+                        if (usuario.RangoUsuario == Rango.Admin)
+                        {
+                            this.Hide();
+                            var admin = new PantallaAdmin();
+                            admin.Show();
+                        }
+                        else
+                        {
+                            this.Hide();
+                            var cliente = new Form3(usuario);
+                            cliente.Show();
+                        }
                     }
                     else
                     {
-                        this.Hide();
-                        var cliente = new Form3(usuario);
-                        cliente.Show();
+                        MessageBox.Show("Usuario o contraseña incorrecta, intentelo nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o contraseña incorrecta, intentelo nuevamente.");
+                    MessageBox.Show("Usuario no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else
             {
-                MessageBox.Show("Campos vacíos. Intentelo nuevamente");
+                MessageBox.Show("Campos vacíos. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

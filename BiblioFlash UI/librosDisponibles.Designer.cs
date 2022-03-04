@@ -37,7 +37,9 @@ namespace BiblioFlash_UI
             this.button3 = new System.Windows.Forms.Button();
             this.textBoxTituloLibro = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listaLibros
@@ -54,7 +56,7 @@ namespace BiblioFlash_UI
             this.ColumnaISBN,
             this.ColumnaCantidad});
             this.listaLibros.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
-            this.listaLibros.Location = new System.Drawing.Point(-4, 97);
+            this.listaLibros.Location = new System.Drawing.Point(2, 97);
             this.listaLibros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listaLibros.MultiSelect = false;
             this.listaLibros.Name = "listaLibros";
@@ -68,13 +70,11 @@ namespace BiblioFlash_UI
             // 
             // ColumnaTitulo
             // 
-            this.listaLibros.Columns[0].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
-            this.listaLibros.Columns[0].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(45, 49, 66);
             this.ColumnaTitulo.HeaderText = "Titulo";
             this.ColumnaTitulo.MinimumWidth = 6;
             this.ColumnaTitulo.Name = "ColumnaTitulo";
             this.ColumnaTitulo.ReadOnly = true;
-            this.ColumnaTitulo.Width = 250;
+            this.ColumnaTitulo.Width = 285;
             // 
             // ColumnaAutor
             // 
@@ -82,12 +82,10 @@ namespace BiblioFlash_UI
             this.ColumnaAutor.MinimumWidth = 6;
             this.ColumnaAutor.Name = "ColumnaAutor";
             this.ColumnaAutor.ReadOnly = true;
-            this.ColumnaAutor.Width = 230;
+            this.ColumnaAutor.Width = 240;
             // 
             // ColumnaISBN
             // 
-            this.listaLibros.Columns[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
-            this.listaLibros.Columns[2].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(45, 49, 66);
             this.ColumnaISBN.HeaderText = "ISBN";
             this.ColumnaISBN.MinimumWidth = 6;
             this.ColumnaISBN.Name = "ColumnaISBN";
@@ -112,7 +110,7 @@ namespace BiblioFlash_UI
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
-            this.button3.Location = new System.Drawing.Point(492, 37);
+            this.button3.Location = new System.Drawing.Point(498, 39);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
             this.button3.TabIndex = 4;
@@ -125,7 +123,7 @@ namespace BiblioFlash_UI
             this.textBoxTituloLibro.BackColor = System.Drawing.Color.White;
             this.textBoxTituloLibro.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxTituloLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
-            this.textBoxTituloLibro.Location = new System.Drawing.Point(136, 39);
+            this.textBoxTituloLibro.Location = new System.Drawing.Point(150, 41);
             this.textBoxTituloLibro.Name = "textBoxTituloLibro";
             this.textBoxTituloLibro.PlaceholderText = "Título del libro";
             this.textBoxTituloLibro.Size = new System.Drawing.Size(300, 27);
@@ -142,7 +140,7 @@ namespace BiblioFlash_UI
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
-            this.button1.Location = new System.Drawing.Point(614, 37);
+            this.button1.Location = new System.Drawing.Point(621, 39);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 6;
@@ -150,22 +148,32 @@ namespace BiblioFlash_UI
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.botonLimpiar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.panel1.Controls.Add(this.textBoxTituloLibro);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Location = new System.Drawing.Point(-4, -4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(886, 94);
+            this.panel1.TabIndex = 7;
+            // 
             // librosDisponibles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 544);
-            this.Controls.Add(this.textBoxTituloLibro);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.listaLibros);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "librosDisponibles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catálogo";
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -178,5 +186,6 @@ namespace BiblioFlash_UI
         private System.Windows.Forms.TextBox textBoxTituloLibro;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

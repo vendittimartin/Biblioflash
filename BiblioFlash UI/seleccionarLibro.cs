@@ -58,6 +58,10 @@ namespace BiblioFlash_UI
                 }
             }
         }
+        private void botonCerrar(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void botonBuscar_Click(object sender, EventArgs e)
         {
             string titulo = textBoxTituloLibro.Text;

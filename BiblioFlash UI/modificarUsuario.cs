@@ -38,7 +38,7 @@ namespace BiblioFlash_UI
 
             if (user == "" || password == "" || password2 == "" || email == "" || score == -1)
             {
-                MessageBox.Show("Complete todos los campos por favor.");
+                MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -65,12 +65,12 @@ namespace BiblioFlash_UI
                     }
                     else
                     {
-                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente");
+                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar un rango.");
+                    MessageBox.Show("Debe seleccionar un rango.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }

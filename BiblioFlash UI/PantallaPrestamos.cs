@@ -29,6 +29,7 @@ namespace BiblioFlash_UI
         }
         public void registrarPrestamo_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var prestamos = new registrarPrestamo();
             prestamos.ShowDialog();
         }

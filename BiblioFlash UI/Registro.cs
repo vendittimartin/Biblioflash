@@ -35,26 +35,33 @@ namespace BiblioFlash_UI
             string email = textMail.Text;
             if (user == "" || password == "" || password2 == "" || email == "")
             {
-                MessageBox.Show("Complete todos los campos por favor.");
+                MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else { 
                 if (password == password2)
                 {
                     if (new EmailAddressAttribute().IsValid(email))
                     {
-                        fachada.registrarUsuario(user, password, email);
-                        var inicio = new Form1();
-                        MessageBox.Show("Se registró al usuario correctamente.");
-                        inicio.Show();
-                        this.Close();
+                        if (fachada.buscarUsuario(user) == null)
+                        {
+                            fachada.registrarUsuario(user, password, email);
+                            var inicio = new Form1();
+                            MessageBox.Show("Se registró al usuario correctamente.");
+                            inicio.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"El nombre de usuario {user} ya se encuentra registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                     else 
                     {
-                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente");
+                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 else {
-                    MessageBox.Show("Las contraseñas no coinciden. Intentelo nuevamente");
+                    MessageBox.Show("Las contraseñas no coinciden. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }

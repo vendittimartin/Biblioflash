@@ -8,6 +8,9 @@ using Biblioflash.Manager.DAL;
 using Biblioflash.Manager.DAL.EntityFramework;
 using Biblioflash.Manager.Exceptions;
 using Biblioflash.Manager.Log;
+using System.IO;
+using System.Reflection;
+
 
 
 namespace Biblioflash
@@ -15,7 +18,7 @@ namespace Biblioflash
     public class Fachada
     {
         EnvioMails em = new EnvioMails();
-        Log oLog = new Log(@"C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Manager\Log");
+        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log");
         public List<UsuarioDTO> listaUsuarios()
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -56,11 +59,12 @@ namespace Biblioflash
                                     Usuario = prestamo1.Usuario,
                                     Prestamo = prestamo1,
                                     Fecha = DateTime.Now,
-                                    Descripcion = "Su prestamo esta proximo a vencerse."
-                                };
+                                    Descripcion = "Su prestamo está próximo a vencerse."
+                            };
                                 unitOfWork.NotificacionRepository.Add(notif);
                                 unitOfWork.Complete();
-                                em.EnviarMail(prestamo.Usuario.Mail);
+                                em.EnviarMail(notif);
+                                oLog.Add("Se notifico un usuario");
                             }
                         }
                     }
@@ -435,6 +439,25 @@ namespace Biblioflash
                 unitOfWork.Complete();
                 oLog.Add($"Se agregó un nuevo ejemplar ID: {pEjemplarDTO.ID} del libro : {libro.Titulo}");
             }
+        }
+        public Ejemplar buscarEjemplarDisponible(Int64 id)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                IEnumerable<Ejemplar> ejemplar = unitOfWork.EjemplarRepository.GetAll();
+                foreach (var ej in ejemplar)
+                {
+                    if (id == ej.ID)
+                    {
+                        return ej;
+                    }
+                }
+                return null;
+            }
+        }
+        public bool EjDevuelto(Ejemplar ejemplar)
+        {
+            return ejemplar.Prestamos.Last().estaDevuelto();
         }
         public void cambiarRango(string pNombreUsuario)
         {

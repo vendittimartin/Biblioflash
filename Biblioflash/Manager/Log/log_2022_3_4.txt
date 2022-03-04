@@ -13,3 +13,9 @@
 4/3/2022 12:02:51 - Se generó una consulta a la API
 4/3/2022 12:04:59 - Se registró un prestamo
 4/3/2022 12:07:28 - Se modificó el usuario Exequiel
+4/3/2022 14:45:37 - Se registró una nueva devolución
+4/3/2022 15:27:41 - Se registró un prestamo
+4/3/2022 15:30:59 - Se registró un prestamo
+4/3/2022 16:03:12 - Se modificó el usuario cliente
+4/3/2022 16:31:46 - Se modificó el usuario asd
+4/3/2022 16:35:01 - Se registró un prestamo

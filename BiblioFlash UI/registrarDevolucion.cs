@@ -43,13 +43,27 @@ namespace BiblioFlash_UI
         }
         private void devolver_Click(object sender, EventArgs e)
         {
-            string estado = Convert.ToString(comboBox1.Text);
-            DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
-            DataGridViewCellCollection columnas = fila[0].Cells;
-            PrestamoDTO prestamo = fachada.prestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
-            fachada.registrarDevolucion(prestamo.ID,estado);
-            MessageBox.Show("Devolución realizada correctamente.");
-            this.Close();
+            try
+            {
+                string estado = Convert.ToString(comboBox1.Text);
+                if (estado == "")
+                {
+                    MessageBox.Show("Debe seleccionar el estado de devolución del libro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                { 
+                    DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
+                    DataGridViewCellCollection columnas = fila[0].Cells;
+                    PrestamoDTO prestamo = fachada.prestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
+                    fachada.registrarDevolucion(prestamo.ID, estado);
+                    MessageBox.Show("Devolución realizada correctamente.");
+                    this.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Debe seleccionar un prestamo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void botonBuscar_Click(object sender, EventArgs e)
         {
@@ -72,7 +86,7 @@ namespace BiblioFlash_UI
             }
             else
             {
-                MessageBox.Show("Complete todos los campos.");
+                MessageBox.Show("Complete todos los campos.","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
 

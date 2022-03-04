@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using Biblioflash.Manager.DTO;
+using System.Text.RegularExpressions;
 
 namespace BiblioFlash_UI
 {
@@ -56,30 +57,37 @@ namespace BiblioFlash_UI
                     }
                     else
                     {
-                        MessageBox.Show("El usuario no posee prestamos.");
+                        MessageBox.Show("El usuario no posee prestamos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    int busq = Convert.ToInt32(busqueda);
-                    dataGridView1.Rows.Clear();
-                    List<PrestamoDTO> listaPrestamos = fachada.prestamosPorEjemplar(busq);
-                    if (listaPrestamos != null)
+                    if (!Regex.IsMatch(busqueda, @"^[0-9]+$"))
                     {
-                        foreach (var obj in listaPrestamos)
-                        {
-                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
-                        }
+                        MessageBox.Show("Debe ingresar un número para buscar por ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
-                    {
-                        MessageBox.Show("El ejemplar no posee prestamos.");
+                    { 
+                        int busq = Convert.ToInt32(busqueda);
+                        dataGridView1.Rows.Clear();
+                        List<PrestamoDTO> listaPrestamos = fachada.prestamosPorEjemplar(busq);
+                        if (listaPrestamos != null)
+                        {
+                            foreach (var obj in listaPrestamos)
+                            {
+                                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El ejemplar no posee prestamos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos.");
+                MessageBox.Show("Complete todos los campos.","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
         private void button2_Click(object sender, EventArgs e)
