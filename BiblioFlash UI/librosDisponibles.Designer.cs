@@ -29,8 +29,6 @@ namespace BiblioFlash_UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.listaLibros = new System.Windows.Forms.DataGridView();
             this.ColumnaTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,8 +68,8 @@ namespace BiblioFlash_UI
             // 
             // ColumnaTitulo
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ColumnaTitulo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.listaLibros.Columns[0].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
+            this.listaLibros.Columns[0].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(45, 49, 66);
             this.ColumnaTitulo.HeaderText = "Titulo";
             this.ColumnaTitulo.MinimumWidth = 6;
             this.ColumnaTitulo.Name = "ColumnaTitulo";
@@ -88,8 +86,8 @@ namespace BiblioFlash_UI
             // 
             // ColumnaISBN
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ColumnaISBN.DefaultCellStyle = dataGridViewCellStyle2;
+            this.listaLibros.Columns[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
+            this.listaLibros.Columns[2].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(45, 49, 66);
             this.ColumnaISBN.HeaderText = "ISBN";
             this.ColumnaISBN.MinimumWidth = 6;
             this.ColumnaISBN.Name = "ColumnaISBN";
@@ -132,6 +130,7 @@ namespace BiblioFlash_UI
             this.textBoxTituloLibro.PlaceholderText = "Título del libro";
             this.textBoxTituloLibro.Size = new System.Drawing.Size(300, 27);
             this.textBoxTituloLibro.TabIndex = 5;
+            this.textBoxTituloLibro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button1
             // 

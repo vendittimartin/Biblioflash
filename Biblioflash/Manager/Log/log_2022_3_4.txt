@@ -1,0 +1,15 @@
+4/3/2022 09:40:21 - Se modificó el usuario cliente
+4/3/2022 10:13:40 - Se modificó el usuario asd
+4/3/2022 10:41:43 - Se agregó un nuevo ejemplar ID: 0 del libro : Diccionario geográfico-historico de las Indias Occidentales o América
+4/3/2022 10:49:43 - Se generó una consulta a la API
+4/3/2022 10:51:14 - Se generó una consulta a la API
+4/3/2022 10:51:25 - Se agregó un nuevo libro : Todo el amor
+4/3/2022 10:54:07 - Se generó una consulta a la API
+4/3/2022 10:55:22 - Se generó una consulta a la API
+4/3/2022 11:57:07 - Se registró una nueva devolución
+4/3/2022 12:00:48 - Se modificó el usuario cliente
+4/3/2022 12:01:22 - Se modificó el usuario Exequiel
+4/3/2022 12:01:52 - Se generó una consulta a la API
+4/3/2022 12:02:51 - Se generó una consulta a la API
+4/3/2022 12:04:59 - Se registró un prestamo
+4/3/2022 12:07:28 - Se modificó el usuario Exequiel

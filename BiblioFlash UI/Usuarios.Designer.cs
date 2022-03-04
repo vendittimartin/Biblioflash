@@ -104,6 +104,7 @@ namespace BiblioFlash_UI
             this.button5.FlatAppearance.BorderSize = 2;
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
             this.button5.Location = new System.Drawing.Point(353, 557);

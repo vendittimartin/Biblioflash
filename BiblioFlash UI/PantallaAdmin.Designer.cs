@@ -47,7 +47,7 @@ namespace BiblioFlash_UI
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
-            this.button1.Image = global::BiblioFlash_UI.Properties.Resources.Webp_net_resizeimage__1_;
+            this.button1.Image = global::BiblioFlash_UI.Properties.Resources.prestamos_200px1;
             this.button1.Location = new System.Drawing.Point(557, 139);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 206);

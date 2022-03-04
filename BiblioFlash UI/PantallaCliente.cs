@@ -29,8 +29,8 @@ namespace BiblioFlash_UI
         public void PrestamosCliente(object sender, EventArgs e)
         {
             string pUsername = Convert.ToString(nombreUsuario.Text);
-            this.Hide();
             var libros = new PrestamosCliente(pUsername);
+            this.Hide();
             libros.ShowDialog();
         }
         public void mostrarLibros(object sender, EventArgs e)

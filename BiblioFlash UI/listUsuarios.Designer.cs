@@ -53,7 +53,7 @@ namespace BiblioFlash_UI
             this.ColumnaAutor,
             this.ColumnaISBN,
             this.ColumnaCantidad});
-            this.listaLibros.Location = new System.Drawing.Point(14, 105);
+            this.listaLibros.Location = new System.Drawing.Point(-2, 105);
             this.listaLibros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listaLibros.MultiSelect = false;
             this.listaLibros.Name = "listaLibros";
@@ -62,11 +62,13 @@ namespace BiblioFlash_UI
             this.listaLibros.RowHeadersWidth = 51;
             this.listaLibros.RowTemplate.Height = 25;
             this.listaLibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listaLibros.Size = new System.Drawing.Size(766, 412);
+            this.listaLibros.Size = new System.Drawing.Size(833, 517);
             this.listaLibros.TabIndex = 0;
             // 
             // ColumnaTitulo
             // 
+            this.listaLibros.Columns[0].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
+            this.listaLibros.Columns[0].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(45, 49, 66);
             this.ColumnaTitulo.HeaderText = "Usuario";
             this.ColumnaTitulo.MinimumWidth = 6;
             this.ColumnaTitulo.Name = "ColumnaTitulo";
@@ -83,6 +85,8 @@ namespace BiblioFlash_UI
             // 
             // ColumnaISBN
             // 
+            this.listaLibros.Columns[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
+            this.listaLibros.Columns[2].DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(45,49,66);
             this.ColumnaISBN.HeaderText = "Score";
             this.ColumnaISBN.MinimumWidth = 6;
             this.ColumnaISBN.Name = "ColumnaISBN";
@@ -99,6 +103,14 @@ namespace BiblioFlash_UI
             // 
             // button3
             // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.button3.FlatAppearance.BorderSize = 2;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
             this.button3.Location = new System.Drawing.Point(470, 39);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
@@ -109,14 +121,25 @@ namespace BiblioFlash_UI
             // 
             // textBoxTituloLibro
             // 
+            this.textBoxTituloLibro.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxTituloLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
             this.textBoxTituloLibro.Location = new System.Drawing.Point(208, 39);
             this.textBoxTituloLibro.Name = "textBoxTituloLibro";
             this.textBoxTituloLibro.PlaceholderText = "Nombre de usuario";
-            this.textBoxTituloLibro.Size = new System.Drawing.Size(223, 27);
+            this.textBoxTituloLibro.Size = new System.Drawing.Size(223, 29);
             this.textBoxTituloLibro.TabIndex = 5;
+            this.textBoxTituloLibro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
             this.button1.Location = new System.Drawing.Point(605, 39);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
@@ -129,13 +152,15 @@ namespace BiblioFlash_UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(832, 623);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxTituloLibro);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listaLibros);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "listUsuarios";
-            this.Text = "librosDisponibles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.listaLibros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

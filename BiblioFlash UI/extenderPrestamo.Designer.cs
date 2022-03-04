@@ -42,20 +42,30 @@ namespace BiblioFlash_UI
             this.button3 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(205, 60);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(147, 52);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "Nombre de usuario";
-            this.textBox1.Size = new System.Drawing.Size(246, 27);
+            this.textBox1.Size = new System.Drawing.Size(272, 29);
+            this.textBox1.TabIndex = 11;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(545, 60);
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(513, 52);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 2;
@@ -77,23 +87,24 @@ namespace BiblioFlash_UI
             this.ColumnaNombreUsuario,
             this.ColumnaFechaPrestamo,
             this.ColumnaFechaDevolucion});
-            this.dataGridView1.Location = new System.Drawing.Point(41, 117);
+            this.dataGridView1.Location = new System.Drawing.Point(-11, 117);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(782, 304);
+            this.dataGridView1.Size = new System.Drawing.Size(881, 304);
             this.dataGridView1.TabIndex = 7;
             // 
             // ColumnaID
             // 
+            this.dataGridView1.Columns[0].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191,192,192);
             this.ColumnaID.HeaderText = "ID";
             this.ColumnaID.MinimumWidth = 6;
             this.ColumnaID.Name = "ColumnaID";
             this.ColumnaID.ReadOnly = true;
-            this.ColumnaID.Width = 50;
+            this.ColumnaID.Width = 80;
             // 
             // ColumnaIDEjemplar
             // 
@@ -105,11 +116,12 @@ namespace BiblioFlash_UI
             // 
             // ColumnaNombreLibro
             // 
+            this.dataGridView1.Columns[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
             this.ColumnaNombreLibro.HeaderText = "Libro";
             this.ColumnaNombreLibro.MinimumWidth = 6;
             this.ColumnaNombreLibro.Name = "ColumnaNombreLibro";
             this.ColumnaNombreLibro.ReadOnly = true;
-            this.ColumnaNombreLibro.Width = 150;
+            this.ColumnaNombreLibro.Width = 180;
             // 
             // ColumnaNombreUsuario
             // 
@@ -117,15 +129,16 @@ namespace BiblioFlash_UI
             this.ColumnaNombreUsuario.MinimumWidth = 6;
             this.ColumnaNombreUsuario.Name = "ColumnaNombreUsuario";
             this.ColumnaNombreUsuario.ReadOnly = true;
-            this.ColumnaNombreUsuario.Width = 130;
+            this.ColumnaNombreUsuario.Width = 150;
             // 
             // ColumnaFechaPrestamo
             // 
+            this.dataGridView1.Columns[4].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(191, 192, 192);
             this.ColumnaFechaPrestamo.HeaderText = "Fecha Prestamo";
             this.ColumnaFechaPrestamo.MinimumWidth = 6;
             this.ColumnaFechaPrestamo.Name = "ColumnaFechaPrestamo";
             this.ColumnaFechaPrestamo.ReadOnly = true;
-            this.ColumnaFechaPrestamo.Width = 125;
+            this.ColumnaFechaPrestamo.Width = 145;
             // 
             // ColumnaFechaDevolucion
             // 
@@ -133,13 +146,16 @@ namespace BiblioFlash_UI
             this.ColumnaFechaDevolucion.MinimumWidth = 6;
             this.ColumnaFechaDevolucion.Name = "ColumnaFechaDevolucion";
             this.ColumnaFechaDevolucion.ReadOnly = true;
-            this.ColumnaFechaDevolucion.Width = 125;
+            this.ColumnaFechaDevolucion.Width = 145;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(357, 516);
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(389, 90);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
+            this.button2.Size = new System.Drawing.Size(111, 29);
             this.button2.TabIndex = 4;
             this.button2.Text = "Extender";
             this.button2.UseVisualStyleBackColor = true;
@@ -147,7 +163,10 @@ namespace BiblioFlash_UI
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(706, 60);
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(656, 52);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
             this.button3.TabIndex = 8;
@@ -157,43 +176,69 @@ namespace BiblioFlash_UI
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(332, 474);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(150, 27);
-            this.numericUpDown1.TabIndex = 9;
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDown1.Location = new System.Drawing.Point(439, 38);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(150, 29);
+            this.numericUpDown1.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(175, 476);
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(255, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.Size = new System.Drawing.Size(149, 22);
             this.label1.TabIndex = 10;
             this.label1.Text = "Cantidad de días";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Location = new System.Drawing.Point(-11, -5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(881, 116);
+            this.panel1.TabIndex = 12;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Location = new System.Drawing.Point(-11, 427);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(881, 151);
+            this.panel2.TabIndex = 13;
             // 
             // extenderPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 571);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "extenderPrestamo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prestamos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -212,5 +257,7 @@ namespace BiblioFlash_UI
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
