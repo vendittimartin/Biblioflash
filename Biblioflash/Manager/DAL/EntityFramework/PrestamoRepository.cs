@@ -19,20 +19,5 @@ namespace Biblioflash.Manager.DAL.EntityFramework
         {
             return this.iDbContext.Set<Prestamo>().FirstOrDefault(prestamo => prestamo.ID == pID);
         }
-
-        public List<Prestamo> prestamosADevolverEn(int pDias)
-        {
-            List<Prestamo> listaDevolver = new List<Prestamo>();
-            IEnumerable<Prestamo> listaPrestamos = this.GetAll();
-            foreach (var prestamo in listaPrestamos)
-            {
-                double resta = (prestamo.FechaDevolucion - DateTime.Today).TotalDays;
-                if ((resta > 0) & (resta <= pDias) & (!prestamo.estaDevuelto()))
-                {
-                    listaDevolver.Add(prestamo);
-                }
-            };
-            return listaDevolver;
-        }
     }
 }

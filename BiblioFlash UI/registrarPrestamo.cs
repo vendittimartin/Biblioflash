@@ -38,7 +38,7 @@ namespace BiblioFlash_UI
                             Ejemplar ejem = fachada.buscarEjemplarDisponible(ejemplar2);
                             if (ejem != null)
                             {
-                                if (fachada.EjDevuelto(ejem))
+                                if (fachada.buscarPrestamoEjemplar(ejem))
                                 {
                                     fachada.registrarPrestamo(usuario, ejemplar2);
                                     MessageBox.Show("Prestamo registrado exitosamente.");

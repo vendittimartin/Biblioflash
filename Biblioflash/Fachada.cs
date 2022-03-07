@@ -18,7 +18,7 @@ namespace Biblioflash
     public class Fachada
     {
         EnvioMails em = new EnvioMails();
-        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log");
+        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log"); //Se obtiene la direccion de instalacion del programa para guardar el log en ella
         public List<UsuarioDTO> listaUsuarios()
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -39,7 +39,7 @@ namespace Biblioflash
                 return listaUsuariosDTO;
             }
         }
-        public void notificarUsuarios()
+        public void notificarUsuarios() //Notificar usuarios con préstamos próximos a vencerse (48hs) verificando que ese préstamo no esté previamente notificado
         {
             List<PrestamoDTO> listaTodosLosPrestamos = listaPrestamos();
             foreach (var prestamo in listaTodosLosPrestamos)
@@ -142,14 +142,14 @@ namespace Biblioflash
                 return listaUsuariosDTO;
             }
         }
-        public Usuario recuperarUsuario(PrestamoDTO pPrestamo)
+        public Usuario recuperarUsuario(PrestamoDTO pPrestamo) //Se obtienen los datos de un usuario asociado al préstamo indicado
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 return unitOfWork.PrestamoRepository.Get(pPrestamo.ID).Usuario;
             }
         }
-        public Libro recuperarLibro(PrestamoDTO pPrestamo)
+        public Libro recuperarLibro(PrestamoDTO pPrestamo) //Se obtienen los datos de un libro asociado al préstamo indicado
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -163,7 +163,7 @@ namespace Biblioflash
                 return unitOfWork.PrestamoRepository.Get(pPrestamo.ID);
             }
         }
-        public Ejemplar recuperarID(PrestamoDTO pPrestamo)
+        public Ejemplar recuperarID(PrestamoDTO pPrestamo) 
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -186,7 +186,7 @@ namespace Biblioflash
                 return prestamoADevolver;
             }
         }
-        public bool extenderPrestamo(PrestamoDTO pPrestamo, int cantDias)
+        public bool extenderPrestamo(PrestamoDTO pPrestamo, int cantDias) //Se extiende la fecha de devolución de un préstamo verificando que los días indicados sean posibles debido a su score
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -204,7 +204,7 @@ namespace Biblioflash
                 }
             }
         }
-        public List<PrestamoDTO> prestamosPorUsuarioX(string pNombreUsuario)
+        public List<PrestamoDTO> prestamosPorUsuarioX(string pNombreUsuario) //Lista de todos los préstamos de un usuario en formato DTO
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             { 
@@ -262,7 +262,7 @@ namespace Biblioflash
             }
         }
 
-        public void registrarDevolucion(Int64 pPrestamoID, string pEstado)
+        public void registrarDevolucion(Int64 pPrestamoID, string pEstado) //Registar devolución indicando el estado del ejemplar para establecer score correspondiente
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -286,7 +286,7 @@ namespace Biblioflash
                 oLog.Add($"Se registró una nueva devolución");
             }
         }
-        public List<UsuarioDTO> buscarUsuarioSimilitud(string pNombreUsuario)
+        public List<UsuarioDTO> buscarUsuarioSimilitud(string pNombreUsuario) //Busqueda de usuario por comparacion de caracteres
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -310,7 +310,7 @@ namespace Biblioflash
                 return usuarios;
             }
         }
-        public UsuarioDTO buscarUsuario(string pNombreUsuario)
+        public UsuarioDTO buscarUsuario(string pNombreUsuario) //Busqueda de usuario por igualdad de caracteres
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -330,14 +330,14 @@ namespace Biblioflash
                 else { return null; }
             }
         }
-        public List<Libro> consultaLibrosDisponibles()
+        public List<Libro> consultaLibrosDisponibles() //Listado de libros añadidos a través de la API
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 return unitOfWork.LibroRepository.listaLibros();
             }
         }
-        public List<LibroDTO> buscarLibroSimilitud(string pTitulo)
+        public List<LibroDTO> buscarLibroSimilitud(string pTitulo) //Busqueda de libro por similitud de caracteres
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -360,7 +360,7 @@ namespace Biblioflash
                 return LibrosToDTO;
             }
         }
-        public LibroDTO buscarLibro(string pTitulo)
+        public LibroDTO buscarLibro(string pTitulo) //Busqueda de libro por igualdad de caracteres
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -423,7 +423,7 @@ namespace Biblioflash
                 };
                 unitOfWork.LibroRepository.Add(libroCargar);
                 unitOfWork.Complete();
-                oLog.Add($"Se agregó un nuevo libro : {pLibroDTO.Titulo}");
+                oLog.Add($"Se agregó un nuevo libro");
             }
         }
         public void agregarEjemplar(EjemplarDTO pEjemplarDTO)
@@ -437,10 +437,10 @@ namespace Biblioflash
                 };
                 unitOfWork.EjemplarRepository.Add(ejemplar);
                 unitOfWork.Complete();
-                oLog.Add($"Se agregó un nuevo ejemplar ID: {pEjemplarDTO.ID} del libro : {libro.Titulo}");
+                oLog.Add($"Se agregó un nuevo ejemplar");
             }
         }
-        public Ejemplar buscarEjemplarDisponible(Int64 id)
+        public Ejemplar buscarEjemplarDisponible(Int64 id) //Se devuelve el primer ejemplar disponible encontrado de un libro
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -455,9 +455,36 @@ namespace Biblioflash
                 return null;
             }
         }
-        public bool EjDevuelto(Ejemplar ejemplar)
+        public bool buscarPrestamoEjemplar(Ejemplar ej) //Devuelve si el ejemplar indicado se encuentra prestado actualmente
         {
-            return ejemplar.Prestamos.Last().estaDevuelto();
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                IEnumerable<Prestamo> prestamos = unitOfWork.PrestamoRepository.GetAll();
+                List<Prestamo> prestamos1 = new List<Prestamo>();
+                foreach (var prestamo in prestamos)
+                {
+                    if (prestamo.FechaRealDevolucion == null)
+                    {
+                        prestamos1.Add(prestamo);
+                    }
+                }
+                if (prestamos1.Count() != 0)
+                {
+                    foreach (var prestamo in prestamos1)
+                    {
+                        long nombre = prestamo.Ejemplar.ID;
+                        if (ej.ID == nombre)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return true;
         }
         public void cambiarRango(string pNombreUsuario)
         {
@@ -484,10 +511,10 @@ namespace Biblioflash
             oLog.Add($"Se modificó el rango de un usuario");
             }
         }
-        public List<LibroDTO> consultaLibro(string pTituloLibro)
+        public List<LibroDTO> consultaLibro(string pTituloLibro) //Se realiza una consulta a la API buscando determinado libro
         {
             IconsultaAPI apiConsultas = new consultaAPI();
-            oLog.Add($"Se generó una consulta a la API");
+            oLog.Add($"Se ha realizado una consulta a la API");
             return apiConsultas.Consulta(pTituloLibro);
         }
     }

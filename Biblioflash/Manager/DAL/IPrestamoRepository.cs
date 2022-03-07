@@ -9,8 +9,6 @@ namespace Biblioflash.Manager.DAL
 {
     public interface IPrestamoRepository : IRepository<Prestamo>
     {
-
-        public List<Prestamo> prestamosADevolverEn(int pDias);
         public Prestamo buscarPrestamo(Int64 pID);
 
     }

@@ -18,7 +18,7 @@ namespace BiblioFlash_UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainAsync().Wait();
+            MainAsync().Wait(); //Se ejecuta de manera asincrónica la task "MainAsync" notificando a los usuarios correspondientes
             Application.Run(new Form1());
         }
         static async Task MainAsync()
@@ -34,7 +34,7 @@ namespace BiblioFlash_UI
             IJobDetail reportePorVencerJob = JobBuilder.Create<SimpleJob>()
                 .WithIdentity("ReportePorVencerJob", "group1")
                 .Build();
-            // Trigger the job to run now, and then every 40 seconds
+            // Trigger the job to run now, and then every 24 hours
             ITrigger CadaDiaTrigger1 = TriggerBuilder.Create()
                 .WithIdentity("Cada24HorasreportePorVencerTrigger", "group1")
                 .StartNow()
@@ -43,7 +43,7 @@ namespace BiblioFlash_UI
                     .RepeatForever())
             .Build();
 
-            await scheduler.ScheduleJob(reportePorVencerJob, CadaDiaTrigger1);
+            await scheduler.ScheduleJob(reportePorVencerJob, CadaDiaTrigger1);  //Llamada a la ejecución del scheduler
         }
     }
 }

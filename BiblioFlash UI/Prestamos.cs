@@ -46,18 +46,18 @@ namespace BiblioFlash_UI
                 if (Convert.ToString(comboBox1.SelectedItem) == "Usuario")
                 {
                     dataGridView1.Rows.Clear();
-                    List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuarioX(busqueda);
-                    if (listaPrestamos != null)
+                    List<UsuarioDTO> users = fachada.buscarUsuarioSimilitud(busqueda);
+                    foreach (var usuario in users)
                     {
-                        foreach (var obj in listaPrestamos)
+                        List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuarioX(usuario.NombreUsuario);
+                        if (listaPrestamos != null)
                         {
-                            dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
+                            foreach (var obj in listaPrestamos)
+                            {
+                                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
+                            }
+                            dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Descending);
                         }
-                        dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Descending);
-                    }
-                    else
-                    {
-                        MessageBox.Show("El usuario no posee prestamos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
