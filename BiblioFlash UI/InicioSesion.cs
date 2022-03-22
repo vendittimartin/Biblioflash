@@ -27,7 +27,7 @@ namespace BiblioFlash_UI
         {
             string user = textUsuario.Text;
             string password = textContraseña.Text;
-            if (password != "" || user != "")
+            try
             {
                 UsuarioDTO usuario = fachada.buscarUsuario(user);
                 if (usuario != null)
@@ -47,19 +47,19 @@ namespace BiblioFlash_UI
                             cliente.Show();
                         }
                     }
-                    else
+                    else 
                     {
-                        MessageBox.Show("Usuario o contraseña incorrecta, intentelo nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        throw new Exception("Contraseña incorrecta.");
                     }
                 }
-                else
+                else 
                 {
-                    MessageBox.Show("Usuario no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    throw new Exception("Usuario no encontrado.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Campos vacíos. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
             }
         }
     }

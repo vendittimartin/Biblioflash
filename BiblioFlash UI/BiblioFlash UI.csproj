@@ -5,6 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>BiblioFlash_UI</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>peladasterrrrrrrrr.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

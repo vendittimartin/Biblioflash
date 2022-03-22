@@ -33,13 +33,14 @@ namespace BiblioFlash_UI
             string password = textContraseña.Text;
             string password2 = textContraseña2.Text;
             string email = textMail.Text;
-            if (user == "" || password == "" || password2 == "" || email == "")
+            /*if (user == "" || password == "" || password2 == "" || email == "")
             {
                 MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else { 
                 if (password == password2)
-                {
+                {*/
+                
                     if (new EmailAddressAttribute().IsValid(email))
                     {
                         if (fachada.buscarUsuario(user) == null)
@@ -59,11 +60,11 @@ namespace BiblioFlash_UI
                     {
                         MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                }
+                /*}
                 else {
                     MessageBox.Show("Las contraseñas no coinciden. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-            }
+            }*/
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

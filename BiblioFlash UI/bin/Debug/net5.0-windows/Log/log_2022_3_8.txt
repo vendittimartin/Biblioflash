@@ -1,0 +1,5 @@
+8/3/2022 18:20:46 - Se modificó el usuario Exequiel
+8/3/2022 18:21:09 - Se modificó el usuario Exequiel
+8/3/2022 18:33:48 - Se registró un nuevo usuario : Usuario
+8/3/2022 18:36:00 - Se agregó un nuevo ejemplar
+8/3/2022 18:36:30 - Se ha realizado una consulta a la API
