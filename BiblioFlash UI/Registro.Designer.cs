@@ -54,7 +54,6 @@ namespace BiblioFlash_UI
             this.label1.Size = new System.Drawing.Size(185, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registro";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // usuario
             // 
@@ -67,7 +66,6 @@ namespace BiblioFlash_UI
             this.usuario.Size = new System.Drawing.Size(87, 25);
             this.usuario.TabIndex = 1;
             this.usuario.Text = "Usuario";
-            this.usuario.Click += new System.EventHandler(this.usuario_Click);
             // 
             // contraseña
             // 

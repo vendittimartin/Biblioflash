@@ -33,7 +33,6 @@ namespace BiblioFlash_UI
             this.ColumnaTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.textBoxTituloLibro = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,8 +52,7 @@ namespace BiblioFlash_UI
             this.listaLibros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnaTitulo,
             this.ColumnaAutor,
-            this.ColumnaISBN,
-            this.ColumnaCantidad});
+            this.ColumnaISBN});
             this.listaLibros.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(66)))));
             this.listaLibros.Location = new System.Drawing.Point(2, 97);
             this.listaLibros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -74,7 +72,7 @@ namespace BiblioFlash_UI
             this.ColumnaTitulo.MinimumWidth = 6;
             this.ColumnaTitulo.Name = "ColumnaTitulo";
             this.ColumnaTitulo.ReadOnly = true;
-            this.ColumnaTitulo.Width = 285;
+            this.ColumnaTitulo.Width = 300;
             // 
             // ColumnaAutor
             // 
@@ -82,7 +80,7 @@ namespace BiblioFlash_UI
             this.ColumnaAutor.MinimumWidth = 6;
             this.ColumnaAutor.Name = "ColumnaAutor";
             this.ColumnaAutor.ReadOnly = true;
-            this.ColumnaAutor.Width = 240;
+            this.ColumnaAutor.Width = 300;
             // 
             // ColumnaISBN
             // 
@@ -90,15 +88,7 @@ namespace BiblioFlash_UI
             this.ColumnaISBN.MinimumWidth = 6;
             this.ColumnaISBN.Name = "ColumnaISBN";
             this.ColumnaISBN.ReadOnly = true;
-            this.ColumnaISBN.Width = 150;
-            // 
-            // ColumnaCantidad
-            // 
-            this.ColumnaCantidad.HeaderText = "Disponibles";
-            this.ColumnaCantidad.MinimumWidth = 6;
-            this.ColumnaCantidad.Name = "ColumnaCantidad";
-            this.ColumnaCantidad.ReadOnly = true;
-            this.ColumnaCantidad.Width = 150;
+            this.ColumnaISBN.Width = 200;
             // 
             // button3
             // 
@@ -174,7 +164,6 @@ namespace BiblioFlash_UI
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -182,7 +171,6 @@ namespace BiblioFlash_UI
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaTitulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaAutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaISBN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnaCantidad;
         private System.Windows.Forms.TextBox textBoxTituloLibro;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;

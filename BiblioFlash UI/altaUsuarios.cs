@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
+using Biblioflash.Manager.Log;
 
 namespace BiblioFlash_UI
 {
     public partial class altaUsuarios : Form
     {
         Fachada fachada = new Fachada();
+        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log");
         public altaUsuarios()
         {
             InitializeComponent();
@@ -31,37 +27,45 @@ namespace BiblioFlash_UI
             string password = textContraseña.Text;
             string password2 = textContraseña2.Text;
             string email = textMail.Text;
-            if (user == "" || password == "" || password2 == "" || email == "")
+            try
             {
-                MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                if (password == password2)
+                if (user == "" || password == "" || password2 == "" || email == "")
                 {
-                    if (new EmailAddressAttribute().IsValid(email))
+                    MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    if (password == password2)
                     {
-                        if (fachada.buscarUsuario(user) == null)
+                        if (new EmailAddressAttribute().IsValid(email))
                         {
-                            fachada.registrarUsuario(user, password, email);
-                            var usuarios = new Usuarios();
-                            usuarios.Show();
-                            this.Close();
+                            if (fachada.buscarUsuario(user) == null)
+                            {
+                                fachada.registrarUsuario(user, password, email);
+                                var usuarios = new Usuarios();
+                                usuarios.Show();
+                                this.Close();
+                            }
+                            else
+                            {
+                                throw new Exception($"El nombre de usuario {user} ya se encuentra registrado.");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show($"El nombre de usuario {user} ya se encuentra registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            throw new Exception("El Email no posee un formato válido. Intentelo nuevamente");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        throw new Exception("Las contraseñas no coinciden. Intentelo nuevamente");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Las contraseñas no coinciden. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+            }
+            catch (Exception ex)
+            {
+                oLog.Add($"Se lanzó una excepción no controlada: {ex}");
+                throw new Exception($"Se lanzó una excepción no controlada: {ex}");
             }
         }
     }

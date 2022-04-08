@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using Biblioflash.Manager.DTO;
+using Biblioflash.Manager.Log;
+using System.IO;
 
 namespace BiblioFlash_UI
 {
     public partial class registrarDevolucion : Form
     {
+        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log");
         Fachada fachada = new Fachada();
         public registrarDevolucion()
         {
@@ -48,7 +45,7 @@ namespace BiblioFlash_UI
                 string estado = Convert.ToString(comboBox1.Text);
                 if (estado == "")
                 {
-                    MessageBox.Show("Debe seleccionar el estado de devolución del libro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    throw new Exception("Debe seleccionar el estado de devolución del libro.");
                 }
                 else
                 { 
@@ -62,7 +59,8 @@ namespace BiblioFlash_UI
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Debe seleccionar un prestamo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                oLog.Add($"Se lanzo una excepción no controlada: {ex}");
+                throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
             }
         }
         private void botonBuscar_Click(object sender, EventArgs e)

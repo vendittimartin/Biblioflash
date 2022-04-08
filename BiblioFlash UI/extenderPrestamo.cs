@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using Biblioflash.Manager.DTO;
+using Biblioflash.Manager.Log;
+using System.IO;
 
 namespace BiblioFlash_UI
 {
     public partial class extenderPrestamo : Form
     {
+        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log");
         Fachada fachada = new Fachada();
         public extenderPrestamo()
         {
@@ -68,32 +65,33 @@ namespace BiblioFlash_UI
         private void extender_Click(object sender, EventArgs e)
         {
             int cant = Convert.ToInt32(numericUpDown1.Value);
-            if (cant > 0 && cant < 16)
+            try
             {
-                try
-                { 
-                    DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
-                    DataGridViewCellCollection columnas = fila[0].Cells;
-                    PrestamoDTO prestamo = fachada.prestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
-                    bool extendio = fachada.extenderPrestamo(prestamo,cant);
-                    if (extendio)
-                    {
-                        MessageBox.Show("La fecha de devolución se extendió correctamente","Devolución",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El usuario no posee el score suficiente para extender el prestamo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                catch (Exception ex)
+                if (cant > 0 && cant < 16)
                 {
-                    MessageBox.Show("Debe seleccionar un prestamo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
+                        DataGridViewCellCollection columnas = fila[0].Cells;
+                        PrestamoDTO prestamo = fachada.prestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
+                        bool extendio = fachada.extenderPrestamo(prestamo, cant);
+                        if (extendio)
+                        {
+                            MessageBox.Show("La fecha de devolución se extendió correctamente", "Devolución", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            throw new Exception("El usuario no posee el score suficiente para extender el prestamo.");
+                        }
+                }
+                else
+                {
+                   throw new Exception("No se puede extender dicha cantidad de días (1-15).");
                 }
             }
-            else
+            catch (Exception ex) 
             {
-                MessageBox.Show("No se puede extender dicha cantidad de días (1-15).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                oLog.Add($"Se lanzo una excepción no controlada: {ex}");
+                throw new Exception("Se produjo un error al extender el prestamo. Intentelo nuevamente.");
             }
         }
     }

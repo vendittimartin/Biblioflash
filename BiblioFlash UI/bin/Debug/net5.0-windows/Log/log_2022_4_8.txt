@@ -1,0 +1,5 @@
+08/04/2022 18:26:02 - Se lanzo una excepción del tipo: System.Exception: Usuario no encontrado.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 60
+08/04/2022 18:31:53 - Se lanzo una excepción del tipo: System.Exception: Usuario no encontrado.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 60
+08/04/2022 18:50:42 - Se modificó el usuario cliente

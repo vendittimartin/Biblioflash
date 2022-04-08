@@ -3,11 +3,14 @@ using System.Windows.Forms;
 using Biblioflash;
 using System.Text.RegularExpressions;
 using Biblioflash.Manager.Domain;
+using Biblioflash.Manager.Log;
+using System.IO;
 
 namespace BiblioFlash_UI
 {
     public partial class registrarPrestamo : Form
     {
+        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log");
         Fachada fachada = new Fachada();
         public registrarPrestamo()
         {
@@ -18,54 +21,62 @@ namespace BiblioFlash_UI
             
             string usuario = Convert.ToString(textBox1.Text);
             string ejemplar = Convert.ToString(textBox2.Text);
-            if (usuario == "" || ejemplar == "")
+            try
             {
-                MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                if (!Regex.IsMatch(ejemplar, @"^[0-9]+$"))
+                if (usuario == "" || ejemplar == "")
                 {
-                    MessageBox.Show("El ID ejemplar debe ser un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
-                { 
-                    if (fachada.buscarUsuario(usuario) != null)
+                {
+                    if (!Regex.IsMatch(ejemplar, @"^[0-9]+$"))
                     {
-                        int ejemplar2 = Convert.ToInt32(textBox2.Text);
-                        if (ejemplar2 >= 0)
+                        MessageBox.Show("El ID ejemplar debe ser un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        if (fachada.buscarUsuario(usuario) != null)
                         {
-                            Ejemplar ejem = fachada.buscarEjemplarDisponible(ejemplar2);
-                            if (ejem != null)
+                            int ejemplar2 = Convert.ToInt32(textBox2.Text);
+                            if (ejemplar2 >= 0)
                             {
-                                if (fachada.buscarPrestamoEjemplar(ejem))
+                                Ejemplar ejem = fachada.buscarEjemplarDisponible(ejemplar2);
+                                if (ejem != null)
                                 {
-                                    fachada.registrarPrestamo(usuario, ejemplar2);
-                                    MessageBox.Show("Prestamo registrado exitosamente.");
-                                    this.Hide();
-                                    var prestamos = new PantallaPrestamos();
-                                    prestamos.Show();
+                                    if (fachada.buscarPrestamoEjemplar(ejem))
+                                    {
+                                        fachada.registrarPrestamo(usuario, ejemplar2);
+                                        MessageBox.Show("Prestamo registrado exitosamente.");
+                                        this.Hide();
+                                        var prestamos = new PantallaPrestamos();
+                                        prestamos.Show();
+                                    }
+                                    else
+                                    {
+                                        throw new Exception("El ejemplar no se encuentra disponible.");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("El ejemplar no se encuentra disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    throw new Exception("El ejemplar no se encuentra.");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("El ejemplar no se encuentra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                throw new Exception("El ID debe ser mayor o igual a 0.");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El ID debe ser mayor o igual a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            throw new Exception("Usuario no encontrado.");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Usuario no encontrado.","Error",MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                oLog.Add($"Se lanzo una excepción no controlada: {ex}");
+                throw new Exception("Error al registrar el prestamo. Intentelo nuevamente.");
             }
         }
         private void volver_Click(object sender, EventArgs e)
@@ -83,11 +94,6 @@ namespace BiblioFlash_UI
         {
             var listaUsuarios = new listUsuarios();
             listaUsuarios.Show();
-        }
-
-        private void registrarPrestamo_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

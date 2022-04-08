@@ -12,21 +12,12 @@ namespace BiblioFlash_UI
         Fachada fachada = new Fachada();
         public librosDisponibles()
         {
-            InitializeComponent(); listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
-            foreach (var obj in listLibros)
-            {
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, fachada.cantEjemplaresDisponibles(obj.Titulo));
-            }
+            InitializeComponent();
+            starterRows();
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
-            listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
-            foreach (var obj in listLibros)
-            {
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, fachada.cantEjemplaresDisponibles(obj.Titulo));
-            }
+            starterRows();
         }
         private void botonBuscar_Click(object sender, EventArgs e)
         {
@@ -35,8 +26,17 @@ namespace BiblioFlash_UI
                 List<LibroDTO> libros = fachada.buscarLibroSimilitud(titulo);
                 foreach (var libro in libros)
                 {
-                    listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, fachada.cantEjemplaresDisponibles(libro.Titulo));
+                    listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN);
                 }
+        }
+        private void starterRows()
+        {
+            listaLibros.Rows.Clear();
+            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
+            foreach (var obj in listLibros)
+            {
+                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn);
+            }
         }
     }
 }

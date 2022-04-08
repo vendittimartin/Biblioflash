@@ -197,7 +197,6 @@ namespace BiblioFlash_UI
             this.Name = "registrarPrestamo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "registrarPrestamo";
-            this.Load += new System.EventHandler(this.registrarPrestamo_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -3,11 +3,14 @@ using System.Windows.Forms;
 using Biblioflash;
 using Biblioflash.Manager.DTO;
 using Biblioflash.Manager.Domain;
+using Biblioflash.Manager.Log;
+using System.IO;
 
 namespace BiblioFlash_UI
 {
     public partial class Form1 : Form
     {
+        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log");
         Fachada fachada = new Fachada();
         public Form1()
         {
@@ -47,18 +50,19 @@ namespace BiblioFlash_UI
                             cliente.Show();
                         }
                     }
-                    else 
+                    else
                     {
                         throw new Exception("Contraseña incorrecta.");
                     }
                 }
-                else 
+                else
                 {
                     throw new Exception("Usuario no encontrado.");
                 }
             }
             catch (Exception ex)
             {
+                oLog.Add($"Se lanzo una excepción no controlada: {ex}");
                 throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
             }
         }

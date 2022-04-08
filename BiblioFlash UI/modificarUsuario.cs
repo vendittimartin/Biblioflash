@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioflash;
 using System.ComponentModel.DataAnnotations;
 using Biblioflash.Manager.DTO;
+using Biblioflash.Manager.Log;
+using System.IO;
 
 namespace BiblioFlash_UI
 {
     public partial class modificarUsuario : Form
     {
+        Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log");
         Fachada fachada = new Fachada();
         public modificarUsuario(string pNombreUsuario)
         {
@@ -35,43 +31,50 @@ namespace BiblioFlash_UI
             string password2 = textScore.Text;
             string email = textMail.Text;
             int score = int.Parse(textScore.Text);
-
-            if (user == "" || password == "" || password2 == "" || email == "" || score == -1)
+            try
             {
-                MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                if (comboBox1.SelectedItem != null)
+                if (user == "" || password == "" || password2 == "" || email == "" || score == -1)
                 {
-                    if (new EmailAddressAttribute().IsValid(email))
+                    MessageBox.Show("Complete todos los campos por favor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    if (comboBox1.SelectedItem != null)
                     {
-                        if (Convert.ToString(comboBox1.SelectedItem.ToString()) == "Admin")
+                        if (new EmailAddressAttribute().IsValid(email))
                         {
-                            Biblioflash.Manager.Domain.Rango rango2 = Biblioflash.Manager.Domain.Rango.Admin;
-                            fachada.modificarUsuario(user, password, email, score, rango2);
-                            var usuarios = new Usuarios();
-                            usuarios.Show();
-                            this.Close();
+                            if (Convert.ToString(comboBox1.SelectedItem.ToString()) == "Admin")
+                            {
+                                Biblioflash.Manager.Domain.Rango rango2 = Biblioflash.Manager.Domain.Rango.Admin;
+                                fachada.modificarUsuario(user, password, email, score, rango2);
+                                var usuarios = new Usuarios();
+                                usuarios.Show();
+                                this.Close();
+                            }
+                            else
+                            {
+                                Biblioflash.Manager.Domain.Rango rango2 = Biblioflash.Manager.Domain.Rango.Cliente;
+                                fachada.modificarUsuario(user, password, email, score, rango2);
+                                var usuarios = new Usuarios();
+                                usuarios.Show();
+                                this.Close();
+                            }
                         }
                         else
                         {
-                            Biblioflash.Manager.Domain.Rango rango2 = Biblioflash.Manager.Domain.Rango.Cliente;
-                            fachada.modificarUsuario(user, password, email, score, rango2);
-                            var usuarios = new Usuarios();
-                            usuarios.Show();
-                            this.Close();
+                            throw new Exception("El Email no posee un formato válido. Intentelo nuevamente");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        throw new Exception("Debe seleccionar un rango.");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Debe seleccionar un rango.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+            }
+            catch (Exception ex)
+            {
+                oLog.Add($"Se lanzo una excepción no controlada: {ex}");
+                throw new Exception("Error al modificar un usuario. Intentelo nuevamente.");
             }
         }
     }

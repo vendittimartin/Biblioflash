@@ -9,7 +9,6 @@ using Biblioflash.Manager.DAL.EntityFramework;
 using Biblioflash.Manager.Exceptions;
 using Biblioflash.Manager.Log;
 using System.IO;
-using System.Reflection;
 
 
 
@@ -75,6 +74,11 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
+                Libro pLibro = unitOfWork.LibroRepository.buscarTitulo(pTitulo);
+                return pLibro.Ejemplares.Count();
+            }
+            /*using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
                 int cantEjemplaresDisponibles = 0;
                 Libro libroDTO = unitOfWork.LibroRepository.buscarTitulo(pTitulo);
                 if (libroDTO.Ejemplares.Count() == 0)
@@ -92,7 +96,7 @@ namespace Biblioflash
                     }
                 }
             return cantEjemplaresDisponibles;
-            }
+            }*/
         }
         public List<Ejemplar> listaEjemplaresDisponibles(LibroDTO pLibro)
         {
