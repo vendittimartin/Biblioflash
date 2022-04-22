@@ -16,8 +16,9 @@ namespace Biblioflash.Manager.Domain
             {
                 try
                 {
-                    string from = "biblioflash@outlook.es";
+                    string from = "";
                     string displayName = "BibliotecaFlash";
+                    string password = "";
                     MailMessage mail = new MailMessage();
                     mail.From = new MailAddress(from, displayName);
                     mail.To.Add(to);
@@ -31,7 +32,7 @@ namespace Biblioflash.Manager.Domain
                                     <p> Saludos.Atte.</p>
                                     <h4 style = 'color:#4F5D75'> Biblioflash.</h4>";
                     SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587);
-                    client.Credentials = new NetworkCredential(from, "Biblioflash");
+                    client.Credentials = new NetworkCredential(from, password);
                     client.EnableSsl = true;
                     client.Send(mail);
                 }

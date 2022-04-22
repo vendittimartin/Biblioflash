@@ -77,26 +77,6 @@ namespace Biblioflash
                 Libro pLibro = unitOfWork.LibroRepository.buscarTitulo(pTitulo);
                 return pLibro.Ejemplares.Count();
             }
-            /*using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                int cantEjemplaresDisponibles = 0;
-                Libro libroDTO = unitOfWork.LibroRepository.buscarTitulo(pTitulo);
-                if (libroDTO.Ejemplares.Count() == 0)
-                {
-                    return 0;
-                }
-                else
-                { 
-                    foreach (var ejemplar in libroDTO.Ejemplares)
-                    {
-                        if (ejemplar.estaDisponible())
-                        {
-                            cantEjemplaresDisponibles += 1; 
-                        }
-                    }
-                }
-            return cantEjemplaresDisponibles;
-            }*/
         }
         public List<Ejemplar> listaEjemplaresDisponibles(LibroDTO pLibro)
         {
