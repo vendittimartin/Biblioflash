@@ -5,6 +5,7 @@ using Biblioflash.Manager.Log;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using Biblioflash.Manager.Services;
 
 namespace BiblioFlash_UI
 {
@@ -35,7 +36,7 @@ namespace BiblioFlash_UI
                 UsuarioDTO usuario = fachada.BuscarUsuario(user);
                 if (usuario != null)
                 {
-                    if (usuario.Contraseña == password)
+                    if (usuario.Contraseña == Encriptador.GetSHA256(password))
                     {
                         if (usuario.RangoUsuario == Rango.Admin)
                         {

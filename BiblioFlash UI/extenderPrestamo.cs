@@ -72,7 +72,7 @@ namespace BiblioFlash_UI
                     DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
                     DataGridViewCellCollection columnas = fila[0].Cells;
                     PrestamoDTO prestamo = fachada.PrestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
-                    bool extendio = fachada.ExtenderPrestamo(prestamo, cant);
+                    bool extendio = fachada.ExtenderPrestamo(prestamo.ID, prestamo.Usuario.Score, cant);
                     if (extendio)
                     {
                         MessageBox.Show("La fecha de devolución se extendió correctamente", "Devolución", MessageBoxButtons.OK, MessageBoxIcon.Information);

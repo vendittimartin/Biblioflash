@@ -34,7 +34,7 @@ namespace BiblioFlash_UI
                 ISBN = Int64.Parse(columnas[2].Value.ToString())
             };
             LibroDTO libro = fachada.BuscarLibro(libroDTO.Titulo);
-            List<Ejemplar> listaEjemplares = fachada.ListaEjemplaresDisponibles(libro);
+            List<EjemplarDTO> listaEjemplares = fachada.ListaEjemplaresDisponibles(libro.Titulo);
             var listEjemplares = new listaEjemplares(listaEjemplares);
             listEjemplares.Show();
             this.Close();

@@ -1,5 +1,6 @@
 ﻿using Biblioflash;
 using Biblioflash.Manager.DTO;
+using Biblioflash.Manager.Services;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
@@ -32,7 +33,7 @@ namespace BiblioFlash_UI
             {
                 if (new EmailAddressAttribute().IsValid(email))
                 {
-                    fachada.ModificarUsuario(user, password, email, score, Biblioflash.Manager.Domain.Rango.Cliente);
+                    fachada.ModificarUsuario(user, Encriptador.GetSHA256(password), email, score, Biblioflash.Manager.Domain.Rango.Cliente);
                     this.Close();
                     UsuarioDTO usuario = fachada.BuscarUsuario(user);
                     var cliente = new Form3(usuario);

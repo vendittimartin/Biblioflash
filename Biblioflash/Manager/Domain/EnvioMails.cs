@@ -1,12 +1,13 @@
 ﻿using Biblioflash.Manager.Exceptions;
 using System.Net;
 using System.Net.Mail;
+using Biblioflash.Manager.DAL;
 
 namespace Biblioflash.Manager.Domain
 {
-    public class EnvioMails
+    public class EnvioMails : IEstrategiaNotificacion
     {
-        public void EnvioMail(string to, string asunto, Notificacion notif)
+        public void NotificarUsuario(Notificacion notif)
         {
             try
             {
@@ -15,8 +16,8 @@ namespace Biblioflash.Manager.Domain
                 string password = "Biblioflash";
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(from, displayName);
-                mail.To.Add(to);
-                mail.Subject = asunto;
+                mail.To.Add(notif.Usuario.Mail);
+                mail.Subject = "Prestamo Biblioflash";
                 mail.IsBodyHtml = true;
                 mail.Body = @$"<h2 style='color:#4F5D75'> Estimado: {notif.Usuario.NombreUsuario}</h2>
                                     <p> Le informamos que posee un prestamo próximo a vencerse del libro:<h4 style = 'color:#4F5D75'>{notif.Prestamo.Ejemplar.Libro.Titulo}</h4></p>
@@ -34,13 +35,6 @@ namespace Biblioflash.Manager.Domain
             {
                 throw new SendMailFailedException(ex.Message);
             }
-        }
-
-        public void EnviarMail(Notificacion notif)
-        {
-            string to = notif.Usuario.Mail;
-            string asunto = "Prestamo Biblioflash";
-            EnvioMail(to, asunto, notif);
         }
     }
 }

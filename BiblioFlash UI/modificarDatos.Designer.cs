@@ -126,7 +126,6 @@ namespace BiblioFlash_UI
             this.textContraseña.PasswordChar = '*';
             this.textContraseña.Size = new System.Drawing.Size(232, 29);
             this.textContraseña.TabIndex = 8;
-            this.textContraseña.Text = user.Contraseña;
             // 
             // Volver
             // 

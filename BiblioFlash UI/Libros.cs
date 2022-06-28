@@ -37,17 +37,14 @@ namespace BiblioFlash_UI
             {
                 DataGridViewSelectedRowCollection fila = listaLibros.SelectedRows;
                 DataGridViewCellCollection columnas = fila[0].Cells;
-                LibroDTO libroDTO = new LibroDTO
-                {
-                    Titulo = columnas[0].Value.ToString(),
-                    Autor = columnas[1].Value.ToString(),
-                    ISBN = Int64.Parse(columnas[2].Value.ToString())
-                };
-                fachada.AgregarLibro(libroDTO);
+                string Titulo = columnas[0].Value.ToString();
+                string Autor = columnas[1].Value.ToString();
+                long ISBN = Int64.Parse(columnas[2].Value.ToString());
+                fachada.AgregarLibro(ISBN, Titulo, Autor);
                 MessageBox.Show("Su libro se agrego con exito");
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Debe seleccionar un libro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

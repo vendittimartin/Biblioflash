@@ -1,0 +1,8 @@
+28/06/2022 16:28:15 - Se registró un nuevo usuario : julio
+28/06/2022 16:33:00 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+28/06/2022 16:40:44 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+28/06/2022 16:53:41 - Se modificó el usuario cliente
+28/06/2022 19:34:13 - Se ha realizado una consulta a la API
+28/06/2022 19:34:26 - Se ha realizado una consulta a la API

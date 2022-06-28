@@ -52,7 +52,7 @@ namespace BiblioFlash_UI
                         Libro = pLibro,
                         Prestamos = null
                     };
-                    fachada.AgregarEjemplar(ejemplarDTO);
+                    fachada.AgregarEjemplar(ejemplarDTO.Libro.ISBN);
                 }
                 this.Close();
             }
