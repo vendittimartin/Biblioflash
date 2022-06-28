@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Biblioflash;
-using Biblioflash.Manager.DTO;
+﻿using Biblioflash;
 using Biblioflash.Manager.Domain;
+using Biblioflash.Manager.DTO;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -19,12 +13,12 @@ namespace BiblioFlash_UI
         public seleccionarLibro()
         {
             InitializeComponent(); listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
+            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
+                int cant = fachada.CantEjemplaresDisponibles(obj.Titulo);
                 if (cant != 0)
-                { 
+                {
                     listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
                 }
             }
@@ -39,8 +33,8 @@ namespace BiblioFlash_UI
                 Autor = columnas[1].Value.ToString(),
                 ISBN = Int64.Parse(columnas[2].Value.ToString())
             };
-            LibroDTO libro = fachada.buscarLibro(libroDTO.Titulo);
-            List<Ejemplar> listaEjemplares = fachada.listaEjemplaresDisponibles(libro);
+            LibroDTO libro = fachada.BuscarLibro(libroDTO.Titulo);
+            List<Ejemplar> listaEjemplares = fachada.ListaEjemplaresDisponibles(libro);
             var listEjemplares = new listaEjemplares(listaEjemplares);
             listEjemplares.Show();
             this.Close();
@@ -48,13 +42,13 @@ namespace BiblioFlash_UI
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
+            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                int cant = fachada.cantEjemplaresDisponibles(obj.Titulo);
+                int cant = fachada.CantEjemplaresDisponibles(obj.Titulo);
                 if (cant != 0)
-                { 
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                {
+                    listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
                 }
             }
         }
@@ -68,13 +62,13 @@ namespace BiblioFlash_UI
             if (titulo != "")
             {
                 listaLibros.Rows.Clear();
-                List<LibroDTO> libros = fachada.buscarLibroSimilitud(titulo);
+                List<LibroDTO> libros = fachada.BuscarLibroSimilitud(titulo);
                 foreach (var libro in libros)
-                { 
-                    int cant = fachada.cantEjemplaresDisponibles(libro.Titulo);
+                {
+                    int cant = fachada.CantEjemplaresDisponibles(libro.Titulo);
                     if (cant != 0)
-                    { 
-                       listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
+                    {
+                        listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
                     }
                 }
             }

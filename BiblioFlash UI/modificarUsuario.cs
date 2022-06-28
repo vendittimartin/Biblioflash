@@ -1,10 +1,10 @@
-﻿using System;
-using System.Windows.Forms;
-using Biblioflash;
-using System.ComponentModel.DataAnnotations;
+﻿using Biblioflash;
 using Biblioflash.Manager.DTO;
 using Biblioflash.Manager.Log;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -14,9 +14,9 @@ namespace BiblioFlash_UI
         Fachada fachada = new Fachada();
         public modificarUsuario(string pNombreUsuario)
         {
-            UsuarioDTO user = fachada.buscarUsuario(pNombreUsuario);
+            UsuarioDTO user = fachada.BuscarUsuario(pNombreUsuario);
             InitializeComponent(user);
-            
+
         }
         private void volver_Click(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace BiblioFlash_UI
                             if (Convert.ToString(comboBox1.SelectedItem.ToString()) == "Admin")
                             {
                                 Biblioflash.Manager.Domain.Rango rango2 = Biblioflash.Manager.Domain.Rango.Admin;
-                                fachada.modificarUsuario(user, password, email, score, rango2);
+                                fachada.ModificarUsuario(user, password, email, score, rango2);
                                 var usuarios = new Usuarios();
                                 usuarios.Show();
                                 this.Close();
@@ -54,7 +54,7 @@ namespace BiblioFlash_UI
                             else
                             {
                                 Biblioflash.Manager.Domain.Rango rango2 = Biblioflash.Manager.Domain.Rango.Cliente;
-                                fachada.modificarUsuario(user, password, email, score, rango2);
+                                fachada.ModificarUsuario(user, password, email, score, rango2);
                                 var usuarios = new Usuarios();
                                 usuarios.Show();
                                 this.Close();

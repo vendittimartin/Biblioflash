@@ -1,10 +1,10 @@
-﻿using System;
-using System.Windows.Forms;
-using Biblioflash;
-using System.Text.RegularExpressions;
+﻿using Biblioflash;
 using Biblioflash.Manager.Domain;
 using Biblioflash.Manager.Log;
+using System;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -18,7 +18,7 @@ namespace BiblioFlash_UI
         }
         private void aceptar_Click(object sender, EventArgs e)
         {
-            
+
             string usuario = Convert.ToString(textBox1.Text);
             string ejemplar = Convert.ToString(textBox2.Text);
             try
@@ -35,17 +35,17 @@ namespace BiblioFlash_UI
                     }
                     else
                     {
-                        if (fachada.buscarUsuario(usuario) != null)
+                        if (fachada.BuscarUsuario(usuario) != null)
                         {
                             int ejemplar2 = Convert.ToInt32(textBox2.Text);
                             if (ejemplar2 >= 0)
                             {
-                                Ejemplar ejem = fachada.buscarEjemplarDisponible(ejemplar2);
+                                Ejemplar ejem = fachada.BuscarEjemplarDisponible(ejemplar2);
                                 if (ejem != null)
                                 {
-                                    if (fachada.buscarPrestamoEjemplar(ejem))
+                                    if (fachada.BuscarPrestamoEjemplar(ejem))
                                     {
-                                        fachada.registrarPrestamo(usuario, ejemplar2);
+                                        fachada.RegistrarPrestamo(usuario, ejemplar2);
                                         MessageBox.Show("Prestamo registrado exitosamente.");
                                         this.Hide();
                                         var prestamos = new PantallaPrestamos();

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using Biblioflash;
-using System.ComponentModel.DataAnnotations;
+﻿using Biblioflash;
 using Biblioflash.Manager.DTO;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -11,14 +11,14 @@ namespace BiblioFlash_UI
         Fachada fachada = new Fachada();
         public modificarDatos(string pNombreUsuario)
         {
-            UsuarioDTO user = fachada.buscarUsuario(pNombreUsuario);
+            UsuarioDTO user = fachada.BuscarUsuario(pNombreUsuario);
             InitializeComponent(user);
 
         }
         private void volver_Click(object sender, EventArgs e)
         {
             this.Close();
-            UsuarioDTO user = fachada.buscarUsuario(textUsuario.Text);
+            UsuarioDTO user = fachada.BuscarUsuario(textUsuario.Text);
             var cliente = new Form3(user);
             cliente.Show();
         }
@@ -30,17 +30,17 @@ namespace BiblioFlash_UI
             int score = int.Parse(textScore.Text);
             if (password != "" || email != "")
             {
-                    if (new EmailAddressAttribute().IsValid(email))
-                    {
-                        fachada.modificarUsuario(user, password, email, score, Biblioflash.Manager.Domain.Rango.Cliente);
-                        this.Close();
-                        UsuarioDTO usuario = fachada.buscarUsuario(user);
-                        var cliente = new Form3(usuario);
-                        cliente.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (new EmailAddressAttribute().IsValid(email))
+                {
+                    fachada.ModificarUsuario(user, password, email, score, Biblioflash.Manager.Domain.Rango.Cliente);
+                    this.Close();
+                    UsuarioDTO usuario = fachada.BuscarUsuario(user);
+                    var cliente = new Form3(usuario);
+                    cliente.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else

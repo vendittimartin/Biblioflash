@@ -1,10 +1,10 @@
-﻿using System;
-using System.Windows.Forms;
-using Biblioflash;
-using Biblioflash.Manager.DTO;
+﻿using Biblioflash;
 using Biblioflash.Manager.Domain;
+using Biblioflash.Manager.DTO;
 using Biblioflash.Manager.Log;
+using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -32,7 +32,7 @@ namespace BiblioFlash_UI
             string password = textContraseña.Text;
             try
             {
-                UsuarioDTO usuario = fachada.buscarUsuario(user);
+                UsuarioDTO usuario = fachada.BuscarUsuario(user);
                 if (usuario != null)
                 {
                     if (usuario.Contraseña == password)

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using Biblioflash;
+﻿using Biblioflash;
 using Biblioflash.Manager.DTO;
 using Biblioflash.Manager.Log;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -17,11 +17,11 @@ namespace BiblioFlash_UI
             InitializeComponent();
             List<PrestamoDTO> listaPrestamos = new List<PrestamoDTO>();
             dataGridView1.Rows.Clear();
-            listaPrestamos = fachada.listaPrestamos();
+            listaPrestamos = fachada.ListaPrestamos();
             foreach (var obj in listaPrestamos)
             {
                 if (obj.FechaRealDevolucion == null)
-                { 
+                {
                     dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
                 }
             }
@@ -29,7 +29,7 @@ namespace BiblioFlash_UI
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            List<PrestamoDTO> listaPrestamos = fachada.listaPrestamos();
+            List<PrestamoDTO> listaPrestamos = fachada.ListaPrestamos();
             foreach (var obj in listaPrestamos)
             {
                 if (obj.FechaRealDevolucion == null)
@@ -48,16 +48,16 @@ namespace BiblioFlash_UI
                     throw new Exception("Debe seleccionar el estado de devolución del libro.");
                 }
                 else
-                { 
+                {
                     DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
                     DataGridViewCellCollection columnas = fila[0].Cells;
-                    PrestamoDTO prestamo = fachada.prestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
-                    fachada.registrarDevolucion(prestamo.ID, estado);
+                    PrestamoDTO prestamo = fachada.PrestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
+                    fachada.RegistrarDevolucion(prestamo.ID, estado);
                     MessageBox.Show("Devolución realizada correctamente.");
                     this.Close();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 oLog.Add($"Se lanzo una excepción no controlada: {ex}");
                 throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
@@ -69,22 +69,22 @@ namespace BiblioFlash_UI
             if (busqueda != "")
             {
                 dataGridView1.Rows.Clear();
-                List<UsuarioDTO> user = fachada.buscarUsuarioSimilitud(busqueda);
-                foreach (var usuario in user) 
-                { 
-                List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuarioX(usuario.NombreUsuario);
+                List<UsuarioDTO> user = fachada.BuscarUsuarioSimilitud(busqueda);
+                foreach (var usuario in user)
+                {
+                    List<PrestamoDTO> listaPrestamos = fachada.PrestamosPorUsuarioX(usuario.NombreUsuario);
                     foreach (var obj in listaPrestamos)
                     {
                         if (obj.FechaRealDevolucion == null)
                         {
                             dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
-                        }    
+                        }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos.","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

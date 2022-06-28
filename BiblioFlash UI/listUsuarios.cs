@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Biblioflash;
+﻿using Biblioflash;
 using Biblioflash.Manager.DTO;
-using Biblioflash.Manager.Domain;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -20,7 +13,7 @@ namespace BiblioFlash_UI
         {
             InitializeComponent();
             listaLibros.Rows.Clear();
-            List<UsuarioDTO> listLUsuarios = fachada.listaUsuarios();
+            List<UsuarioDTO> listLUsuarios = fachada.ListaUsuarios();
             foreach (var obj in listLUsuarios)
             {
                 listaLibros.Rows.Add(obj.NombreUsuario, obj.Mail, obj.Score, obj.RangoUsuario);
@@ -29,7 +22,7 @@ namespace BiblioFlash_UI
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             listaLibros.Rows.Clear();
-            List<UsuarioDTO> listLUsuarios = fachada.listaUsuarios();
+            List<UsuarioDTO> listLUsuarios = fachada.ListaUsuarios();
             foreach (var obj in listLUsuarios)
             {
                 listaLibros.Rows.Add(obj.NombreUsuario, obj.Mail, obj.Score, obj.RangoUsuario);
@@ -41,7 +34,7 @@ namespace BiblioFlash_UI
             if (titulo != "")
             {
                 listaLibros.Rows.Clear();
-                List<UsuarioDTO> usuarios = fachada.buscarUsuarioSimilitud(titulo);
+                List<UsuarioDTO> usuarios = fachada.BuscarUsuarioSimilitud(titulo);
                 foreach (var obj in usuarios)
                 {
                     listaLibros.Rows.Add(obj.NombreUsuario, obj.Mail, obj.Score, obj.RangoUsuario);

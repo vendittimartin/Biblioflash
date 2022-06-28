@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
+﻿using Biblioflash.Manager.DTO;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
-using Biblioflash.Manager.DTO;
+using System.Net;
+using System.Text;
+using System.Web;
 
 namespace Biblioflash.Manager.API
 {
     public class consultaAPI : IconsultaAPI
     {
-        public List<LibroDTO> Consulta(string pTituloLibro) {
+        public List<LibroDTO> Consulta(string pTituloLibro)
+        {
 
             System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             var url = "http://openlibrary.org/search.json?title=" + pTituloLibro.Replace(" ", "+");
             HttpWebRequest Request = (HttpWebRequest)WebRequest.Create(url);
-            try {
+            try
+            {
                 WebResponse mResponse = Request.GetResponse();
                 using (Stream responseStream = mResponse.GetResponseStream())
                 {

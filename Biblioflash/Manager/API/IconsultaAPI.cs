@@ -1,9 +1,5 @@
-﻿using System;
+﻿using Biblioflash.Manager.DTO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biblioflash.Manager.DTO;
 
 namespace Biblioflash.Manager.API
 {

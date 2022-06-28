@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biblioflash.Manager.Domain;
+﻿using Biblioflash.Manager.Domain;
 
 namespace Biblioflash.Manager.DAL
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {
 
-        public Usuario buscarUsuario(string pNombreUsuario);
+        public Usuario BuscarUsuario(string pNombreUsuario);
 
     }
 }

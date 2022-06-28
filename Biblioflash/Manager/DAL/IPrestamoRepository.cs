@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biblioflash.Manager.Domain;
+﻿using Biblioflash.Manager.Domain;
+using System;
 
 namespace Biblioflash.Manager.DAL
 {
     public interface IPrestamoRepository : IRepository<Prestamo>
     {
-        public Prestamo buscarPrestamo(Int64 pID);
+        public Prestamo BuscarPrestamo(Int64 pID);
 
     }
 }

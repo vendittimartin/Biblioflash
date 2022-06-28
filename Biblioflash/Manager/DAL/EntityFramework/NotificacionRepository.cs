@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biblioflash.Manager.Domain;
+﻿using Biblioflash.Manager.Domain;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 
 namespace Biblioflash.Manager.DAL.EntityFramework
 {
@@ -15,7 +12,7 @@ namespace Biblioflash.Manager.DAL.EntityFramework
         {
             iDbContext = pContext;
         }
-        public Notificacion buscarNotificacion(Int64 pID)
+        public Notificacion BuscarNotificacion(Int64 pID)
         {
             return this.iDbContext.Set<Notificacion>().FirstOrDefault(notificacion => notificacion.Prestamo.ID == pID);
         }

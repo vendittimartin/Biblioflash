@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Biblioflash;
+﻿using Biblioflash;
 using Biblioflash.Manager.DTO;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -19,7 +13,7 @@ namespace BiblioFlash_UI
         {
             InitializeComponent();
             _ = new List<PrestamoDTO>();
-            List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuarioX(pUsuario);
+            List<PrestamoDTO> listaPrestamos = fachada.PrestamosPorUsuarioX(pUsuario);
             if (listaPrestamos != null)
             {
                 foreach (var obj in listaPrestamos)
@@ -32,7 +26,7 @@ namespace BiblioFlash_UI
         {
             this.Hide();
             string value = dataGridView1.Rows[0].Cells[3].Value.ToString();
-            UsuarioDTO user = fachada.buscarUsuario(value);
+            UsuarioDTO user = fachada.BuscarUsuario(value);
             var cliente = new Form3(user);
             cliente.Show();
         }

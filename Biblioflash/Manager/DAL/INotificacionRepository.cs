@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biblioflash.Manager.Domain;
+﻿using Biblioflash.Manager.Domain;
+using System;
 
 namespace Biblioflash.Manager.DAL
 {
     public interface INotificacionRepository : IRepository<Notificacion>
     {
-        public Notificacion buscarNotificacion(Int64 pID);
+        public Notificacion BuscarNotificacion(Int64 pID);
     }
 }

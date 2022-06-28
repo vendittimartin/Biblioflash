@@ -1,9 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using System.ComponentModel.DataAnnotations;
-using Biblioflash;
+﻿using Biblioflash;
 using Biblioflash.Manager.Log;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -33,9 +33,9 @@ namespace BiblioFlash_UI
                 {
                     if (new EmailAddressAttribute().IsValid(email))
                     {
-                        if (fachada.buscarUsuario(user) == null)
+                        if (fachada.BuscarUsuario(user) == null)
                         {
-                            fachada.registrarUsuario(user, password, email);
+                            fachada.RegistrarUsuario(user, password, email);
                             var inicio = new Form1();
                             MessageBox.Show("Se registró al usuario correctamente.");
                             inicio.Show();

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biblioflash.Manager.Domain;
+﻿using Biblioflash.Manager.Domain;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 
 namespace Biblioflash.Manager.DAL.EntityFramework
@@ -18,7 +14,7 @@ namespace Biblioflash.Manager.DAL.EntityFramework
             iDbContext = pContext;
         }
 
-        public Usuario buscarUsuario(string pNombreUsuario)
+        public Usuario BuscarUsuario(string pNombreUsuario)
         {
             return this.iDbContext.Set<Usuario>().FirstOrDefault(usuario => usuario.NombreUsuario == pNombreUsuario);
         }

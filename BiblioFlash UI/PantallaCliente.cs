@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using Biblioflash;
 using Biblioflash.Manager.DTO;
-using Biblioflash;
+using System;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -10,9 +10,9 @@ namespace BiblioFlash_UI
         Fachada fachada = new Fachada();
         public Form3(UsuarioDTO pUsuario)
         {
-            InitializeComponent(pUsuario.NombreUsuario, pUsuario.Score);    
+            InitializeComponent(pUsuario.NombreUsuario, pUsuario.Score);
         }
-     
+
         public void modificarUsuario(object sender, EventArgs e)
         {
             string pUsername = Convert.ToString(nombreUsuario.Text);

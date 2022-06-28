@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Biblioflash;
+using Biblioflash.Manager.DTO;
+using Biblioflash.Manager.Log;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Forms;
-using Biblioflash;
-using Biblioflash.Manager.DTO;
-using System.Text.RegularExpressions;
-using Biblioflash.Manager.Log;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -19,20 +19,20 @@ namespace BiblioFlash_UI
             InitializeComponent();
             List<PrestamoDTO> listaPrestamos = new List<PrestamoDTO>();
             dataGridView1.Rows.Clear();
-            listaPrestamos = fachada.listaPrestamos();
+            listaPrestamos = fachada.ListaPrestamos();
             foreach (var obj in listaPrestamos)
             {
-                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion,obj.FechaRealDevolucion);
+                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
             }
             dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Descending);
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            List<PrestamoDTO> listaPrestamos = fachada.listaPrestamos();
+            List<PrestamoDTO> listaPrestamos = fachada.ListaPrestamos();
             foreach (var obj in listaPrestamos)
             {
-                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion,obj.FechaRealDevolucion);
+                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion, obj.FechaRealDevolucion);
             }
             dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Descending);
         }
@@ -46,10 +46,10 @@ namespace BiblioFlash_UI
                     if (Convert.ToString(comboBox1.SelectedItem) == "Usuario")
                     {
                         dataGridView1.Rows.Clear();
-                        List<UsuarioDTO> users = fachada.buscarUsuarioSimilitud(busqueda);
+                        List<UsuarioDTO> users = fachada.BuscarUsuarioSimilitud(busqueda);
                         foreach (var usuario in users)
                         {
-                            List<PrestamoDTO> listaPrestamos = fachada.prestamosPorUsuarioX(usuario.NombreUsuario);
+                            List<PrestamoDTO> listaPrestamos = fachada.PrestamosPorUsuarioX(usuario.NombreUsuario);
                             if (listaPrestamos != null)
                             {
                                 foreach (var obj in listaPrestamos)
@@ -70,7 +70,7 @@ namespace BiblioFlash_UI
                         {
                             int busq = Convert.ToInt32(busqueda);
                             dataGridView1.Rows.Clear();
-                            List<PrestamoDTO> listaPrestamos = fachada.prestamosPorEjemplar(busq);
+                            List<PrestamoDTO> listaPrestamos = fachada.PrestamosPorEjemplar(busq);
                             if (listaPrestamos != null)
                             {
                                 foreach (var obj in listaPrestamos)

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biblioflash.Manager.Exceptions;
+﻿using Biblioflash.Manager.Exceptions;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Biblioflash.Manager.DAL.EntityFramework
 {
@@ -37,7 +33,7 @@ namespace Biblioflash.Manager.DAL.EntityFramework
         }
         public void Complete()
         {
-           try
+            try
             {
                 iDbContext.SaveChanges();
             }

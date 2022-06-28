@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Biblioflash;
+﻿using Biblioflash;
 using Biblioflash.Manager.DTO;
+using System;
+using System.Windows.Forms;
 
 namespace BiblioFlash_UI
 {
@@ -17,14 +10,14 @@ namespace BiblioFlash_UI
         Fachada fachada = new Fachada();
         public buscarUsuario(string pNombreUsuario)
         {
-            UsuarioDTO user = fachada.buscarUsuario(pNombreUsuario);
+            UsuarioDTO user = fachada.BuscarUsuario(pNombreUsuario);
             if (user.RangoUsuario == Biblioflash.Manager.Domain.Rango.Admin)
             {
-                InitializeComponent(user,"Admin");
+                InitializeComponent(user, "Admin");
             }
             else
             {
-                InitializeComponent(user,"Cliente");
+                InitializeComponent(user, "Cliente");
             }
 
         }

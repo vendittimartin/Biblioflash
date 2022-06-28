@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Biblioflash.Manager.DAL.EntityFramework.Mapping;
 using Biblioflash.Manager.Domain;
 using Microsoft.EntityFrameworkCore;
-using Biblioflash.Manager.DAL.EntityFramework.Mapping;
 
 namespace Biblioflash.Manager.DAL.EntityFramework
 {

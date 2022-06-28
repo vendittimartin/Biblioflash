@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Biblioflash;
+using Biblioflash.Manager.Domain;
+using Biblioflash.Manager.DTO;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Biblioflash;
-using Biblioflash.Manager.DTO;
-using Biblioflash.Manager.Domain;
 
 namespace BiblioFlash_UI
 {
@@ -14,7 +14,7 @@ namespace BiblioFlash_UI
         {
             InitializeComponent();
             listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
+            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
                 listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn);
@@ -25,7 +25,7 @@ namespace BiblioFlash_UI
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.consultaLibrosDisponibles();
+            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
                 listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn);
@@ -35,7 +35,7 @@ namespace BiblioFlash_UI
         private void botonAgregar_Click(object sender, EventArgs e)
         {
             int cant = Convert.ToInt32(cantEjemplares.Value);
-            if (cant > 0 && cant <51)
+            if (cant > 0 && cant < 51)
             {
                 DataGridViewSelectedRowCollection fila = listaLibros.SelectedRows;
                 DataGridViewCellCollection columnas = fila[0].Cells;
@@ -52,11 +52,11 @@ namespace BiblioFlash_UI
                         Libro = pLibro,
                         Prestamos = null
                     };
-                    fachada.agregarEjemplar(ejemplarDTO);
+                    fachada.AgregarEjemplar(ejemplarDTO);
                 }
                 this.Close();
             }
-            else 
+            else
             {
                 MessageBox.Show("No se puede agregar dicha cantidad de ejemplares.");
             }
@@ -67,9 +67,9 @@ namespace BiblioFlash_UI
             if (titulo != "")
             {
                 listaLibros.Rows.Clear();
-                List<LibroDTO> libros = fachada.buscarLibroSimilitud(titulo);
+                List<LibroDTO> libros = fachada.BuscarLibroSimilitud(titulo);
                 foreach (var libro in libros)
-                { 
+                {
                     listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN);
                     button1.Enabled = true;
                 }

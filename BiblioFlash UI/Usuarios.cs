@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Biblioflash;
+using System;
 using System.Windows.Forms;
-using Biblioflash.Manager.DTO;
-using Biblioflash;
 
 namespace BiblioFlash_UI
 {
@@ -42,7 +34,7 @@ namespace BiblioFlash_UI
             string pUsuario = textUsuario.Text;
             if (pUsuario != "")
             {
-                if (fachada.buscarUsuario(pUsuario) != null)
+                if (fachada.BuscarUsuario(pUsuario) != null)
                 {
                     this.Hide();
                     var altausers = new modificarUsuario(pUsuario);
@@ -53,7 +45,7 @@ namespace BiblioFlash_UI
                     MessageBox.Show("Usuario no encontrado.");
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Debe ingresar un nombre de usuario para realizar modificaciones.");
             }
@@ -63,7 +55,7 @@ namespace BiblioFlash_UI
             string pUsuario = textUsuario.Text;
             if (pUsuario != "")
             {
-                if (fachada.buscarUsuario(pUsuario) != null)
+                if (fachada.BuscarUsuario(pUsuario) != null)
                 {
                     this.Hide();
                     var busquedausers = new buscarUsuario(pUsuario);
