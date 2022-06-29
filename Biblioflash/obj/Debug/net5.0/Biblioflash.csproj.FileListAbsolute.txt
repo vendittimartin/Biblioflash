@@ -99,3 +99,4 @@ C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Bibli
 C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\Biblioflash\obj\Debug\net5.0\ref\Biblioflash.dll
 C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\Biblioflash\obj\Debug\net5.0\Biblioflash.pdb
 C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\Biblioflash\obj\Debug\net5.0\Biblioflash.genruntimeconfig.cache
+C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\Biblioflash.dll.config

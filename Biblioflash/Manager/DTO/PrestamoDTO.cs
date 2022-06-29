@@ -7,9 +7,9 @@ namespace Biblioflash.Manager.DTO
     {
         public Int64 ID { get; set; }
         public Int64 IDEjemplar { get; set; }
-        public Libro Libro { get; set; }
+        public LibroDTO Libro { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public UsuarioDTO Usuario { get; set; }
 
         public DateTime FechaPrestamo { get; set; }
 

@@ -2,18 +2,20 @@
 using System.Net;
 using System.Net.Mail;
 using Biblioflash.Manager.DAL;
+using System.Configuration;
 
 namespace Biblioflash.Manager.Domain
 {
     public class EnvioMails : IEstrategiaNotificacion
     {
+        AppSettingsReader lector = new AppSettingsReader();
         public void NotificarUsuario(Notificacion notif)
         {
             try
             {
-                string from = "biblioflash@outlook.es";
+                string from = (string)lector.GetValue("mail", typeof(string)); 
                 string displayName = "BibliotecaFlash";
-                string password = "Biblioflash";
+                string password = (string)lector.GetValue("mail", typeof(string)); 
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(from, displayName);
                 mail.To.Add(notif.Usuario.Mail);

@@ -32,10 +32,10 @@ namespace BiblioFlash_UI
         private void starterRows()
         {
             listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
+            List<LibroDTO> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn);
+                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.ISBN);
             }
         }
     }

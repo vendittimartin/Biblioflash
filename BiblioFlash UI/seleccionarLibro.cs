@@ -13,13 +13,12 @@ namespace BiblioFlash_UI
         public seleccionarLibro()
         {
             InitializeComponent(); listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
+            List<LibroDTO> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                int cant = fachada.CantEjemplaresDisponibles(obj.Titulo);
-                if (cant != 0)
+                if (obj.Ejemplares.Count != 0)
                 {
-                    listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                    listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.ISBN, obj.Ejemplares.Count);
                 }
             }
         }
@@ -42,13 +41,12 @@ namespace BiblioFlash_UI
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
+            List<LibroDTO> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                int cant = fachada.CantEjemplaresDisponibles(obj.Titulo);
-                if (cant != 0)
+                if (obj.Ejemplares.Count != 0)
                 {
-                    listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn, cant);
+                    listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.ISBN, obj.Ejemplares.Count);
                 }
             }
         }
@@ -65,10 +63,9 @@ namespace BiblioFlash_UI
                 List<LibroDTO> libros = fachada.BuscarLibroSimilitud(titulo);
                 foreach (var libro in libros)
                 {
-                    int cant = fachada.CantEjemplaresDisponibles(libro.Titulo);
-                    if (cant != 0)
+                    if (libro.Ejemplares.Count != 0)
                     {
-                        listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, cant);
+                        listaLibros.Rows.Add(libro.Titulo, libro.Autor, libro.ISBN, libro.Ejemplares.Count);
                     }
                 }
             }

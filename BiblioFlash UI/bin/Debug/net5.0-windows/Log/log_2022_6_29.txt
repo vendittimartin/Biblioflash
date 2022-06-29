@@ -1,0 +1,25 @@
+29/06/2022 10:56:17 - Se lanzo una excepción no controlada: Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: SELECT p."ID", p."EjemplarID", p."FechaDevolucion", p."FechaPrestamo", p."FechaRealDevolucion", p."UsuarioID", p."estadoPrestamo"
+FROM "Prestamos" AS p
+   at Npgsql.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|234_0(<>c__DisplayClass234_0& )
+   at Npgsql.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.Load[TSource](IQueryable`1 source)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Load(INavigation navigation, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.Internal.LazyLoader.Load(Object entity, String navigationName)
+   at Microsoft.EntityFrameworkCore.Proxies.Internal.LazyLoadingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.PrestamoProxy.get_Ejemplar()
+   at Biblioflash.Fachada.<>c__DisplayClass26_0.<BuscarPrestamoEjemplar>b__0(Prestamo p) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 382
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at Biblioflash.Fachada.BuscarPrestamoEjemplar(Int64 id) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 382
+   at BiblioFlash_UI.registrarPrestamo.aceptar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\registrarPrestamo.cs:line 46
+29/06/2022 11:12:48 - Se lanzo una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 327
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 38

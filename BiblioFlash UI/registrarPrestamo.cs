@@ -1,10 +1,10 @@
 ﻿using Biblioflash;
-using Biblioflash.Manager.Domain;
 using Biblioflash.Manager.Log;
 using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Biblioflash.Manager.DTO;
 
 namespace BiblioFlash_UI
 {
@@ -40,7 +40,7 @@ namespace BiblioFlash_UI
                             int ejemplar2 = Convert.ToInt32(textBox2.Text);
                             if (ejemplar2 >= 0)
                             {
-                                Ejemplar ejem = fachada.BuscarEjemplarDisponible(ejemplar2);
+                                EjemplarDTO ejem = fachada.BuscarEjemplarDisponible(ejemplar2);
                                 if (ejem != null)
                                 {
                                     if (fachada.BuscarPrestamoEjemplar(ejem.ID))

@@ -14,10 +14,10 @@ namespace BiblioFlash_UI
         {
             InitializeComponent();
             listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
+            List<LibroDTO> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn);
+                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.ISBN);
             }
             button1.Enabled = true;
         }
@@ -25,10 +25,10 @@ namespace BiblioFlash_UI
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             listaLibros.Rows.Clear();
-            List<Libro> listLibros = fachada.ConsultaLibrosDisponibles();
+            List<LibroDTO> listLibros = fachada.ConsultaLibrosDisponibles();
             foreach (var obj in listLibros)
             {
-                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.Isbn);
+                listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.ISBN);
             }
             button1.Enabled = true;
         }
