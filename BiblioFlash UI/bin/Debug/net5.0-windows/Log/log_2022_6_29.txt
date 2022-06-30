@@ -23,3 +23,51 @@ FROM "Prestamos" AS p
    at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
    at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 327
    at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 38
+29/06/2022 16:38:14 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:41:51 - Se modificó el usuario cliente
+29/06/2022 16:41:56 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:44:15 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:44:24 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:44:42 - Se modificó el usuario cliente
+29/06/2022 16:44:55 - Se modificó el usuario cliente
+29/06/2022 16:44:59 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:45:36 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:46:09 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:46:32 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:46:54 - Se modificó el usuario julio
+29/06/2022 16:46:59 - Se modificó el usuario julio
+29/06/2022 16:47:07 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:47:14 - Se lanzo una excepción no controlada: System.Exception: Contraseña incorrecta.
+   at BiblioFlash_UI.Form1.iniciar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\InicioSesion.cs:line 56
+29/06/2022 16:47:43 - Se modificó el usuario cliente
+29/06/2022 16:47:50 - Se modificó el usuario cliente
+29/06/2022 16:49:58 - Se modificó el usuario cliente
+29/06/2022 16:50:34 - Se lanzó una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 327
+   at BiblioFlash_UI.altaUsuarios.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\altaUsuarios.cs:line 44
+29/06/2022 16:53:13 - Se lanzó una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 327
+   at BiblioFlash_UI.altaUsuarios.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\altaUsuarios.cs:line 44
+29/06/2022 16:54:34 - Se lanzó una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 327
+   at BiblioFlash_UI.altaUsuarios.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\altaUsuarios.cs:line 44
+29/06/2022 17:09:08 - Se lanzó una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 327
+   at BiblioFlash_UI.altaUsuarios.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\altaUsuarios.cs:line 44
+29/06/2022 17:15:12 - Se lanzó una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 327
+   at BiblioFlash_UI.altaUsuarios.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\altaUsuarios.cs:line 44

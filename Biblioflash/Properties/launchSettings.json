@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Biblioflash": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Clave": "Valor"
+      }
+    }
+  }
+}

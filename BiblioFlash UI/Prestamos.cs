@@ -26,7 +26,7 @@ namespace BiblioFlash_UI
             }
             dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Descending);
         }
-        private void botonLimpiar_Click(object sender, EventArgs e)
+        private async void botonLimpiar_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
             List<PrestamoDTO> listaPrestamos = fachada.ListaPrestamos();

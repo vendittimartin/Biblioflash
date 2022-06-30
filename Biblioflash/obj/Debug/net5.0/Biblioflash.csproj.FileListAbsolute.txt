@@ -34,11 +34,7 @@ C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\System.Draw
 C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\System.Security.Permissions.dll
 C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\System.Windows.Extensions.dll
-C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\vendi\source\repos\Biblioflash\Biblioflash\obj\Debug\net5.0\Biblioflash.csproj.AssemblyReference.cache
 C:\Users\vendi\source\repos\Biblioflash\Biblioflash\obj\Debug\net5.0\Biblioflash.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\vendi\source\repos\Biblioflash\Biblioflash\obj\Debug\net5.0\Biblioflash.AssemblyInfoInputs.cache
@@ -100,3 +96,10 @@ C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Bibli
 C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\Biblioflash\obj\Debug\net5.0\Biblioflash.pdb
 C:\Users\Exequiel\Desktop\UTN\TERCER AÑO\PROGRAMACIÓN\GIT\vendittimartin\Biblioflash\Biblioflash\obj\Debug\net5.0\Biblioflash.genruntimeconfig.cache
 C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\Biblioflash.dll.config
+C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\System.Security.AccessControl.dll
+C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.AccessControl.dll
+C:\Users\vendi\source\repos\Biblioflash\Biblioflash\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
+C:\Users\vendi\source\repos\Biblioflash\Biblioflash\obj\Debug\net5.0\Biblioflash.csproj.CopyComplete

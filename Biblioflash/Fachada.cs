@@ -88,8 +88,8 @@ namespace Biblioflash
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 IEnumerable<Prestamo> prestamos = unitOfWork.PrestamoRepository.GetAll();
-                /*List<PrestamoDTO> listaPrestamosDTO = new List<PrestamoDTO>();
-                foreach (var p in prestamos)
+                List<PrestamoDTO> listaPrestamosDTO = new List<PrestamoDTO>();
+                /*foreach (var p in prestamos)
                 {
                     PrestamoDTO prestamoDTO = new PrestamoDTO
                     {
@@ -147,8 +147,8 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                int scoreNecesario = (int)lector.GetValue("scoreExtension", typeof(int));
-                if (Score >= scoreNecesario * cantDias)
+                int score = Convert.ToInt32(ConfigurationManager.AppSettings.Get("scoreExtension"));
+                if (Score >= score * cantDias)
                 {
                     Prestamo prestamo = unitOfWork.PrestamoRepository.BuscarPrestamo(ID);
                     prestamo.FechaDevolucion = prestamo.FechaDevolucion.AddDays(cantDias);
@@ -324,11 +324,12 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                int scoreInicial = (int)lector.GetValue("scoreInicial", typeof(int));
+                string prueba = ConfigurationManager.AppSettings.Get("scoreInicial");
+                int score = Convert.ToInt32(ConfigurationManager.AppSettings.Get("scoreInicial"));
                 Usuario user = new Usuario
                 {
                     NombreUsuario = pNombreUsuario,
-                    Score = scoreInicial,
+                    Score = score,//Inicial,
                     Mail = pMail,
                     RangoUsuario = Rango.Cliente,
                     Contraseña = Encriptador.GetSHA256(pContraseña)
@@ -380,27 +381,33 @@ namespace Biblioflash
         public bool BuscarPrestamoEjemplar(long id) //Devuelve si el ejemplar indicado se encuentra prestado actualmente
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                IEnumerable<Prestamo> prestamos = unitOfWork.PrestamoRepository.GetAll();
-
-                List<Prestamo> cantPrestamos = prestamos.Where(p => p.Ejemplar.ID == id).ToList();
-                if (cantPrestamos.Count > 0)
                 {
-                    cantPrestamos = cantPrestamos.Where(p => p.FechaRealDevolucion == null).ToList();
-                    if (cantPrestamos.Count > 0)
+                    IEnumerable<Prestamo> prestamos = unitOfWork.PrestamoRepository.GetAll();
+                    List<Prestamo> prestamos1 = new List<Prestamo>();
+                    foreach (var prestamo in prestamos)
                     {
-                        return false;
+                        if (prestamo.FechaRealDevolucion == null)
+                        {
+                            prestamos1.Add(prestamo);
+                        }
+                    }
+                    if (prestamos1.Count() != 0)
+                    {
+                        foreach (var prestamo in prestamos1)
+                        {
+                            long nombre = prestamo.Ejemplar.ID;
+                            if (id == nombre)
+                            {
+                                return false;
+                            }
+                        }
                     }
                     else
                     {
                         return true;
                     }
                 }
-                else
-                {
-                    return true;
-                }
-            }        
+                return true;
         }
         public void CambiarRango(string pNombreUsuario)
         {
