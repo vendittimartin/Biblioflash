@@ -147,7 +147,7 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                int score = Convert.ToInt32(ConfigurationManager.AppSettings.Get("scoreExtension"));
+                int score = Convert.ToInt32(ConfigurationManager.AppSettings["scoreInicial"]);
                 if (Score >= score * cantDias)
                 {
                     Prestamo prestamo = unitOfWork.PrestamoRepository.BuscarPrestamo(ID);
