@@ -6472,19 +6472,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ignac\\.nuget\\packages\\": {}
+    "C:\\Users\\Joel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ignac\\Documents\\GitHub\\Biblioflash\\BiblioFlash UI\\BiblioFlash UI.csproj",
+      "projectUniqueName": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\BiblioFlash UI\\BiblioFlash UI.csproj",
       "projectName": "BiblioFlash UI",
-      "projectPath": "C:\\Users\\Ignac\\Documents\\GitHub\\Biblioflash\\BiblioFlash UI\\BiblioFlash UI.csproj",
-      "packagesPath": "C:\\Users\\Ignac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ignac\\Documents\\GitHub\\Biblioflash\\BiblioFlash UI\\obj\\",
+      "projectPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\BiblioFlash UI\\BiblioFlash UI.csproj",
+      "packagesPath": "C:\\Users\\Joel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\BiblioFlash UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ignac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Joel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6498,8 +6498,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\Ignac\\Documents\\GitHub\\Biblioflash\\Biblioflash\\Biblioflash.csproj": {
-              "projectPath": "C:\\Users\\Ignac\\Documents\\GitHub\\Biblioflash\\Biblioflash\\Biblioflash.csproj"
+            "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj": {
+              "projectPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj"
             }
           }
         }
@@ -6535,24 +6535,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.13, 5.0.13]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -6561,7 +6543,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
       }
     }
   }

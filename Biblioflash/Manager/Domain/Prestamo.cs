@@ -51,15 +51,15 @@ namespace Biblioflash.Manager.Domain
             int diasAtrasado = diasAtrasados();
             if (diasAtrasado != 0)
             {
-                Usuario.Score -= (porDia * diasAtrasado);
+                Usuario.Score -= ( 2 * diasAtrasado);
             }
             if (estadoPrestamo == "Malo")
             {
-                Usuario.Score -= malEstado;
+                Usuario.Score -= 10;
             }
             else
             {
-                Usuario.Score += buenEstado;
+                Usuario.Score += 5;
             }
         }
         public bool prestamoAtrasado()
