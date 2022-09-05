@@ -54,7 +54,7 @@ namespace Biblioflash
                 }
             }
         }
-        public List<EjemplarDTO> ListaEjemplaresDisponibles(string Titulo)
+        public List<EjemplarDTO> ListaEjemplaresDisponibles(string Titulo) //Test
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -83,7 +83,7 @@ namespace Biblioflash
                 return DTO;
             }
         }
-        public List<PrestamoDTO> ListaPrestamos()
+        public List<PrestamoDTO> ListaPrestamos() //test?
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -144,16 +144,15 @@ namespace Biblioflash
             }
         }
         public bool ExtenderPrestamo(long ID, int Score, int cantDias) //Se extiende la fecha de devolución de un préstamo verificando que los días indicados sean posibles debido a su score
-        {
+        {  //test
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                int score = Convert.ToInt32(ConfigurationManager.AppSettings["scoreInicial"]);
-                if (Score >= score * cantDias)
+            {                
+                if (Score >= 5 * cantDias)
                 {
                     Prestamo prestamo = unitOfWork.PrestamoRepository.BuscarPrestamo(ID);
                     prestamo.FechaDevolucion = prestamo.FechaDevolucion.AddDays(cantDias);
                     unitOfWork.Complete();
-                    oLog.Add($"Se extendió un prestamo");
+                    //oLog.Add($"Se extendió un prestamo");
                     return true;
                 }
                 else
@@ -191,7 +190,7 @@ namespace Biblioflash
             List<PrestamoDTO> listaTodosLosPrestamos = ListaPrestamos();
             return listaTodosLosPrestamos.Where(x => x.IDEjemplar == pIdEjemplar).ToList();
         }
-        public void RegistrarPrestamo(string pUsuario, Int64 pEjemplarID)
+        public void RegistrarPrestamo(string pUsuario, Int64 pEjemplarID) //test
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -213,7 +212,7 @@ namespace Biblioflash
         }
 
         public void RegistrarDevolucion(Int64 pPrestamoID, string pEstado) //Registar devolución indicando el estado del ejemplar para establecer score correspondiente
-        {
+        { //test
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamoID);
@@ -306,7 +305,7 @@ namespace Biblioflash
                 }
             }
         }
-        public void ModificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Rango pRango)
+        public void ModificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Rango pRango) //test
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -320,16 +319,14 @@ namespace Biblioflash
             }
             oLog.Add($"Se modificó el usuario {pNombreUsuario}");
         }
-        public void RegistrarUsuario(string pNombreUsuario, string pContraseña, string pMail)
+        public void RegistrarUsuario(string pNombreUsuario, string pContraseña, string pMail) //test
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                string prueba = ConfigurationManager.AppSettings.Get("scoreInicial");
-                int score = Convert.ToInt32(ConfigurationManager.AppSettings.Get("scoreInicial"));
                 Usuario user = new Usuario
                 {
                     NombreUsuario = pNombreUsuario,
-                    Score = score,//Inicial,
+                    Score = 5,//Inicial,
                     Mail = pMail,
                     RangoUsuario = Rango.Cliente,
                     Contraseña = Encriptador.GetSHA256(pContraseña)
@@ -340,7 +337,7 @@ namespace Biblioflash
                 oLog.Add($"Se registró un nuevo usuario : {pNombreUsuario}");
             }
         }
-        public void AgregarLibro(long ISBN, string Titulo, string Autor)
+        public void AgregarLibro(long ISBN, string Titulo, string Autor) //test
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -355,7 +352,7 @@ namespace Biblioflash
                 oLog.Add($"Se agregó un nuevo libro");
             }
         }
-        public void AgregarEjemplar(long ISBN)
+        public void AgregarEjemplar(long ISBN) //test
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -435,7 +432,7 @@ namespace Biblioflash
             }
         }
         public List<LibroDTO> ConsultaLibro(string pTituloLibro) //Se realiza una consulta a la API buscando determinado libro
-        {
+        {   //test
             IconsultaAPI apiConsultas = new consultaAPI();
             oLog.Add($"Se ha realizado una consulta a la API");
             return apiConsultas.Consulta(pTituloLibro);

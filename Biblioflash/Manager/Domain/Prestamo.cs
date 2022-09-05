@@ -45,9 +45,6 @@ namespace Biblioflash.Manager.Domain
 
         public void registrarAtraso() 
         {
-            int buenEstado = Convert.ToInt32(ConfigurationManager.AppSettings.Get("buenEstado"));
-            int malEstado = Convert.ToInt32(ConfigurationManager.AppSettings.Get("malEstado"));
-            int porDia = Convert.ToInt32(ConfigurationManager.AppSettings.Get("porDia"));
             int diasAtrasado = diasAtrasados();
             if (diasAtrasado != 0)
             {
