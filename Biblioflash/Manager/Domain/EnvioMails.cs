@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Mail;
 using Biblioflash.Manager.DAL;
 using System.Configuration;
+using System;
 
 namespace Biblioflash.Manager.Domain
 {
@@ -33,9 +34,9 @@ namespace Biblioflash.Manager.Domain
                 client.EnableSsl = true;
                 client.Send(mail);
             }
-            catch (SendMailFailedException ex)
+            catch (Exception ex)
             {
-                throw new SendMailFailedException(ex.Message);
+                throw;
             }
         }
     }

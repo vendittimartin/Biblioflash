@@ -1,0 +1,5 @@
+07/09/2022 13:12:07 - Se registró un prestamo
+07/09/2022 13:13:42 - Se extendió un prestamo
+07/09/2022 13:15:03 - Se registró una nueva devolución
+07/09/2022 13:27:15 - Se registró un prestamo
+07/09/2022 13:30:08 - Se extendió un prestamousuario: asdid prestamo: 36dias: 3fecha: 15/09/2022 13:27:14

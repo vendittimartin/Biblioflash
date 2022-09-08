@@ -43,17 +43,17 @@ namespace BiblioFlash_UI
                         }
                         else
                         {
-                            throw new Exception($"El nombre de usuario {user} ya se encuentra registrado.");
-                        }
+                            MessageBox.Show($"El nombre de usuario {user} ya se encuentra registrado.");
+                         }
                     }
                     else
                     {
-                        throw new Exception("El Email no posee un formato válido. Intentelo nuevamente");
+                        MessageBox.Show("El Email no posee un formato válido. Intentelo nuevamente");
                     }
                 }
                 else
                 {
-                    throw new Exception("Las contraseñas no coinciden. Intentelo nuevamente");
+                    MessageBox.Show("Las contraseñas no coinciden. Intentelo nuevamente");
                 }
             }
             catch (Exception ex)

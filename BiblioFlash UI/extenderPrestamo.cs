@@ -72,7 +72,7 @@ namespace BiblioFlash_UI
                     DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
                     DataGridViewCellCollection columnas = fila[0].Cells;
                     PrestamoDTO prestamo = fachada.PrestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
-                    bool extendio = fachada.ExtenderPrestamo(prestamo.ID, prestamo.Usuario.Score, cant);
+                    bool extendio = fachada.ExtenderPrestamo(prestamo.ID, prestamo.Usuario.NombreUsuario, cant);
                     if (extendio)
                     {
                         MessageBox.Show("La fecha de devolución se extendió correctamente", "Devolución", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -80,12 +80,12 @@ namespace BiblioFlash_UI
                     }
                     else
                     {
-                        throw new Exception("El usuario no posee el score suficiente para extender el prestamo.");
+                        MessageBox.Show("El usuario no posee el score suficiente para extender el prestamo.");
                     }
                 }
                 else
                 {
-                    throw new Exception("No se puede extender dicha cantidad de días (1-15).");
+                    MessageBox.Show("No se puede extender dicha cantidad de días (1-15).");
                 }
             }
             catch (Exception ex)

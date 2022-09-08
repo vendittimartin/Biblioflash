@@ -121,7 +121,6 @@ C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.modificarDatos.resources
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.PrestamosCliente.resources
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash_UI.Properties.Resources.resources
-C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.CopyComplete
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Biblioflash.dll.config
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\Microsoft.Win32.SystemEvents.dll
 C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\bin\Debug\net5.0-windows\System.Configuration.ConfigurationManager.dll
@@ -220,3 +219,4 @@ C:\Users\Joel\Documents\GitHub\Biblioflash1\BiblioFlash UI\obj\Debug\net5.0-wind
 C:\Users\Joel\Documents\GitHub\Biblioflash1\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.pdb
 C:\Users\Joel\Documents\GitHub\Biblioflash1\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.genruntimeconfig.cache
 C:\Users\Joel\Documents\GitHub\Biblioflash1\BiblioFlash UI\bin\Debug\net5.0-windows\ref\BiblioFlash UI.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.CopyComplete

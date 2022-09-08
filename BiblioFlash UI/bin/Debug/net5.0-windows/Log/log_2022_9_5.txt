@@ -1,0 +1,42 @@
+05/09/2022 17:26:53 - Se modificó el usuario cliente
+05/09/2022 17:27:25 - Se lanzo una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 304
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 38
+05/09/2022 17:28:04 - Se lanzo una excepción no controlada: System.Exception: El Email no posee un formato válido. Intentelo nuevamente
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 51
+05/09/2022 17:29:11 - Se lanzo una excepción no controlada: System.Exception: El nombre de usuario joelb ya se encuentra registrado.
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 46
+05/09/2022 17:30:26 - Se lanzo una excepción no controlada: System.Exception: El Email no posee un formato válido. Intentelo nuevamente
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 51
+05/09/2022 17:34:45 - Se lanzo una excepción no controlada: System.Exception: El Email no posee un formato válido. Intentelo nuevamente
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 52
+05/09/2022 17:35:49 - Se lanzo una excepción no controlada: System.Exception: El Email no posee un formato válido. Intentelo nuevamente
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 54
+05/09/2022 17:37:17 - Se lanzo una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 304
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 38
+05/09/2022 17:38:18 - Se lanzo una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 304
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 38
+05/09/2022 17:41:02 - Se lanzo una excepción no controlada: System.InvalidOperationException: The key 'scoreInicial' does not exist in the appSettings configuration section.
+   at System.Configuration.AppSettingsReader.GetValue(String key, Type type)
+   at Biblioflash.Fachada.RegistrarUsuario(String pNombreUsuario, String pContraseña, String pMail) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 304
+   at BiblioFlash_UI.Form2.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\Registro.cs:line 38
+05/09/2022 17:45:26 - Se registró un nuevo usuario : joelb123
+05/09/2022 17:46:28 - Se registró un nuevo usuario : exep123
+05/09/2022 17:47:10 - Se modificó el usuario exep123
+05/09/2022 17:47:23 - Se registró un nuevo usuario : exep
+05/09/2022 17:48:11 - Se ha realizado una consulta a la API
+05/09/2022 17:48:18 - Se agregó un nuevo libro
+05/09/2022 17:48:37 - Se agregó un nuevo ejemplar
+05/09/2022 18:11:39 - Se registró un prestamo
+05/09/2022 18:15:05 - Se registró una nueva devolución
+05/09/2022 18:16:04 - Se lanzo una excepción no controlada: System.Exception: El usuario no posee el score suficiente para extender el prestamo.
+   at BiblioFlash_UI.extenderPrestamo.extender_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\extenderPrestamo.cs:line 83
+05/09/2022 18:21:22 - Se extendió un prestamo
+05/09/2022 18:22:42 - Se registró una nueva devolución
+05/09/2022 18:27:32 - Se registró un prestamo
+05/09/2022 18:28:32 - Se registró una nueva devolución

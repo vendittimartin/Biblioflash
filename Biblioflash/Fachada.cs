@@ -12,15 +12,12 @@ using System.Linq;
 using Biblioflash.Manager.Services;
 using System.Configuration;
 
-
-
 namespace Biblioflash
 {
     public class Fachada
     {
         EnvioMails em = new EnvioMails();
         Log oLog = new Log($@"{Directory.GetCurrentDirectory()}\Log"); //Se obtiene la direccion de instalacion del programa para guardar el log en ella
-        AppSettingsReader lector = new AppSettingsReader();
         public List<UsuarioDTO> ListaUsuarios()
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -54,7 +51,7 @@ namespace Biblioflash
                 }
             }
         }
-        public List<EjemplarDTO> ListaEjemplaresDisponibles(string Titulo) //Test
+        public List<EjemplarDTO> ListaEjemplaresDisponibles(string Titulo) 
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -83,29 +80,12 @@ namespace Biblioflash
                 return DTO;
             }
         }
-        public List<PrestamoDTO> ListaPrestamos() //test?
+        public List<PrestamoDTO> ListaPrestamos() 
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 IEnumerable<Prestamo> prestamos = unitOfWork.PrestamoRepository.GetAll();
                 List<PrestamoDTO> listaPrestamosDTO = new List<PrestamoDTO>();
-                /*foreach (var p in prestamos)
-                {
-                    PrestamoDTO prestamoDTO = new PrestamoDTO
-                    {
-                        ID = p.ID,
-                        FechaDevolucion = p.FechaDevolucion,
-                        FechaPrestamo = p.FechaPrestamo,
-                        FechaRealDevolucion = p.FechaRealDevolucion,
-                    };
-                    prestamoDTO.Usuario = RecuperarUsuario(prestamoDTO.ID);
-                    EjemplarDTO ej = RecuperarID(prestamoDTO.ID);
-                    prestamoDTO.IDEjemplar = ej.ID;
-                    prestamoDTO.Libro = RecuperarLibro(prestamoDTO.ID);
-                    listaPrestamosDTO.Add(prestamoDTO);
-                }
-                return listaPrestamosDTO;*/
-
                 return prestamos.Select(p => new PrestamoDTO { ID = p.ID, FechaDevolucion = p.FechaDevolucion, FechaPrestamo = p.FechaPrestamo, FechaRealDevolucion = p.FechaRealDevolucion,
                 Usuario = RecuperarUsuario(p.ID), IDEjemplar = RecuperarID(p.ID).ID, estadoDevolucion = p.estadoPrestamo, Libro = RecuperarLibro(p.ID)}).ToList();
             }
@@ -115,7 +95,7 @@ namespace Biblioflash
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Usuario user = unitOfWork.PrestamoRepository.Get(ID).Usuario;
-                return new UsuarioDTO() { NombreUsuario = user.NombreUsuario, Contraseña = user.Contraseña, Mail = user.Mail, RangoUsuario = user.RangoUsuario, Score = user.Score};
+                return new UsuarioDTO { NombreUsuario = user.NombreUsuario, Contraseña = user.Contraseña, Mail = user.Mail, RangoUsuario = user.RangoUsuario, Score = user.Score};
             }
         }
         public LibroDTO RecuperarLibro(long ID) //Se obtienen los datos de un libro asociado al préstamo indicado
@@ -139,25 +119,33 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                List<PrestamoDTO> listaTodosLosPrestamos = ListaPrestamos();
-                return listaTodosLosPrestamos.Where(p => p.ID == pID).FirstOrDefault();
+                Prestamo prestamo = unitOfWork.PrestamoRepository.BuscarPrestamo(pID);
+                return new PrestamoDTO() { ID = prestamo.ID, estadoDevolucion = prestamo.estadoPrestamo, FechaDevolucion = prestamo.FechaDevolucion, FechaPrestamo = prestamo.FechaPrestamo, FechaRealDevolucion = prestamo.FechaRealDevolucion, IDEjemplar = prestamo.Ejemplar.ID, Usuario = new UsuarioDTO { NombreUsuario = prestamo.Usuario.NombreUsuario} };
             }
         }
-        public bool ExtenderPrestamo(long ID, int Score, int cantDias) //Se extiende la fecha de devolución de un préstamo verificando que los días indicados sean posibles debido a su score
-        {  //test
+        public bool ExtenderPrestamo(long ID, string userID, int cantDias) //Se extiende la fecha de devolución de un préstamo verificando que los días indicados sean posibles debido a su score
+        {  
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {                
-                if (Score >= 5 * cantDias)
-                {
-                    Prestamo prestamo = unitOfWork.PrestamoRepository.BuscarPrestamo(ID);
-                    prestamo.FechaDevolucion = prestamo.FechaDevolucion.AddDays(cantDias);
-                    unitOfWork.Complete();
-                    //oLog.Add($"Se extendió un prestamo");
-                    return true;
+            {
+                try {
+                    Usuario usuario = unitOfWork.UsuarioRepository.BuscarUsuario(userID);
+                    if (usuario.ExtenderPrestamo(cantDias))
+                    {
+                        Prestamo prestamo = unitOfWork.PrestamoRepository.BuscarPrestamo(ID);
+                        prestamo.FechaDevolucion = prestamo.FechaDevolucion.AddDays(cantDias);
+                        unitOfWork.Complete();
+                        oLog.Add($"Se extendió un prestamo" + "usuario: " + userID + "id prestamo: " + prestamo.ID + "dias: " + cantDias + "fecha: " + prestamo.FechaDevolucion);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    return false;
+                    oLog.Add("Error al extender un prestamo: " + ex.Message);
+                    throw;
                 }
             }
         }
@@ -190,7 +178,7 @@ namespace Biblioflash
             List<PrestamoDTO> listaTodosLosPrestamos = ListaPrestamos();
             return listaTodosLosPrestamos.Where(x => x.IDEjemplar == pIdEjemplar).ToList();
         }
-        public void RegistrarPrestamo(string pUsuario, Int64 pEjemplarID) //test
+        public void RegistrarPrestamo(string pUsuario, Int64 pEjemplarID) 
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -210,12 +198,12 @@ namespace Biblioflash
                 oLog.Add($"Se registró un prestamo");
             }
         }
-
         public void RegistrarDevolucion(Int64 pPrestamoID, string pEstado) //Registar devolución indicando el estado del ejemplar para establecer score correspondiente
-        { //test
+        { 
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Prestamo prestamo = unitOfWork.PrestamoRepository.Get(pPrestamoID);
+                prestamo.estadoPrestamo = pEstado;
                 prestamo.registrarAtraso();
                 prestamo.registrarDevolucion();
                 unitOfWork.Complete();
@@ -305,7 +293,7 @@ namespace Biblioflash
                 }
             }
         }
-        public void ModificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Rango pRango) //test
+        public void ModificarUsuario(string pNombreUsuario, string pContraseña, string pMail, int pScore, Rango pRango) 
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -319,25 +307,25 @@ namespace Biblioflash
             }
             oLog.Add($"Se modificó el usuario {pNombreUsuario}");
         }
-        public void RegistrarUsuario(string pNombreUsuario, string pContraseña, string pMail) //test
+        public void RegistrarUsuario(string pNombreUsuario, string pContraseña, string pMail) 
         {
+            int score = Convert.ToInt32(ConfigurationManager.AppSettings["scoreInicial"]);
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Usuario user = new Usuario
                 {
                     NombreUsuario = pNombreUsuario,
-                    Score = 5,//Inicial,
+                    Score = score,
                     Mail = pMail,
-                    RangoUsuario = Rango.Cliente,
-                    Contraseña = Encriptador.GetSHA256(pContraseña)
+                    RangoUsuario = Rango.Cliente
                 };
-
+                //user.setContraseña(pContraseña);
                 unitOfWork.UsuarioRepository.Add(user);
                 unitOfWork.Complete();
                 oLog.Add($"Se registró un nuevo usuario : {pNombreUsuario}");
             }
         }
-        public void AgregarLibro(long ISBN, string Titulo, string Autor) //test
+        public void AgregarLibro(long ISBN, string Titulo, string Autor) 
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -432,7 +420,7 @@ namespace Biblioflash
             }
         }
         public List<LibroDTO> ConsultaLibro(string pTituloLibro) //Se realiza una consulta a la API buscando determinado libro
-        {   //test
+        {  
             IconsultaAPI apiConsultas = new consultaAPI();
             oLog.Add($"Se ha realizado una consulta a la API");
             return apiConsultas.Consulta(pTituloLibro);

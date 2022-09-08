@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Configuration;
 
 namespace Biblioflash.Manager.Domain
 {
     public class Prestamo
     {
-        AppSettingsReader lector = new AppSettingsReader();
         public Int64 ID { get; set; }
         public DateTime? FechaRealDevolucion { get; set; }
         public DateTime FechaDevolucion { get; set; }
@@ -76,7 +74,6 @@ namespace Biblioflash.Manager.Domain
             {
                 return false;
             }
-
         }
     }
 }
