@@ -9,14 +9,20 @@ namespace TestUnitario
     public class TestEncriptador
     {
         [TestMethod]
-        public void Encrypt_Msg_True()
+        public void EncryptAndDecrypt_Msg_True()
         {
-            string msg = "h";
-            IEncriptador encriptador = new EncriptadorAES();
-            string encrpyt = encriptador.Encriptar(msg);
-            string decrypt = encriptador.Desencriptar(encrpyt);
+            string encrpyt = "";
+            List<string> listOfStrings = new List<string>() {
+                "joelb", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+            };
+            List<string> listOfStrings2 = new List<string>();
+            string[] array2 = new string[] { };
+            for (int i = 0; i < 22; i++) {
+                encrpyt = Encriptador.GetSHA256(listOfStrings[i]);
+                listOfStrings2.Add(encrpyt);
+            }
 
-            Assert.AreEqual("h", decrypt);
+            Assert.AreEqual("hola", listOfStrings2);
         }
     }
 }

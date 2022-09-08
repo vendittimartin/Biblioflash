@@ -9,7 +9,6 @@ namespace Biblioflash.Manager.Domain
 {
     public class EnvioMails : IEstrategiaNotificacion
     {
-        AppSettingsReader lector = new AppSettingsReader();
         public void NotificarUsuario(Notificacion notif)
         {
             try

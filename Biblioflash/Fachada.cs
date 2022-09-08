@@ -299,7 +299,7 @@ namespace Biblioflash
             {
                 Usuario user = unitOfWork.UsuarioRepository.BuscarUsuario(pNombreUsuario);
                 user.NombreUsuario = pNombreUsuario;
-                user.Contraseña = pContraseña;
+                user.Contraseña = Encriptador.GetSHA256(pContraseña);
                 user.Mail = pMail;
                 user.Score = pScore;
                 user.RangoUsuario = pRango;
@@ -319,7 +319,7 @@ namespace Biblioflash
                     Mail = pMail,
                     RangoUsuario = Rango.Cliente
                 };
-                //user.setContraseña(pContraseña);
+                user.setContraseña(pContraseña);
                 unitOfWork.UsuarioRepository.Add(user);
                 unitOfWork.Complete();
                 oLog.Add($"Se registró un nuevo usuario : {pNombreUsuario}");
@@ -424,6 +424,21 @@ namespace Biblioflash
             IconsultaAPI apiConsultas = new consultaAPI();
             oLog.Add($"Se ha realizado una consulta a la API");
             return apiConsultas.Consulta(pTituloLibro);
+        }
+
+        public bool ComparePassword(string password, string idUsuario)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Usuario user = unitOfWork.UsuarioRepository.BuscarUsuario(idUsuario);
+                if (Encriptador.Decrypt(user.Contraseña) == password)
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
         }
     }
 }

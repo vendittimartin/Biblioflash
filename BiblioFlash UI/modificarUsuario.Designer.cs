@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Biblioflash.Manager.DTO;
+using Biblioflash.Manager.Services;
 
 namespace BiblioFlash_UI
 {
@@ -128,7 +129,7 @@ namespace BiblioFlash_UI
             this.textContraseña.PasswordChar = '*';
             this.textContraseña.Size = new System.Drawing.Size(232, 29);
             this.textContraseña.TabIndex = 8;
-            this.textContraseña.Text = user.Contraseña;
+            this.textContraseña.Text = Encriptador.Decrypt(user.Contraseña);
             // 
             // Volver
             // 

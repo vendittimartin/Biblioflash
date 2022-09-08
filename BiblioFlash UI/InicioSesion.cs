@@ -36,7 +36,7 @@ namespace BiblioFlash_UI
                 UsuarioDTO usuario = fachada.BuscarUsuario(user);
                 if (usuario != null)
                 {
-                    if (usuario.Contraseña == Encriptador.GetSHA256(password))
+                    if (fachada.ComparePassword(password,usuario.NombreUsuario))
                     {
                         if (usuario.RangoUsuario == Rango.Admin)
                         {
@@ -64,7 +64,7 @@ namespace BiblioFlash_UI
             catch (Exception ex)
             {
                 oLog.Add($"Se lanzo una excepción no controlada: {ex}");
-                throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
+                    throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
             }
         }
     }
