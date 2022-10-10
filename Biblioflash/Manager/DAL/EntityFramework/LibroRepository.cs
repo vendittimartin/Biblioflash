@@ -43,5 +43,26 @@ namespace Biblioflash.Manager.DAL.EntityFramework
             }
             return listLibros;
         }
+
+        public List<Libro> BuscarLibroSimilitud(string pTitulo) {
+            var queryHighScores =
+                from libro in iDbContext.Set<Libro>()
+                where libro.Titulo.ToUpper().Contains(pTitulo.ToUpper())
+                select new { libro.Isbn, libro.Titulo, libro.Autor, libro.Ejemplares };
+
+            List<Libro> listLibros = new List<Libro>();
+            foreach (var obj in queryHighScores)
+            {
+                Libro libro = new Libro
+                {
+                    Isbn = obj.Isbn,
+                    Autor = obj.Autor,
+                    Titulo = obj.Titulo,
+                    Ejemplares = obj.Ejemplares
+                };
+                listLibros.Add(libro);
+            }
+            return listLibros;
+        }
     }
 }

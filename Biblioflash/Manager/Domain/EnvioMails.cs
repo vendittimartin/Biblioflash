@@ -13,9 +13,9 @@ namespace Biblioflash.Manager.Domain
         {
             try
             {
-                string from = ConfigurationManager.AppSettings.Get("mail");
+                string from = "Biblioflash@outlook.es";
                 string displayName = "BibliotecaFlash";
-                string password = ConfigurationManager.AppSettings.Get("password");
+                string password = "Biblioflash";
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(from, displayName);
                 mail.To.Add(notif.Usuario.Mail);

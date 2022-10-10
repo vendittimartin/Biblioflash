@@ -61,7 +61,7 @@ namespace Biblioflash
                 {
                     ID = u.ID,
                     Libro = GetLibroDTO(u.Libro.Titulo),
-                    Prestamos = u.Prestamos
+                    Prestamos = GetPrestamoDTOs(u.ID)
                 }).ToList();
             }
         }
@@ -112,7 +112,28 @@ namespace Biblioflash
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Ejemplar ej = unitOfWork.PrestamoRepository.Get(ID).Ejemplar;
-                return new EjemplarDTO() { ID = ej.ID, Prestamos = ej.Prestamos};
+                return new EjemplarDTO() { ID = ej.ID, Prestamos = GetPrestamoDTOs(ej.ID)};
+            }
+        }
+        public List<PrestamoDTO> GetPrestamoDTOs(long IDEj) {
+            List<PrestamoDTO> listPrestamosDTO = new List<PrestamoDTO>();
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Ejemplar ejemplar = unitOfWork.EjemplarRepository.Get(IDEj);
+                foreach (var prestamo in ejemplar.Prestamos)
+                {
+                    PrestamoDTO prestamo1 = new PrestamoDTO
+                    {
+                        IDEjemplar = prestamo.Ejemplar.ID,
+                        FechaPrestamo = prestamo.FechaPrestamo,
+                        FechaDevolucion = prestamo.FechaDevolucion,
+                        FechaRealDevolucion = prestamo.FechaRealDevolucion,
+                        ID = prestamo.ID,
+                        estadoDevolucion = prestamo.estadoPrestamo
+                    };
+                    listPrestamosDTO.Add(prestamo1);
+                }
+                return listPrestamosDTO;
             }
         }
         public PrestamoDTO PrestamosPorID(Int64 pID)
@@ -214,12 +235,10 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                IEnumerable<Usuario> listUsuarios = unitOfWork.UsuarioRepository.GetAll();
+                IEnumerable<Usuario> listUsuarios = unitOfWork.UsuarioRepository.BuscarUsuarioSimilitud(pNombreUsuario);
                 List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
                 foreach (var usuario in listUsuarios)
                 {
-                    if (usuario.NombreUsuario.ToUpper().Contains(pNombreUsuario.ToUpper()))
-                    {
                         UsuarioDTO usuarioDTO = new UsuarioDTO
                         {
                             NombreUsuario = usuario.NombreUsuario,
@@ -229,7 +248,6 @@ namespace Biblioflash
                             Contraseña = usuario.Contraseña
                         };
                         usuarios.Add(usuarioDTO);
-                    }
                 }
                 return usuarios;
             }
@@ -266,9 +284,15 @@ namespace Biblioflash
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                pTitulo = pTitulo.ToUpper();
-                IEnumerable<Libro> Libros = unitOfWork.LibroRepository.GetAll();
-                return Libros.Where(p => p.Titulo.ToUpper().Contains(pTitulo)).Select(x => new LibroDTO() { ISBN = x.Isbn, Titulo = x.Titulo, Autor = x.Autor}).ToList();
+                IEnumerable<Libro> Libros = unitOfWork.LibroRepository.BuscarLibroSimilitud(pTitulo);
+                List<LibroDTO> libros = new List<LibroDTO>();
+                foreach (var x in Libros)
+                {
+                    LibroDTO libroDTO = new LibroDTO()
+                    { ISBN = x.Isbn, Titulo = x.Titulo, Autor = x.Autor };
+                    libros.Add(libroDTO);
+                }
+                return libros;
             }
         }
         public LibroDTO BuscarLibro(string pTitulo) //Busqueda de libro por igualdad de caracteres
@@ -360,7 +384,7 @@ namespace Biblioflash
             {
                 IEnumerable<Ejemplar> ejemplar = unitOfWork.EjemplarRepository.GetAll();
                 var list = ejemplar.Where(e => e.ID == id).ToList();
-                return list.Where(e=> e.EstaDisponible() == true).Select(x => new EjemplarDTO() { ID = x.ID, Libro = GetLibroDTO(x.Libro.Titulo), Prestamos = x.Prestamos}).FirstOrDefault();
+                return list.Where(e=> e.EstaDisponible() == true).Select(x => new EjemplarDTO() { ID = x.ID, Libro = GetLibroDTO(x.Libro.Titulo), Prestamos = GetPrestamoDTOs(x.ID)}).FirstOrDefault();
             }
         }
         public bool BuscarPrestamoEjemplar(long id) //Devuelve si el ejemplar indicado se encuentra prestado actualmente

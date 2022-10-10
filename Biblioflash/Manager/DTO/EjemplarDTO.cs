@@ -8,6 +8,6 @@ namespace Biblioflash.Manager.DTO
     {
         public Int64 ID { get; set; }
         public virtual LibroDTO Libro { get; set; }
-        public virtual List<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
+        public virtual List<PrestamoDTO> Prestamos { get; set; } = new List<PrestamoDTO>();
     }
 }

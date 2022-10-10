@@ -1,4 +1,5 @@
 ﻿using Biblioflash.Manager.Domain;
+using System.Collections.Generic;
 
 namespace Biblioflash.Manager.DAL
 {
@@ -6,6 +7,7 @@ namespace Biblioflash.Manager.DAL
     {
 
         public Usuario BuscarUsuario(string pNombreUsuario);
+        public List<Usuario> BuscarUsuarioSimilitud(string pNombreUsuario);
 
     }
 }
