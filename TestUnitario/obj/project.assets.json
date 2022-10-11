@@ -7662,19 +7662,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vendi\\.nuget\\packages\\": {}
+    "C:\\Users\\Joel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\TestUnitario\\BiblioFlash.TestUnitario.csproj",
+      "projectUniqueName": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\TestUnitario\\BiblioFlash.TestUnitario.csproj",
       "projectName": "BiblioFlash.TestUnitario",
-      "projectPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\TestUnitario\\BiblioFlash.TestUnitario.csproj",
-      "packagesPath": "C:\\Users\\vendi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\TestUnitario\\obj\\",
+      "projectPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\TestUnitario\\BiblioFlash.TestUnitario.csproj",
+      "packagesPath": "C:\\Users\\Joel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\TestUnitario\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\vendi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Joel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7688,8 +7688,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj": {
-              "projectPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj"
+            "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj": {
+              "projectPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj"
             }
           }
         }
@@ -7736,7 +7736,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
       }
     }
   }

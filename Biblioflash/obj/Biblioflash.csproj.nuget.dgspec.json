@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj": {}
+    "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj": {
+    "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj",
+        "projectUniqueName": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj",
         "projectName": "Biblioflash",
-        "projectPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj",
-        "packagesPath": "C:\\Users\\vendi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\obj\\",
+        "projectPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj",
+        "packagesPath": "C:\\Users\\Joel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vendi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     }
