@@ -9,7 +9,7 @@ Final project of the programming workshop subject.
 
 :point_right: https://drive.google.com/file/d/1eFTEfthEW5w9EdvXBo6QCn6vulzfF7YG/view?usp=sharing :point_left:
 
-### Enter and register, it's free:smirk:
+### Enter and register:smirk:
 ![Sign in](https://i.imgur.com/WA46EF1.png)
 
 
