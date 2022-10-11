@@ -1,7 +1,7 @@
 # Biblioflash 🚀
 
 Development of a desktop application for the management of library loans in which the openlibrary api is consumed to register books.
-It was developed under the application of good programming practices and under the use of design patterns.
+It was developed under the use of design patterns.
 
 Final project of the programming workshop subject.
 
