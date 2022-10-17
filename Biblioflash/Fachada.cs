@@ -46,7 +46,7 @@ namespace Biblioflash
                        unitOfWork.NotificacionRepository.Add(notif);
                        unitOfWork.Complete();
                        em.NotificarUsuario(notif);
-                       oLog.Add("Se notifico un usuario");
+                       oLog.Add($"Se lanzo una notificacion {notif.ID} al usuario {notif.Usuario}");
                    }
                 }
             }
@@ -216,7 +216,7 @@ namespace Biblioflash
                 usuario.Prestamos.Add(prestamo);
                 unitOfWork.PrestamoRepository.Add(prestamo);
                 unitOfWork.Complete();
-                oLog.Add($"Se registró un prestamo");
+                oLog.Add($"Se registró el prestamo {prestamo.ID}, al usuario {prestamo.Usuario.NombreUsuario}, con el ejemplar {prestamo.Ejemplar.ID}");
             }
         }
         public void RegistrarDevolucion(Int64 pPrestamoID, string pEstado) //Registar devolución indicando el estado del ejemplar para establecer score correspondiente
@@ -228,7 +228,7 @@ namespace Biblioflash
                 prestamo.registrarAtraso();
                 prestamo.registrarDevolucion();
                 unitOfWork.Complete();
-                oLog.Add($"Se registró una nueva devolución");
+                oLog.Add($"Se registró una nueva devolución del prestamo: {prestamo.ID}");
             }
         }
         public List<UsuarioDTO> BuscarUsuarioSimilitud(string pNombreUsuario) //Busqueda de usuario por comparacion de caracteres
@@ -361,10 +361,10 @@ namespace Biblioflash
                 };
                 unitOfWork.LibroRepository.Add(libroCargar);
                 unitOfWork.Complete();
-                oLog.Add($"Se agregó un nuevo libro");
+                oLog.Add($"Se agregó un nuevo libro {libroCargar.ID} con el isb: {libroCargar.Isbn}");
             }
         }
-        public void AgregarEjemplar(long ISBN) //test
+        public void AgregarEjemplar(long ISBN) 
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -375,7 +375,7 @@ namespace Biblioflash
                 };
                 unitOfWork.EjemplarRepository.Add(ejemplar);
                 unitOfWork.Complete();
-                oLog.Add($"Se agregó un nuevo ejemplar");
+                oLog.Add($"Se agregó un nuevo ejemplar {ejemplar.ID} del libro {ejemplar.Libro}");
             }
         }
         public EjemplarDTO BuscarEjemplarDisponible(Int64 id) //Se devuelve el primer ejemplar disponible encontrado de un libro
@@ -386,7 +386,7 @@ namespace Biblioflash
                 var list = ejemplar.Where(e => e.ID == id).ToList();
                 return list.Where(e=> e.EstaDisponible() == true).Select(x => new EjemplarDTO() { ID = x.ID, Libro = GetLibroDTO(x.Libro.Titulo), Prestamos = GetPrestamoDTOs(x.ID)}).FirstOrDefault();
             }
-        }
+        }   
         public bool BuscarPrestamoEjemplar(long id) //Devuelve si el ejemplar indicado se encuentra prestado actualmente
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
@@ -437,10 +437,9 @@ namespace Biblioflash
                 }
                 else
                 {
-                    oLog.Add($"Se modificó el rango de un usuario");
                     throw new IllegalUsernameException("El nombre del usuario no puede estar vacío.");
                 }
-                oLog.Add($"Se modificó el rango de un usuario");
+                oLog.Add($"Se modificó el rango del usuario {pNombreUsuario}");
             }
         }
         public List<LibroDTO> ConsultaLibro(string pTituloLibro) //Se realiza una consulta a la API buscando determinado libro
