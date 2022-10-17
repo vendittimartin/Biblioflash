@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\BiblioFlash UI\\BiblioFlash UI.csproj": {}
+    "C:\\Users\\vendi\\source\\repos\\Biblioflash\\BiblioFlash UI\\BiblioFlash UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\BiblioFlash UI\\BiblioFlash UI.csproj": {
+    "C:\\Users\\vendi\\source\\repos\\Biblioflash\\BiblioFlash UI\\BiblioFlash UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\BiblioFlash UI\\BiblioFlash UI.csproj",
+        "projectUniqueName": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\BiblioFlash UI\\BiblioFlash UI.csproj",
         "projectName": "BiblioFlash UI",
-        "projectPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\BiblioFlash UI\\BiblioFlash UI.csproj",
-        "packagesPath": "C:\\Users\\Joel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\BiblioFlash UI\\obj\\",
+        "projectPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\BiblioFlash UI\\BiblioFlash UI.csproj",
+        "packagesPath": "C:\\Users\\vendi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\BiblioFlash UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Joel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vendi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj": {
-                "projectPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj"
+              "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj": {
+                "projectPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj"
               }
             }
           }
@@ -73,21 +73,21 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj": {
+    "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj",
+        "projectUniqueName": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj",
         "projectName": "Biblioflash",
-        "projectPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\Biblioflash.csproj",
-        "packagesPath": "C:\\Users\\Joel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joel\\Documents\\GitHub\\Biblioflash1\\Biblioflash\\obj\\",
+        "projectPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\Biblioflash.csproj",
+        "packagesPath": "C:\\Users\\vendi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vendi\\source\\repos\\Biblioflash\\Biblioflash\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Joel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vendi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -169,7 +169,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

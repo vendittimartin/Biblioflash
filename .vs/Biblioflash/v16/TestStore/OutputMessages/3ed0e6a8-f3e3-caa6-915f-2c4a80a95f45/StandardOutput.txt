@@ -482,7 +482,7 @@ Error:
 
 <div id="contentBody">
     <p>Sorry. There seems to be a problem with what you were just looking at.</p>
-    <p>We've noted the error 2022-10-17/020036720005 and will look into it as soon as possible. Head for <a href="/">home</a>?</p>
+    <p>We've noted the error 2022-10-17/022014680002 and will look into it as soon as possible. Head for <a href="/">home</a>?</p>
 
 </div>
 
