@@ -445,7 +445,7 @@ namespace Biblioflash
         }
         public List<LibroDTO> ConsultaLibro(string pTituloLibro) //Se realiza una consulta a la API buscando determinado libro
         {  
-            IconsultaAPI apiConsultas = new consultaAPI();
+            IconsultaAPI apiConsultas = new ConsultaAPI();
             oLog.Add($"Se ha realizado una consulta a la API");
             return apiConsultas.Consulta(pTituloLibro);
         }
