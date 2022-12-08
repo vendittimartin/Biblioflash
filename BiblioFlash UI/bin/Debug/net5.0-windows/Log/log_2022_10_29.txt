@@ -1,0 +1,4 @@
+29/10/2022 13:33:25 - Error al extender un prestamo: Exception of type 'System.Exception' was thrown.
+29/10/2022 13:33:25 - Se lanzo una excepción no controlada: System.Exception: Exception of type 'System.Exception' was thrown.
+   at Biblioflash.Fachada.ExtenderPrestamo(Int64 ID, String userID, Int32 cantDias) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 188
+   at BiblioFlash_UI.extenderPrestamo.extender_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\extenderPrestamo.cs:line 75

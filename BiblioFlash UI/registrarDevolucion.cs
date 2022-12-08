@@ -17,25 +17,19 @@ namespace BiblioFlash_UI
             InitializeComponent();
             List<PrestamoDTO> listaPrestamos = new List<PrestamoDTO>();
             dataGridView1.Rows.Clear();
-            listaPrestamos = fachada.ListaPrestamos();
+            listaPrestamos = fachada.ListaPrestamosNoDevueltos();
             foreach (var obj in listaPrestamos)
             {
-                if (obj.FechaRealDevolucion == null)
-                {
-                    dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
-                }
+                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
             }
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            List<PrestamoDTO> listaPrestamos = fachada.ListaPrestamos();
+            List<PrestamoDTO> listaPrestamos = fachada.ListaPrestamosNoDevueltos();
             foreach (var obj in listaPrestamos)
             {
-                if (obj.FechaRealDevolucion == null)
-                {
-                    dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
-                }
+                dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
             }
         }
         private void devolver_Click(object sender, EventArgs e)

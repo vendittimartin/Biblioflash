@@ -1,0 +1,4 @@
+27/10/2022 16:21:51 - Se registró el prestamo 38, al usuario martin, con el ejemplar 3
+27/10/2022 16:35:45 - Se registró el prestamo 39, al usuario martin, con el ejemplar 2
+27/10/2022 16:36:04 - Se lanzo una excepción no controlada: System.Exception: Debe seleccionar el estado de devolución del libro.
+   at BiblioFlash_UI.registrarDevolucion.devolver_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\registrarDevolucion.cs:line 42

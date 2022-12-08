@@ -17,25 +17,19 @@ namespace BiblioFlash_UI
             InitializeComponent();
             List<PrestamoDTO> listaPrestamos = new List<PrestamoDTO>();
             dataGridView1.Rows.Clear();
-            listaPrestamos = fachada.ListaPrestamos();
+            listaPrestamos = fachada.ListaPrestamosNoDevueltos();
             foreach (var obj in listaPrestamos)
             {
-                if (obj.FechaRealDevolucion == null)
-                {
                     dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
-                }
             }
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            List<PrestamoDTO> listaPrestamos = fachada.ListaPrestamos();
+            List<PrestamoDTO> listaPrestamos = fachada.ListaPrestamosNoDevueltos();
             foreach (var obj in listaPrestamos)
             {
-                if (obj.FechaRealDevolucion == null)
-                {
                     dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
-                }
             }
         }
         private void botonBuscar_Click(object sender, EventArgs e)
@@ -44,17 +38,13 @@ namespace BiblioFlash_UI
             if (busqueda != "")
             {
                 dataGridView1.Rows.Clear();
-                List<UsuarioDTO> users = fachada.BuscarUsuarioSimilitud(busqueda);
-                foreach (var usuario in users)
-                {
-                    List<PrestamoDTO> listaPrestamos = fachada.PrestamosPorUsuarioX(usuario.NombreUsuario);
+                    List<PrestamoDTO> listaPrestamos = fachada.ListaPrestamosNoDevueltos();
                     foreach (var obj in listaPrestamos)
                     {
-                        if (obj.FechaRealDevolucion == null)
+                        if (obj.Usuario.NombreUsuario.Contains(busqueda))
                         {
                             dataGridView1.Rows.Add(obj.ID, obj.IDEjemplar, obj.Libro.Titulo, obj.Usuario.NombreUsuario, obj.FechaPrestamo, obj.FechaDevolucion);
                         }
-                    }
                 }
             }
             else
@@ -72,15 +62,15 @@ namespace BiblioFlash_UI
                     DataGridViewSelectedRowCollection fila = dataGridView1.SelectedRows;
                     DataGridViewCellCollection columnas = fila[0].Cells;
                     PrestamoDTO prestamo = fachada.PrestamosPorID(Int64.Parse(columnas[0].Value.ToString()));
-                    bool extendio = fachada.ExtenderPrestamo(prestamo.ID, prestamo.Usuario.NombreUsuario, cant);
-                    if (extendio)
+                    if (fachada.PuedeExtenderPrestamo(prestamo.Usuario.NombreUsuario,cant))
                     {
+                        fachada.ExtenderPrestamo(prestamo.ID, prestamo.Usuario.NombreUsuario, cant);
                         MessageBox.Show("La fecha de devolución se extendió correctamente", "Devolución", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("El usuario no posee el score suficiente para extender el prestamo.");
+                        MessageBox.Show("No posee suficiente score.");
                     }
                 }
                 else

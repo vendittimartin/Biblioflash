@@ -33,11 +33,15 @@ namespace BiblioFlash_UI
             string password = textContraseña.Text;
             try
             {
-                UsuarioDTO usuario = fachada.BuscarUsuario(user);
-                if (usuario != null)
+                if (user == "" || password == "")
                 {
-                    if (fachada.ComparePassword(password,usuario.NombreUsuario))
-                    {
+                    MessageBox.Show("Por favor complete todos los campos.");
+                }
+                else
+                { 
+                    var usuario = fachada.IniciarSesion(password, user);
+                    if (usuario != null) 
+                    { 
                         if (usuario.RangoUsuario == Rango.Admin)
                         {
                             this.Hide();
@@ -51,20 +55,16 @@ namespace BiblioFlash_UI
                             cliente.Show();
                         }
                     }
-                    else
+                    else 
                     {
-                        throw new Exception("Contraseña incorrecta.");
+                        MessageBox.Show("Usuario o contraseña incorrecta.");
                     }
-                }
-                else
-                {
-                    throw new Exception("Usuario no encontrado.");
                 }
             }
             catch (Exception ex)
             {
                 oLog.Add($"Se lanzo una excepción no controlada: {ex}");
-                    throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
+                throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
             }
         }
     }

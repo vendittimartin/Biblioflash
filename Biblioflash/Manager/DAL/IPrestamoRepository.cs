@@ -8,5 +8,7 @@ namespace Biblioflash.Manager.DAL
     {
         public Prestamo BuscarPrestamo(Int64 pID);
         public List<Prestamo> PrestamosAVencerse();
+        public List<Prestamo> PrestamosNoDevueltos();
+        public List<Prestamo> PrestamoUsuario(string pNombreUsuario);
     }
 }

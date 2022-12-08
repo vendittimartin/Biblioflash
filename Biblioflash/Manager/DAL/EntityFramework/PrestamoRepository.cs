@@ -18,6 +18,56 @@ namespace Biblioflash.Manager.DAL.EntityFramework
             return this.iDbContext.Set<Prestamo>().FirstOrDefault(prestamo => prestamo.ID == pID);
         }
 
+        public List<Prestamo> PrestamoUsuario(string pNombreUsuario)
+        {
+            var query =
+                from prestamo in iDbContext.Set<Prestamo>()
+                where prestamo.Usuario.NombreUsuario == pNombreUsuario
+                select new { prestamo.Ejemplar, prestamo.estadoPrestamo, prestamo.FechaDevolucion, prestamo.FechaPrestamo, prestamo.FechaRealDevolucion, prestamo.ID, prestamo.Usuario };
+            
+            List<Prestamo> Prestamos = new List<Prestamo>();
+            foreach (var obj in query)
+            {
+                Prestamo p = new Prestamo
+                {
+                    Ejemplar = obj.Ejemplar,
+                    estadoPrestamo = obj.estadoPrestamo,
+                    FechaRealDevolucion = obj.FechaRealDevolucion,
+                    FechaDevolucion = obj.FechaDevolucion,
+                    FechaPrestamo = obj.FechaPrestamo,
+                    ID = obj.ID,
+                    Usuario = obj.Usuario
+                };
+                Prestamos.Add(p);
+            }
+            return Prestamos;
+        }
+
+        public List<Prestamo> PrestamosNoDevueltos()
+        {
+            var queryHighScores =
+                from prestamo in iDbContext.Set<Prestamo>()
+                where prestamo.FechaRealDevolucion == null
+                select new { prestamo.Ejemplar, prestamo.estadoPrestamo, prestamo.FechaDevolucion, prestamo.FechaPrestamo, prestamo.FechaRealDevolucion, prestamo.ID, prestamo.Usuario };
+            
+            List<Prestamo> Prestamos = new List<Prestamo>();
+            foreach (var obj in queryHighScores)
+            {
+                Prestamo p = new Prestamo
+                {
+                    Ejemplar = obj.Ejemplar,
+                    estadoPrestamo = obj.estadoPrestamo,
+                    FechaRealDevolucion = obj.FechaRealDevolucion,
+                    FechaDevolucion = obj.FechaDevolucion,
+                    FechaPrestamo = obj.FechaPrestamo,
+                    ID = obj.ID,
+                    Usuario = obj.Usuario
+                };
+                Prestamos.Add(p);
+            }
+            return Prestamos;
+        }
+
         public List<Prestamo> PrestamosAVencerse()
         {
             IEnumerable<Prestamo> listPrestamos = GetAll();

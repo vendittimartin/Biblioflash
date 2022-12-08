@@ -86,8 +86,49 @@ namespace Biblioflash
             {
                 IEnumerable<Prestamo> prestamos = unitOfWork.PrestamoRepository.GetAll();
                 List<PrestamoDTO> listaPrestamosDTO = new List<PrestamoDTO>();
-                return prestamos.Select(p => new PrestamoDTO { ID = p.ID, FechaDevolucion = p.FechaDevolucion, FechaPrestamo = p.FechaPrestamo, FechaRealDevolucion = p.FechaRealDevolucion,
-                Usuario = RecuperarUsuario(p.ID), IDEjemplar = RecuperarID(p.ID).ID, estadoDevolucion = p.estadoPrestamo, Libro = RecuperarLibro(p.ID)}).ToList();
+                foreach (var prestamo in prestamos.ToList())
+                {
+                    PrestamoDTO prestamo1 = new PrestamoDTO
+                    {
+                        IDEjemplar = prestamo.Ejemplar.ID,
+                        FechaPrestamo = prestamo.FechaPrestamo,
+                        FechaDevolucion = prestamo.FechaDevolucion,
+                        FechaRealDevolucion = prestamo.FechaRealDevolucion,
+                        ID = prestamo.ID,
+                        estadoDevolucion = prestamo.estadoPrestamo,
+                        Usuario = new UsuarioDTO { NombreUsuario = prestamo.Usuario.NombreUsuario },
+                        Libro = new LibroDTO { Titulo = prestamo.Ejemplar.Libro.Titulo }
+                    };
+                    listaPrestamosDTO.Add(prestamo1);
+                }
+                return listaPrestamosDTO;
+                /*return prestamos.Select(p => new PrestamoDTO { ID = p.ID, FechaDevolucion = p.FechaDevolucion, FechaPrestamo = p.FechaPrestamo, FechaRealDevolucion = p.FechaRealDevolucion,
+                Usuario = RecuperarUsuario(p.ID), IDEjemplar = RecuperarID(p.ID).ID, estadoDevolucion = p.estadoPrestamo, Libro = RecuperarLibro(p.ID)}).ToList();*/
+            }
+        }
+
+        public List<PrestamoDTO> ListaPrestamosNoDevueltos()
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                IEnumerable<Prestamo> prestamos = unitOfWork.PrestamoRepository.PrestamosNoDevueltos();
+                List<PrestamoDTO> listaPrestamosDTO = new List<PrestamoDTO>();
+                foreach (var prestamo in prestamos.ToList())
+                {
+                    PrestamoDTO prestamo1 = new PrestamoDTO
+                    {
+                        IDEjemplar = prestamo.Ejemplar.ID,
+                        FechaPrestamo = prestamo.FechaPrestamo,
+                        FechaDevolucion = prestamo.FechaDevolucion,
+                        FechaRealDevolucion = prestamo.FechaRealDevolucion,
+                        ID = prestamo.ID,
+                        estadoDevolucion = prestamo.estadoPrestamo,
+                        Usuario = new UsuarioDTO { NombreUsuario = prestamo.Usuario.NombreUsuario },
+                        Libro = new LibroDTO { Titulo = prestamo.Ejemplar.Libro.Titulo }
+                    };
+                    listaPrestamosDTO.Add(prestamo1);
+                }
+                return listaPrestamosDTO;
             }
         }
         public UsuarioDTO RecuperarUsuario(long ID) //Se obtienen los datos de un usuario asociado al préstamo indicado
@@ -144,30 +185,58 @@ namespace Biblioflash
                 return new PrestamoDTO() { ID = prestamo.ID, estadoDevolucion = prestamo.estadoPrestamo, FechaDevolucion = prestamo.FechaDevolucion, FechaPrestamo = prestamo.FechaPrestamo, FechaRealDevolucion = prestamo.FechaRealDevolucion, IDEjemplar = prestamo.Ejemplar.ID, Usuario = new UsuarioDTO { NombreUsuario = prestamo.Usuario.NombreUsuario} };
             }
         }
-        public bool ExtenderPrestamo(long ID, string userID, int cantDias) //Se extiende la fecha de devolución de un préstamo verificando que los días indicados sean posibles debido a su score
+
+        public bool PuedeExtenderPrestamo(string userID, int CantDias)
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                Usuario usuario = unitOfWork.UsuarioRepository.BuscarUsuario(userID);
+                if (usuario.ExtenderPrestamo(CantDias))
+                {
+                    return true;
+                }
+                else { return false; } 
+            }
+        }
+        public void ExtenderPrestamo(long ID, string userID, int cantDias) //Se extiende la fecha de devolución de un préstamo verificando que los días indicados sean posibles debido a su score
         {  
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 try {
-                    Usuario usuario = unitOfWork.UsuarioRepository.BuscarUsuario(userID);
-                    if (usuario.ExtenderPrestamo(cantDias))
-                    {
                         Prestamo prestamo = unitOfWork.PrestamoRepository.BuscarPrestamo(ID);
                         prestamo.FechaDevolucion = prestamo.FechaDevolucion.AddDays(cantDias);
                         unitOfWork.Complete();
                         oLog.Add($"Se extendió un prestamo" + "usuario: " + userID + "id prestamo: " + prestamo.ID + "dias: " + cantDias + "fecha: " + prestamo.FechaDevolucion);
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
                 }
                 catch (Exception ex)
                 {
                     oLog.Add("Error al extender un prestamo: " + ex.Message);
-                    throw;
+                    throw new Exception(ex.Message);
                 }
+            }
+        }
+        public List<PrestamoDTO> PrestamosDelUsuario(string pNombreUsuario) //Solicita los prestamos del usuario a partir del inicio de sesión (verificado que existe) 
+        {
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
+            {
+                List<Prestamo> listaTodosLosPrestamos = unitOfWork.PrestamoRepository.PrestamoUsuario(pNombreUsuario);
+                List<PrestamoDTO> listaPrestamosPorUsuario = new List<PrestamoDTO>();
+                foreach (var prestamo in listaTodosLosPrestamos.ToList())
+                {
+                    PrestamoDTO prestamo1 = new PrestamoDTO
+                    {
+                        IDEjemplar = prestamo.Ejemplar.ID,
+                        FechaPrestamo = prestamo.FechaPrestamo,
+                        FechaDevolucion = prestamo.FechaDevolucion,
+                        FechaRealDevolucion = prestamo.FechaRealDevolucion,
+                        ID = prestamo.ID,
+                        estadoDevolucion = prestamo.estadoPrestamo,
+                        Usuario = new UsuarioDTO { NombreUsuario = prestamo.Usuario.NombreUsuario },
+                        Libro = new LibroDTO { Titulo = prestamo.Ejemplar.Libro.Titulo}
+                    };
+                    listaPrestamosPorUsuario.Add(prestamo1);
+                }
+                return listaPrestamosPorUsuario;
             }
         }
         public List<PrestamoDTO> PrestamosPorUsuarioX(string pNombreUsuario) //Lista de todos los préstamos de un usuario en formato DTO
@@ -199,24 +268,31 @@ namespace Biblioflash
             List<PrestamoDTO> listaTodosLosPrestamos = ListaPrestamos();
             return listaTodosLosPrestamos.Where(x => x.IDEjemplar == pIdEjemplar).ToList();
         }
-        public void RegistrarPrestamo(string pUsuario, Int64 pEjemplarID) 
+        public bool RegistrarPrestamo(string pUsuario, Int64 pEjemplarID) 
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Usuario usuario = unitOfWork.UsuarioRepository.BuscarUsuario(pUsuario);
+                if (!(usuario != null)) { throw new Exception("Usuario no encontrado"); }
                 Ejemplar ejemplar = unitOfWork.EjemplarRepository.Get(pEjemplarID);
-                Prestamo prestamo = new Prestamo
+                if (!(ejemplar != null)) { throw new Exception("Ejemplar no encontrado"); }
+                if (ejemplar.EstaDisponible())
                 {
-                    FechaPrestamo = DateTime.Now,
-                    FechaDevolucion = DateTime.Now.AddDays(5),
-                    Ejemplar = ejemplar,
-                    Usuario = usuario
-                };
-                ejemplar.Prestamos.Add(prestamo);
-                usuario.Prestamos.Add(prestamo);
-                unitOfWork.PrestamoRepository.Add(prestamo);
-                unitOfWork.Complete();
-                oLog.Add($"Se registró el prestamo {prestamo.ID}, al usuario {prestamo.Usuario.NombreUsuario}, con el ejemplar {prestamo.Ejemplar.ID}");
+                    Prestamo prestamo = new Prestamo
+                    {
+                        FechaPrestamo = DateTime.Now,
+                        FechaDevolucion = DateTime.Now.AddDays(5),
+                        Ejemplar = ejemplar,
+                        Usuario = usuario
+                    };
+                    ejemplar.Prestamos.Add(prestamo);
+                    usuario.Prestamos.Add(prestamo);
+                    unitOfWork.PrestamoRepository.Add(prestamo);
+                    unitOfWork.Complete();
+                    oLog.Add($"Se registró el prestamo {prestamo.ID}, al usuario {prestamo.Usuario.NombreUsuario}, con el ejemplar {prestamo.Ejemplar.ID}");
+                    return true;
+                }
+                else { return false; }
             }
         }
         public void RegistrarDevolucion(Int64 pPrestamoID, string pEstado) //Registar devolución indicando el estado del ejemplar para establecer score correspondiente
@@ -449,18 +525,23 @@ namespace Biblioflash
             return apiConsultas.Consulta(pTituloLibro);
         }
 
-        public bool ComparePassword(string password, string idUsuario)
+        public UsuarioDTO IniciarSesion(string password, string idUsuario)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
-                Usuario user = unitOfWork.UsuarioRepository.BuscarUsuario(idUsuario);
-                if (Encriptador.Decrypt(user.Contraseña) == password)
+                var user = unitOfWork.UsuarioRepository.BuscarUsuario(idUsuario);
+                if (user != null)
                 {
-                    return true;
+                    if (Encriptador.Decrypt(user.Contraseña) == password)
+                    {
+                        return new UsuarioDTO { NombreUsuario = user.NombreUsuario, Contraseña = user.Contraseña, Mail = user.Mail, RangoUsuario = user.RangoUsuario, Score = user.Score };
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
-                else {
-                    return false;
-                }
+                else { return null; }
             }
         }
     }

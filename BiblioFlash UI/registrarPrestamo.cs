@@ -35,41 +35,19 @@ namespace BiblioFlash_UI
                     }
                     else
                     {
-                        if (fachada.BuscarUsuario(usuario) != null)
-                        {
-                            int ejemplar2 = Convert.ToInt32(textBox2.Text);
-                            if (ejemplar2 >= 0)
-                            {
-                                EjemplarDTO ejem = fachada.BuscarEjemplarDisponible(ejemplar2);
-                                if (ejem != null)
-                                {
-                                    if (fachada.BuscarPrestamoEjemplar(ejem.ID))
-                                    {
-                                        fachada.RegistrarPrestamo(usuario, ejemplar2);
-                                        MessageBox.Show("Prestamo registrado exitosamente.");
-                                        this.Hide();
-                                        var prestamos = new PantallaPrestamos();
-                                        prestamos.Show();
-                                    }
-                                    else
-                                    {
-                                        throw new Exception("El ejemplar no se encuentra disponible.");
-                                    }
-                                }
-                                else
-                                {
-                                    throw new Exception("El ejemplar no se encuentra.");
-                                }
-                            }
-                            else
-                            {
-                                throw new Exception("El ID debe ser mayor o igual a 0.");
-                            }
-                        }
-                        else
-                        {
-                            throw new Exception("Usuario no encontrado.");
-                        }
+                       int ejemplar2 = Convert.ToInt32(textBox2.Text); 
+                       if (fachada.RegistrarPrestamo(usuario, ejemplar2))
+                       {
+                            MessageBox.Show("Prestamo registrado exitosamente.");
+                            this.Hide();
+                            var prestamos = new PantallaPrestamos();
+                            prestamos.Show();
+                       }
+                       else
+                       {
+                          MessageBox.Show("El ejemplar no se encuentra disponible.");
+                       }
+                      
                     }
                 }
             }

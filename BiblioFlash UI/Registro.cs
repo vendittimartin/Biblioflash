@@ -29,7 +29,7 @@ namespace BiblioFlash_UI
             string email = textMail.Text;
             try
             {
-                if (password == password2)
+                if (password == password2 && password != null && password  != "" && user != "")
                 {
                     if (new EmailAddressAttribute().IsValid(email))
                     {
@@ -53,7 +53,7 @@ namespace BiblioFlash_UI
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas no coinciden. Intentelo nuevamente");
+                    MessageBox.Show("Complete todos los campos por favor.");
                 }
             }
             catch (Exception ex)

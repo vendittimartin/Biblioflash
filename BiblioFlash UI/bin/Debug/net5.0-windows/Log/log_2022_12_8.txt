@@ -1,0 +1,11 @@
+08/12/2022 11:16:11 - Se registró un nuevo usuario : juan
+08/12/2022 11:45:32 - Se extendió un prestamousuario: martinid prestamo: 39dias: 1fecha: 02/11/2022 16:35:45
+08/12/2022 11:46:03 - Se extendió un prestamousuario: martinid prestamo: 38dias: 1fecha: 02/11/2022 16:21:50
+08/12/2022 11:46:18 - Se extendió un prestamousuario: martinid prestamo: 38dias: 1fecha: 03/11/2022 16:21:50
+08/12/2022 11:47:01 - Error al extender un prestamo: Exception of type 'System.Exception' was thrown.
+08/12/2022 11:47:01 - Se lanzo una excepción no controlada: System.Exception: Exception of type 'System.Exception' was thrown.
+   at Biblioflash.Fachada.ExtenderPrestamo(Int64 ID, String userID, Int32 cantDias) in C:\Users\vendi\source\repos\Biblioflash\Biblioflash\Fachada.cs:line 209
+   at BiblioFlash_UI.extenderPrestamo.extender_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\extenderPrestamo.cs:line 65
+08/12/2022 11:53:57 - Se extendió un prestamousuario: martinid prestamo: 37dias: 1fecha: 01/11/2022 21:21:10
+08/12/2022 11:54:09 - Se extendió un prestamousuario: martinid prestamo: 39dias: 1fecha: 03/11/2022 16:35:45
+08/12/2022 11:54:20 - Se extendió un prestamousuario: martinid prestamo: 37dias: 1fecha: 02/11/2022 21:21:10

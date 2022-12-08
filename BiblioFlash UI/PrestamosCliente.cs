@@ -13,7 +13,7 @@ namespace BiblioFlash_UI
         {
             InitializeComponent();
             _ = new List<PrestamoDTO>();
-            List<PrestamoDTO> listaPrestamos = fachada.PrestamosPorUsuarioX(pUsuario);
+            List<PrestamoDTO> listaPrestamos = fachada.PrestamosDelUsuario(pUsuario);
             if (listaPrestamos != null)
             {
                 foreach (var obj in listaPrestamos)
