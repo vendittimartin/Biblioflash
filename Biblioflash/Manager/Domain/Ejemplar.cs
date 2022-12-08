@@ -15,7 +15,9 @@ namespace Biblioflash.Manager.Domain
             if (Prestamos.Count() != 0)
             {
                 Prestamo lastPrestamo = Prestamos.Last();
-                return lastPrestamo.estaDevuelto();
+                if (lastPrestamo.FechaRealDevolucion == null)
+                { return false; }
+                else { return true; } 
             }
             else
             {

@@ -18,7 +18,7 @@ namespace BiblioFlash_UI
             {
                 if (obj.Ejemplares.Count != 0)
                 {
-                    listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.ISBN, obj.Ejemplares.Count);
+                    listaLibros.Rows.Add(obj.Titulo, obj.Autor, obj.ISBN);
                 }
             }
         }
