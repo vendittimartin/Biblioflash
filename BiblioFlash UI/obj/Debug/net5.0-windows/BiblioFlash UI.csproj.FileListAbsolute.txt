@@ -219,3 +219,4 @@ C:\Users\Joel\Documents\GitHub\Biblioflash1\BiblioFlash UI\obj\Debug\net5.0-wind
 C:\Users\Joel\Documents\GitHub\Biblioflash1\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.pdb
 C:\Users\Joel\Documents\GitHub\Biblioflash1\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.genruntimeconfig.cache
 C:\Users\Joel\Documents\GitHub\Biblioflash1\BiblioFlash UI\bin\Debug\net5.0-windows\ref\BiblioFlash UI.dll
+C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\obj\Debug\net5.0-windows\BiblioFlash UI.csproj.CopyComplete

@@ -25,3 +25,4 @@
 12/12/2022 17:59:57 - Se registró el prestamo 55, al usuario joelb123, con el ejemplar 2
 12/12/2022 18:00:32 - Se registró el prestamo 56, al usuario cono, con el ejemplar 155
 12/12/2022 18:01:11 - Se extendió un prestamousuario: tinaid prestamo: 54dias: 1fecha: 18/12/2022 17:59:03
+12/12/2022 18:14:12 - Se ha realizado una consulta a la API

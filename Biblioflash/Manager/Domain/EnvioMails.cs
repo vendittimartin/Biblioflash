@@ -35,7 +35,7 @@ namespace Biblioflash.Manager.Domain
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }
         }
     }

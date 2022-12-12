@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using Biblioflash.Manager.Services;
 using System.Configuration;
+using System.Web;
 
 namespace Biblioflash
 {
@@ -520,7 +521,48 @@ namespace Biblioflash
         {  
             IconsultaAPI apiConsultas = new ConsultaAPI();
             oLog.Add($"Se ha realizado una consulta a la API");
-            return apiConsultas.Consulta(pTituloLibro);
+            dynamic data = apiConsultas.ConsultarApi(pTituloLibro);
+            return ListarLibrosDTO(data);
+        }
+        public List<LibroDTO> ListarLibrosDTO(dynamic docs)
+        {
+            List<LibroDTO> librosDTO = new List<LibroDTO>();
+            if (docs != null)
+            {
+                int i = 0;
+                int cantidad = docs.Count;
+                while ((i <= cantidad - 1) && (i < 10))
+                {
+                    LibroDTO LibroDTO = new LibroDTO();
+                    var bResponseItem = docs[i];
+                    LibroDTO.Titulo = HttpUtility.HtmlDecode(bResponseItem.title.ToString());
+                    if (bResponseItem.author_name != null)
+                    {
+                        LibroDTO.Autor = HttpUtility.HtmlDecode(bResponseItem.author_name[0].ToString());
+                    }
+                    else
+                    {
+                        LibroDTO.Autor = "Anonimo";
+                    }
+                    if (bResponseItem.isbn != null)
+                    {
+                        string isbn = HttpUtility.HtmlDecode(bResponseItem.isbn[0].ToString());
+                        string isbnSinX = isbn.Replace("X", "");
+                        LibroDTO.ISBN = Int64.Parse(isbnSinX);
+                    }
+                    else
+                    {
+                        LibroDTO.ISBN = 0;
+                    }
+                    librosDTO.Add(LibroDTO);
+                    i++;
+                }
+            }
+            else
+            {
+                librosDTO = null;
+            }
+            return librosDTO;
         }
 
         public UsuarioDTO IniciarSesion(string password, string idUsuario)

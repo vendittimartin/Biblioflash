@@ -5,6 +5,6 @@ namespace Biblioflash.Manager.API
 {
     interface IconsultaAPI
     {
-        public List<LibroDTO> Consulta(string pTitulo);
+        public dynamic ConsultarApi(string pTitulo);
     }
 }
