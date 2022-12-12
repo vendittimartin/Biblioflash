@@ -39,7 +39,7 @@ namespace BiblioFlash_UI
                 string estado = Convert.ToString(comboBox1.Text);
                 if (estado == "")
                 {
-                    throw new Exception("Debe seleccionar el estado de devolución del libro.");
+                    MessageBox.Show("Debe ingresar el estado del libro.");
                 }
                 else
                 {
@@ -54,7 +54,7 @@ namespace BiblioFlash_UI
             catch (Exception ex)
             {
                 oLog.Add($"Se lanzo una excepción no controlada: {ex}");
-                throw new Exception("Error al iniciar sesión. Intentelo nuevamente.");
+                throw new Exception("Error al devolver el libro");
             }
         }
         private void botonBuscar_Click(object sender, EventArgs e)

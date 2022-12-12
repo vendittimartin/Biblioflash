@@ -102,8 +102,6 @@ namespace Biblioflash
                     listaPrestamosDTO.Add(prestamo1);
                 }
                 return listaPrestamosDTO;
-                /*return prestamos.Select(p => new PrestamoDTO { ID = p.ID, FechaDevolucion = p.FechaDevolucion, FechaPrestamo = p.FechaPrestamo, FechaRealDevolucion = p.FechaRealDevolucion,
-                Usuario = RecuperarUsuario(p.ID), IDEjemplar = RecuperarID(p.ID).ID, estadoDevolucion = p.estadoPrestamo, Libro = RecuperarLibro(p.ID)}).ToList();*/
             }
         }
 
@@ -273,9 +271,9 @@ namespace Biblioflash
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 Usuario usuario = unitOfWork.UsuarioRepository.BuscarUsuario(pUsuario);
-                if (!(usuario != null)) { throw new Exception("Usuario no encontrado"); }
+                if (!(usuario != null)) { return false; }
                 Ejemplar ejemplar = unitOfWork.EjemplarRepository.Get(pEjemplarID);
-                if (!(ejemplar != null)) { throw new Exception("Ejemplar no encontrado"); }
+                if (!(ejemplar != null)) { return false;  }
                 if (ejemplar.EstaDisponible())
                 {
                     Prestamo prestamo = new Prestamo

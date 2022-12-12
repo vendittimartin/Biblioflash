@@ -1,0 +1,10 @@
+11/12/2022 13:37:15 - Se lanzo una notificacion 45 al usuario Castle.Proxies.UsuarioProxy
+11/12/2022 13:37:17 - Se lanzo una notificacion 46 al usuario Castle.Proxies.UsuarioProxy
+11/12/2022 13:37:19 - Se lanzo una notificacion 47 al usuario Castle.Proxies.UsuarioProxy
+11/12/2022 13:39:48 - Se registró el prestamo 45, al usuario tina, con el ejemplar 195
+11/12/2022 13:48:55 - Se registró una nueva devolución del prestamo: 44
+11/12/2022 13:49:00 - Se lanzo una excepción no controlada: System.Exception: Debe seleccionar el estado de devolución del libro.
+   at BiblioFlash_UI.registrarDevolucion.devolver_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\registrarDevolucion.cs:line 42
+11/12/2022 13:51:23 - Se registró una nueva devolución del prestamo: 45
+11/12/2022 13:52:24 - Se registró el prestamo 46, al usuario tina, con el ejemplar 147
+11/12/2022 13:53:02 - Se registró el prestamo 47, al usuario tina, con el ejemplar 147

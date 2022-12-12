@@ -45,7 +45,7 @@ namespace BiblioFlash_UI
                        }
                        else
                        {
-                          MessageBox.Show("El ejemplar no se encuentra disponible.");
+                          MessageBox.Show("Usuario o ejemplar no disponible.");
                        }
                       
                     }

@@ -1,0 +1,2 @@
+10/12/2022 14:31:51 - Se extendió un prestamousuario: martinid prestamo: 37dias: 1fecha: 03/11/2022 21:21:10
+10/12/2022 14:32:30 - Se extendió un prestamousuario: martinid prestamo: 39dias: 1fecha: 04/11/2022 16:35:45

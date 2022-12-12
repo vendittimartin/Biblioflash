@@ -1,0 +1,27 @@
+12/12/2022 17:42:46 - Se lanzo una notificacion 48 al usuario Castle.Proxies.UsuarioProxy
+12/12/2022 17:43:30 - Se modificó el usuario cliente
+12/12/2022 17:43:45 - Se modificó el usuario cliente
+12/12/2022 17:44:27 - Se modificó el usuario tina
+12/12/2022 17:44:46 - Se lanzó una excepción no controlada: System.Exception: El Email no posee un formato válido. Intentelo nuevamente
+   at BiblioFlash_UI.altaUsuarios.confirmar_Click(Object sender, EventArgs e) in C:\Users\vendi\source\repos\Biblioflash\BiblioFlash UI\altaUsuarios.cs:line 56
+12/12/2022 17:46:03 - Se registró un nuevo usuario : clienta
+12/12/2022 17:46:33 - Se agregó un nuevo ejemplar 196 del libro Castle.Proxies.LibroProxy
+12/12/2022 17:46:40 - Se ha realizado una consulta a la API
+12/12/2022 17:46:45 - Se ha realizado una consulta a la API
+12/12/2022 17:46:54 - Se agregó un nuevo libro 27 con el isb: 9781708960285
+12/12/2022 17:48:01 - Se extendió un prestamousuario: martinid prestamo: 39dias: 1fecha: 05/11/2022 16:35:45
+12/12/2022 17:48:32 - Se registró una nueva devolución del prestamo: 37
+12/12/2022 17:50:01 - Se registró una nueva devolución del prestamo: 40
+12/12/2022 17:50:08 - Se registró una nueva devolución del prestamo: 41
+12/12/2022 17:50:16 - Se registró una nueva devolución del prestamo: 42
+12/12/2022 17:50:24 - Se registró una nueva devolución del prestamo: 43
+12/12/2022 17:50:55 - Se registró el prestamo 48, al usuario tina, con el ejemplar 142
+12/12/2022 17:51:08 - Se registró el prestamo 49, al usuario tina, con el ejemplar 143
+12/12/2022 17:51:27 - Se registró el prestamo 50, al usuario tina, con el ejemplar 3
+12/12/2022 17:51:35 - Se registró el prestamo 51, al usuario tina, con el ejemplar 2
+12/12/2022 17:51:40 - Se registró el prestamo 52, al usuario tina, con el ejemplar 2
+12/12/2022 17:58:28 - Se registró el prestamo 53, al usuario cliente, con el ejemplar 3
+12/12/2022 17:59:04 - Se registró el prestamo 54, al usuario tina, con el ejemplar 143
+12/12/2022 17:59:57 - Se registró el prestamo 55, al usuario joelb123, con el ejemplar 2
+12/12/2022 18:00:32 - Se registró el prestamo 56, al usuario cono, con el ejemplar 155
+12/12/2022 18:01:11 - Se extendió un prestamousuario: tinaid prestamo: 54dias: 1fecha: 18/12/2022 17:59:03
