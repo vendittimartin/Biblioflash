@@ -3,7 +3,6 @@ using Biblioflash.Manager.DAL;
 using Biblioflash.Manager.DAL.EntityFramework;
 using Biblioflash.Manager.Domain;
 using Biblioflash.Manager.DTO;
-using Biblioflash.Manager.Exceptions;
 using Biblioflash.Manager.Log;
 using System;
 using System.Collections.Generic;
@@ -146,16 +145,8 @@ namespace Biblioflash
                 return new LibroDTO() { ISBN = libro.Isbn, Autor = libro.Autor, Ejemplares = libro.Ejemplares, Titulo = libro.Titulo };
             }
         }
-
-        public EjemplarDTO RecuperarID(long ID)
+        public List<PrestamoDTO> GetPrestamoDTOs(long IDEj) //Arma una lista de prestamosDTO a partir de el id de un ejemplar.
         {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                Ejemplar ej = unitOfWork.PrestamoRepository.Get(ID).Ejemplar;
-                return new EjemplarDTO() { ID = ej.ID, Prestamos = GetPrestamoDTOs(ej.ID)};
-            }
-        }
-        public List<PrestamoDTO> GetPrestamoDTOs(long IDEj) {
             List<PrestamoDTO> listPrestamosDTO = new List<PrestamoDTO>();
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -185,7 +176,7 @@ namespace Biblioflash
             }
         }
 
-        public bool PuedeExtenderPrestamo(string userID, int CantDias)
+        public bool PuedeExtenderPrestamo(string userID, int CantDias) //Verifica si puede extender el prestamo a partir del score del usuario respecto a la cantidad de días seleccionados.
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -197,8 +188,8 @@ namespace Biblioflash
                 else { return false; } 
             }
         }
-        public void ExtenderPrestamo(long ID, string userID, int cantDias) //Se extiende la fecha de devolución de un préstamo verificando que los días indicados sean posibles debido a su score
-        {  
+        public void ExtenderPrestamo(long ID, string userID, int cantDias) //Se extiende la fecha de devolución de un préstamo.
+        {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
                 try {
@@ -214,7 +205,7 @@ namespace Biblioflash
                 }
             }
         }
-        public List<PrestamoDTO> PrestamosDelUsuario(string pNombreUsuario) //Solicita los prestamos del usuario a partir del inicio de sesión (verificado que existe) 
+        public List<PrestamoDTO> PrestamosDelUsuario(string pNombreUsuario) //Lista los prestamos del usuario a traves de prestamoDTO
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -439,7 +430,7 @@ namespace Biblioflash
                 oLog.Add($"Se agregó un nuevo libro {libroCargar.ID} con el isb: {libroCargar.Isbn}");
             }
         }
-        public void AgregarEjemplar(long ISBN) 
+        public void AgregarEjemplar(long ISBN)
         {
             using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
             {
@@ -451,70 +442,6 @@ namespace Biblioflash
                 unitOfWork.EjemplarRepository.Add(ejemplar);
                 unitOfWork.Complete();
                 oLog.Add($"Se agregó un nuevo ejemplar {ejemplar.ID} del libro {ejemplar.Libro}");
-            }
-        }
-        public EjemplarDTO BuscarEjemplarDisponible(Int64 id) //Se devuelve el primer ejemplar disponible encontrado de un libro
-        {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                IEnumerable<Ejemplar> ejemplar = unitOfWork.EjemplarRepository.GetAll();
-                var list = ejemplar.Where(e => e.ID == id).ToList();
-                return list.Where(e=> e.EstaDisponible() == true).Select(x => new EjemplarDTO() { ID = x.ID, Libro = GetLibroDTO(x.Libro.Titulo), Prestamos = GetPrestamoDTOs(x.ID)}).FirstOrDefault();
-            }
-        }   
-        public bool BuscarPrestamoEjemplar(long id) //Devuelve si el ejemplar indicado se encuentra prestado actualmente
-        {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-                {
-                    IEnumerable<Prestamo> prestamos = unitOfWork.PrestamoRepository.GetAll();
-                    List<Prestamo> prestamos1 = new List<Prestamo>();
-                    foreach (var prestamo in prestamos)
-                    {
-                        if (prestamo.FechaRealDevolucion == null)
-                        {
-                            prestamos1.Add(prestamo);
-                        }
-                    }
-                    if (prestamos1.Count() != 0)
-                    {
-                        foreach (var prestamo in prestamos1)
-                        {
-                            long nombre = prestamo.Ejemplar.ID;
-                            if (id == nombre)
-                            {
-                                return false;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                }
-                return true;
-        }
-        public void CambiarRango(string pNombreUsuario)
-        {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new AccountManagerDbContext()))
-            {
-                if (pNombreUsuario != "")
-                {
-                    UsuarioDTO userDTO = BuscarUsuario(pNombreUsuario);
-                    if (userDTO.RangoUsuario == Rango.Admin)
-                    {
-                        userDTO.RangoUsuario = Rango.Cliente;
-                    }
-                    else
-                    {
-                        userDTO.RangoUsuario = Rango.Admin;
-                    }
-                    unitOfWork.Complete();
-                }
-                else
-                {
-                    throw new IllegalUsernameException("El nombre del usuario no puede estar vacío.");
-                }
-                oLog.Add($"Se modificó el rango del usuario {pNombreUsuario}");
             }
         }
         public List<LibroDTO> ConsultaLibro(string pTituloLibro) //Se realiza una consulta a la API buscando determinado libro

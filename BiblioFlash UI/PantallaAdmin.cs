@@ -35,12 +35,5 @@ namespace BiblioFlash_UI
             var prestamos = new PantallaPrestamos();
             prestamos.ShowDialog();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var prestamos = new Prestamos();
-            prestamos.ShowDialog();
-        }
     }
 }

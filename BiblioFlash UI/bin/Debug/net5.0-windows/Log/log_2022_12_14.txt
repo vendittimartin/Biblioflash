@@ -1,0 +1,6 @@
+14/12/2022 19:12:57 - Se registró una nueva devolución del prestamo: 55
+14/12/2022 19:13:04 - Se registró una nueva devolución del prestamo: 53
+14/12/2022 19:13:10 - Se registró una nueva devolución del prestamo: 54
+14/12/2022 19:13:17 - Se registró una nueva devolución del prestamo: 56
+14/12/2022 19:15:33 - Se ha realizado una consulta a la API
+14/12/2022 19:16:06 - Se agregó un nuevo libro 28 con el isb: 9789688931530
